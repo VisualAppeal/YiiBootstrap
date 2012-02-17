@@ -18,13 +18,13 @@
 			'items'=>array(
 				array('label'=>CHtml::encode(Yii::app()->name), 'url'=>array('/'), 'template' => '{brand}'),
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'Sidebar', 'url'=>array('/site/page', 'view'=>'sidebar')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('template' => '{divider}'),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Menu', 'url'=>'#', 'items' => array(
-					array('label'=>'Item #1', 'url'=>'#'),
+				array('label'=>'Base CSS', 'url'=>'#', 'items' => array(
+					array('label'=>'Buttons', 'url'=>array('/site/page', 'view'=>'buttons')),
 					array('label'=>'Item #2', 'url'=>'#'),
 					array('label'=>'Item #3', 'url'=>'#'),
 				)),
@@ -46,7 +46,7 @@
 	</div>
 	
 	<footer class="container">
-		<?php echo Yii::powered(); ?> Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>
+		<?php echo Yii::powered(); ?> Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>.
 	</footer>
 
 </body>
