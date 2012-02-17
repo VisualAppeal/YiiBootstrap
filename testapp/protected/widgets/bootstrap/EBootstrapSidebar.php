@@ -12,7 +12,7 @@ class EBootstrapSidebar extends CMenu {
 	 */
 	public function init()
 	{
-		EBootstrapTools::mergeClass($this->htmlOptions, array('nav', 'nav-list'));
+		EBootstrap::mergeClass($this->htmlOptions, array('nav', 'nav-list'));
 		parent::init();
 	}
 	

@@ -13,7 +13,7 @@ class EBootstrapActiveForm extends CActiveForm {
 	
 	public function init() {
 		if ($this->horizontal)
-			EBootstrapTools::mergeClass($this->htmlOptions, array('form-horizontal'));
+			EBootstrap::mergeClass($this->htmlOptions, array('form-horizontal'));
 		
 		parent::init();
 	}
@@ -27,7 +27,7 @@ class EBootstrapActiveForm extends CActiveForm {
 		$option['class'] = 'control-group';
 		$error = $model->getError($attribute);
 		if (!empty($error))
-			EBootstrapTools::mergeClass($option, array('error'));
+			EBootstrap::mergeClass($option, array('error'));
 		
 		echo CHtml::openTag('div', array('class' => $option['class']));
 	}
@@ -85,7 +85,7 @@ class EBootstrapActiveForm extends CActiveForm {
 			if(!isset($htmlOptions['class']))
 				$htmlOptions['class']=CHtml::$errorSummaryCss;
 			
-			EBootstrapTools::mergeClass($htmlOptions, array('alert', 'alert-error', 'alert-block'));
+			EBootstrap::mergeClass($htmlOptions, array('alert', 'alert-error', 'alert-block'));
 			
 			return CHtml::tag('div',$htmlOptions,$header."\n<ul>\n$content</ul>".$footer);
 		}
@@ -101,7 +101,7 @@ class EBootstrapActiveForm extends CActiveForm {
 	}
 	
 	public function submitButton($label, $htmlOptions = array()) {
-		EBootstrapTools::mergeClass($htmlOptions, array('btn', 'btn-primary'));
+		EBootstrap::mergeClass($htmlOptions, array('btn', 'btn-primary'));
 		echo CHtml::submitButton($label, $htmlOptions);
 	}
 }

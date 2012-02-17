@@ -9,9 +9,9 @@ class EBootstrapTabContent extends CWidget {
 	public function init() {
 		parent::init();
 		
-		EBootstrapTools::mergeClass($this->htmlOptions, array('tab-pane'));
+		EBootstrap::mergeClass($this->htmlOptions, array('tab-pane'));
 		if ($this->active) {
-			EBootstrapTools::mergeClass($this->htmlOptions, array('active'));
+			EBootstrap::mergeClass($this->htmlOptions, array('active'));
 		}
 		
 		$this->htmlOptions['id'] = (is_null($this->id)) ? 'test' : $this->id;

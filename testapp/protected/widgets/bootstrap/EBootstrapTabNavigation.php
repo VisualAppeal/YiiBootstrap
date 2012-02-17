@@ -9,15 +9,15 @@ class EBootstrapTabNavigation extends CMenu {
 	public function init() {
 		parent::init();
 		
-		EBootstrapTools::mergeClass($this->htmlOptions, array('nav'));
+		EBootstrap::mergeClass($this->htmlOptions, array('nav'));
 		
 		if ($this->pills)
-			EBootstrapTools::mergeClass($this->htmlOptions, array('nav-pills'));
+			EBootstrap::mergeClass($this->htmlOptions, array('nav-pills'));
 		else
-			EBootstrapTools::mergeClass($this->htmlOptions, array('nav-tabs'));
+			EBootstrap::mergeClass($this->htmlOptions, array('nav-tabs'));
 		
 		if ($this->stacked)
-			EBootstrapTools::mergeClass($this->htmlOptions, array('nav-stacked'));		
+			EBootstrap::mergeClass($this->htmlOptions, array('nav-stacked'));		
 	}
 	
 	public function run() {
@@ -61,9 +61,9 @@ class EBootstrapTabNavigation extends CMenu {
 				$template = '';
 			
 			if(isset($item['items']) && count($item['items'])) {
-				EBootstrapTools::mergeClass($options, array('dropdown'));
+				EBootstrap::mergeClass($options, array('dropdown'));
 				$item['linkOptions'] = (isset($item['linkOptions'])) ? $item['linkOptions'] : array();
-				EBootstrapTools::mergeClass($item['linkOptions'], array('dropdown-toggle'));
+				EBootstrap::mergeClass($item['linkOptions'], array('dropdown-toggle'));
 				
 				$item['linkOptions']['data-toggle'] = 'dropdown';
 				$item['label'] .= '<b class="caret"></b>';

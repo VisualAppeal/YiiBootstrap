@@ -26,6 +26,7 @@
 				array('label'=>'Base CSS', 'url'=>'#', 'items' => array(
 					array('label'=>'Typography', 'url'=>array('/site/page', 'view'=>'typography')),
 					array('label'=>'Buttons', 'url'=>array('/site/page', 'view'=>'buttons')),
+					array('label'=>'Labels', 'url'=>array('/site/page', 'view'=>'labels')),
 				)),
 				array('label'=>'Components', 'url'=>'#', 'items' => array(
 					array('label'=>'Navigation', 'url'=>array('/site/page', 'view'=>'navigation')),
