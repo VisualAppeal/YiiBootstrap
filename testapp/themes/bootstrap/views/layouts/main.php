@@ -27,6 +27,7 @@
 					array('label'=>'Typography', 'url'=>array('/site/page', 'view'=>'typography')),
 					array('label'=>'Buttons', 'url'=>array('/site/page', 'view'=>'buttons')),
 					array('label'=>'Labels', 'url'=>array('/site/page', 'view'=>'labels')),
+					array('label'=>'Images', 'url'=>array('/site/page', 'view'=>'images')),
 				)),
 				array('label'=>'Components', 'url'=>'#', 'items' => array(
 					array('label'=>'Navigation', 'url'=>array('/site/page', 'view'=>'navigation')),

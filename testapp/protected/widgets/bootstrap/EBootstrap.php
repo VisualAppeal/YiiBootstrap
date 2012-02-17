@@ -59,6 +59,79 @@ class EBootstrap extends CHtml {
 			$return .= ' icon-white';
 		return $return.'"></i>';
 	}
+	
+	/* IMAGES */
+	
+	/*
+	 * Returns an custom thumbnail link
+	 *
+	 * http://placehold.it/
+	 */
+	public static function thumbnailSrc($w, $h = null, $bgColor = 'ccc', $tColor = '333', $text = null, $format = 'png') {
+		$src = 'http://placehold.it/'.$w;
+		if (!is_null($h))
+			$src .= 'x'.$h;
+		$src .= '/'.$bgColor.'/'.$tColor.'.'.$format;
+		if (!is_null($text))
+			$src .= '&text=' . urlencode($text);
+		
+		return $src;
+	}
+	
+	/*
+	 * Returns an custom thumbnail
+	 *
+	 * http://placehold.it/
+	 */
+	public static function thumbnailLink($url, $w, $h = null, $bgColor = 'ccc', $tColor = '333', $text = null, $format = 'png', $alt = '', $htmlOptions = array()) {
+		$html = '';
+		$src = self::thumbnailSrc($w, $h, $bgColor, $tColor, $text, $format);
+		
+		$htmlOptions['href'] = $url;
+		self::mergeClass($htmlOptions, array('thumbnail'));
+		$html .= CHtml::openTag('a', $htmlOptions);
+		$html .= CHtml::tag('img', array('src' => $src, 'alt' => $alt));
+		$html .= CHtml::closeTag('a');
+		
+		return $html;
+	}
+	
+	/*
+	 * Returns image with 
+	 */
+	public static function imageCaption($src, $alt='', $caption = '', $body = '', $actions = array(), $htmlOptions=array()) {
+		$html = '';
+		
+		self::mergeClass($htmlOptions, array('thumbnail'));
+		$html .= self::openTag('div', $htmlOptions)."\n";
+				
+		$htmlOptions = array();
+		$htmlOptions['src']=$src;
+		$htmlOptions['alt']=$alt;
+		$html .= self::tag('img',$htmlOptions)."\n";
+		
+		if (!empty($caption) or !empty($body) or !empty($actions)) {
+			$html .= self::openTag('div', array('class' => 'caption'));
+			
+			if (!empty($caption))
+				$html .= self::tag('h5', array(), $caption)."\n";
+			if (!empty($body))
+				$html .= self::tag('p', array(), $body)."\n";
+			if (!empty($actions)) {
+				$html .= self::openTag('p');
+				foreach ($actions as $button) {
+					$html .= $button." \n";
+				}
+				$html .= self::closeTag('p')."\n";
+			}
+			
+			$html .= self::closeTag('div');
+		}
+    	
+    	$html .= self::closeTag('div')."\n";
+    	
+    	return $html;
+	}
 }
 
 ?>
