@@ -16,7 +16,7 @@ class EBootstrap extends CHtml {
 	}
 	
 	/*
-	 * Outputs an inline label
+	 * Return an inline label
 	 *
 	 */
 	public static function ilabel($label, $type='', $htmlOptions=array()) {
@@ -25,11 +25,11 @@ class EBootstrap extends CHtml {
 			$classes[] = 'label-'.$type;
 		
 		self::mergeClass($htmlOptions, $classes);
-		echo CHtml::tag('span', $htmlOptions, $label);
+		return CHtml::tag('span', $htmlOptions, $label);
 	}
 	
 	/*
-	 * Outputs an inline-button
+	 * Return an inline-button
 	 */
 	public static function ibutton($text, $url = '#', $type = '', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array()) {
 		$class = array('btn');
@@ -47,7 +47,7 @@ class EBootstrap extends CHtml {
 			$text = self::icon($icon, $iconWhite).' '.$text;
 		
 		self::mergeClass($htmlOptions, $class);
-		echo self::link($text, $url, $htmlOptions)."\n";
+		return self::link($text, $url, $htmlOptions)."\n";
 	}
 	
 	/*
