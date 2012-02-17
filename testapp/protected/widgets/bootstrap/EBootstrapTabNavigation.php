@@ -17,8 +17,7 @@ class EBootstrapTabNavigation extends CMenu {
 			EBootstrapTools::mergeClass($this->htmlOptions, array('nav-tabs'));
 		
 		if ($this->stacked)
-			EBootstrapTools::mergeClass($this->htmlOptions, array('nav-stacked'));
-		
+			EBootstrapTools::mergeClass($this->htmlOptions, array('nav-stacked'));		
 	}
 	
 	public function run() {
