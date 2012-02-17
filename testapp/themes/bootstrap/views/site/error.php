@@ -5,8 +5,10 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h2>Error <?php echo $code; ?></h2>
+<div class="page-header">
+	<h1>Error <?php echo $code; ?></h1>
+</div>
 
 <div class="error">
-<?php echo CHtml::encode($message); ?>
+	<?php echo CHtml::encode($message); ?>
 </div>

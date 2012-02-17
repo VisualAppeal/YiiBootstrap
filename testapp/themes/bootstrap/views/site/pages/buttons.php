@@ -6,7 +6,9 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Buttons</h1>
+<div class="page-header">
+	<h1>Buttons</h1>
+</div>
 
 <h2>Form Buttons</h2>
 <p>Add Form Buttons</p>

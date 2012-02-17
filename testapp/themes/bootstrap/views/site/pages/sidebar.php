@@ -5,6 +5,9 @@ $this->breadcrumbs=array(
 );
 $this->layout = '//layouts/column2';
 ?>
-<h1>Sidebar</h1>
+
+<div class="page-header">
+	<h1>Sidebar</h1>
+</div>
 
 <p>Fill with content.</p>

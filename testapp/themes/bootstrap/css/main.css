@@ -3369,6 +3369,11 @@ body {
 header {
   padding-bottom: 10px;
 }
+header .navbar-inner {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
 #content {
   background: #f6f6f6;
   padding: 20px;

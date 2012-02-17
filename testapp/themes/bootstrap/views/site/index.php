@@ -1,6 +1,8 @@
 <?php $this->pageTitle=Yii::app()->name; ?>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<div class="page-header">
+	<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+</div>
 
 <p>This Framework is using some extra software:</p>
 
