@@ -46,7 +46,7 @@
 	</div>
 	
 	<footer class="container">
-		<?php echo Yii::powered(); ?>
+		<?php echo Yii::powered(); ?> Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>
 	</footer>
 
 </body>
