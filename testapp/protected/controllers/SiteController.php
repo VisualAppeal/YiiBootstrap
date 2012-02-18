@@ -67,6 +67,28 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
+	
+	/*
+	 * Create Alerts
+	 */
+	public function actionAlert($id = 0) {
+		switch ($id) {
+			case 1:
+				Yii::app()->user->setFlash('warning', '<strong>Some Warning</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam!');
+				break;
+			case 2:
+				Yii::app()->user->setFlash('error', '<strong>Attention</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam!');
+				break;
+			case 3:
+				Yii::app()->user->setFlash('success', '<strong>Congrats</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam!');
+				break;
+			case 4:
+				Yii::app()->user->setFlash('info', '<strong>Hello</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.');
+				break;
+		}
+		
+		$this->render('alert');
+	}
 
 	/**
 	 * Displays the login page
