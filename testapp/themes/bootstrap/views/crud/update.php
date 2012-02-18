@@ -6,10 +6,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Crud', 'url'=>array('index')),
-	array('label'=>'Create Crud', 'url'=>array('create')),
-	array('label'=>'View Crud', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Crud', 'url'=>array('admin')),
+	array(
+		'label' => 'Crud Operations', 'items' => array(
+			array('label'=>'List', 'url'=>array('index'), 'icon' => 'list-alt'),
+			array('label'=>'Create', 'url'=>array('create'), 'icon' => 'plus'),
+			array('label'=>'View', 'url'=>array('view', 'id'=>$model->id), 'icon' => 'th-large'),
+			array('label'=>'Manage', 'url'=>array('admin'), 'icon' => 'user'),
+		),
+	),
 );
 ?>
 

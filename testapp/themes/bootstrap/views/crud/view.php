@@ -5,17 +5,24 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Crud', 'url'=>array('index')),
-	array('label'=>'Create Crud', 'url'=>array('create')),
-	array('label'=>'Update Crud', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Crud', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Crud', 'url'=>array('admin')),
+	array(
+		'label' => 'Crud Operations', 'items' => array(
+			array('label'=>'List', 'url'=>array('index'), 'icon' => 'list-alt'),
+			array('label'=>'Create', 'url'=>array('create'), 'icon' => 'plus'),
+			array('label'=>'Update', 'url'=>array('update', 'id'=>$model->id), 'icon' => 'pencil'),
+			array('label'=>'Delete', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'), 'icon' => 'trash'),
+			array('label'=>'Manage', 'url'=>array('admin'), 'icon' => 'user'),
+		),
+	),
 );
 ?>
 
-<h1>View Crud #<?php echo $model->id; ?></h1>
+<div class="page-header">
+	<h1>View Crud #<?php echo $model->id; ?></h1>
+</div>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php 
+$this->widget('EBootstrapDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
@@ -23,4 +30,8 @@ $this->menu=array(
 		'date_created',
 		'date_updated',
 	),
-)); ?>
+	'striped' => true,
+	'bordered' => true,
+	'condensed' => false,
+)); 
+?>

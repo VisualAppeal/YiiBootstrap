@@ -5,8 +5,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Crud', 'url'=>array('index')),
-	array('label'=>'Create Crud', 'url'=>array('create')),
+	array(
+		'label' => 'Crud Operations', 'items' => array(
+			array('label'=>'List', 'url'=>array('index'), 'icon' => 'list-alt'),
+			array('label'=>'Create', 'url'=>array('create'), 'icon' => 'plus'),
+		),
+	),
 );
 
 Yii::app()->clientScript->registerScript('search', "

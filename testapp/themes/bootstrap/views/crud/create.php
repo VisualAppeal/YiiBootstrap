@@ -5,8 +5,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Crud', 'url'=>array('index')),
-	array('label'=>'Manage Crud', 'url'=>array('admin')),
+	array(
+		'label' => 'Crud Operations', 'items' => array(
+			array('label'=>'List', 'url'=>array('index'), 'icon' => 'list-alt'),
+			array('label'=>'Manage', 'url'=>array('admin'), 'icon' => 'user'),
+		),
+	),
 );
 ?>
 
