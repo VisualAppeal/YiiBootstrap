@@ -9,24 +9,24 @@
  */
 $this->menu = array(
 	array(
-		'label' => Yii::t('Admin', 'Administration'), 'url' => $this->createUrl('/admin/'), 'icon' => 'icon-home',
+		'label' => Yii::t('Admin', 'Administration'), 'url' => $this->createUrl('/admin/'), 'icon' => 'home',
 	),
 	array(
 		'label' => 'User', 'items' => array(
-			array('label' => 'Manage', 'url' => '#', 'icon' => 'icon-user'),
-			array('label' => 'Groups', 'url' => '#', 'icon' => 'icon-th'),
+			array('label' => 'Manage', 'url' => '#', 'icon' => 'user'),
+			array('label' => 'Groups', 'url' => '#', 'icon' => 'th'),
 		),
 	),
 	array(
 		'label' => 'Top Secret', 'access' => 'admin', 'items' => array(
-			array('label' => 'Can you see?', 'url' => '#', 'icon' => 'icon-lock'),
+			array('label' => 'Can you see?', 'url' => '#', 'icon' => 'lock'),
 		),
 	),
 	array(
 		'label' => 'Finances', 'items' => array(
-			array('label' => 'Statistic', 'url' => '#', 'icon' => 'icon-signal'),
-			array('label' => 'Billing', 'url' => '#', 'icon' => 'icon-shopping-cart'),
-			array('label' => 'Voucher', 'url' => '#', 'icon' => 'icon-tag'),
+			array('label' => 'Statistic', 'url' => '#', 'icon' => 'signal'),
+			array('label' => 'Billing', 'url' => '#', 'icon' => 'shopping-cart'),
+			array('label' => 'Voucher', 'url' => '#', 'icon' => 'tag'),
 		),
 	),
 );

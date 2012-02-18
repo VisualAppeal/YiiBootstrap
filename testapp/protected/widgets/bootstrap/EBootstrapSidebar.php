@@ -4,12 +4,7 @@ Yii::import('zii.widgets.CMenu');
 
 class EBootstrapSidebar extends CMenu {
 	public $headerCssClass = 'nav-header';
-	
-	/**
-	 * Initializes the menu widget.
-	 * This method mainly normalizes the {@link items} property.
-	 * If this method is overridden, make sure the parent implementation is invoked.
-	 */
+
 	public function init()
 	{
 		EBootstrap::mergeClass($this->htmlOptions, array('nav', 'nav-list'));
@@ -82,7 +77,15 @@ class EBootstrapSidebar extends CMenu {
 	 */
 	protected function renderMenuItem($item)
 	{
-		$icon = (isset($item['icon']) and !empty($item['icon'])) ? '<i class="'.$item['icon'].'"></i> ' : '';
+		if (isset($item['icon']) and !empty($item['icon'])) {
+			$icon = '<i class="icon-'.$item['icon'];
+			if (isset($item['iconWhite']) and ($item['iconWhite'] == true))
+				$icon .= ' icon-white';
+			$icon .= '"></i> ';
+		}
+		else {
+			$icon = '';
+		}
 		if(isset($item['url'])) {
 			$label=$this->linkLabelWrapper===null ? $icon.$item['label'] : '<'.$this->linkLabelWrapper.'>'.$icon.$item['label'].'</'.$this->linkLabelWrapper.'>';
 			return EBootstrap::link($label,$item['url'],isset($item['linkOptions']) ? $item['linkOptions'] : array());

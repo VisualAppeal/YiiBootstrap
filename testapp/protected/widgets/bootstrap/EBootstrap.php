@@ -83,9 +83,8 @@ class EBootstrap extends CHtml {
 	 *
 	 * http://placehold.it/
 	 */
-	public static function thumbnailLink($url, $w, $h = null, $bgColor = 'ccc', $tColor = '333', $text = null, $format = 'png', $alt = '', $htmlOptions = array()) {
+	public static function thumbnailLink($url, $src, $alt = '', $htmlOptions = array()) {
 		$html = '';
-		$src = self::thumbnailSrc($w, $h, $bgColor, $tColor, $text, $format);
 		
 		$htmlOptions['href'] = $url;
 		self::mergeClass($htmlOptions, array('thumbnail'));
