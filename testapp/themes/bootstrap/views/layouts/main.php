@@ -39,33 +39,8 @@
 
 	<div class="container" id="content">
 	
-		<?php 
-			/* Display Flash Messages */
-			$flashMessages = Yii::app()->user->getFlashes();
-			
-			if (is_array($flashMessages) and count($flashMessages)) {
-			?>
-			<div id="flash-messages">
-			<?php
-				foreach ($flashMessages as $key => $message) {
-					if (substr($key, 0, 5) == 'block') {
-						$block = true;
-						$key = substr($key, 6);
-					}
-					else
-						$block = false;
-					
-					$this->widget('EBootstrapAlert', array(
-						'type' => $key,
-						'message' => $message,
-						'block' => $block,
-					));
-				}
-			?>
-			</div>
-			<?php
-			}
-		?>
+		<?php /* Display Flash Messages */ ?>
+		<?php $this->widget('EBootstrapFlashMessages'); ?>
 		
 		<?php /* Display Breadcrumbs */ ?>
 		<?php if(isset($this->breadcrumbs)): ?>
