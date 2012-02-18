@@ -4,9 +4,6 @@ $this->breadcrumbs=array(
 	'Components',
 	'Navigation',
 );
-
-Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/bootstrap/bootstrap-dropdown.js');
-Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/bootstrap/bootstrap-tab.js');
 ?>
 
 <div class="page-header">

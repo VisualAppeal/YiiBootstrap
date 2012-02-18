@@ -15,21 +15,21 @@ class EBootstrapHero extends CWidget {
 		parent::run();
 		
 		EBootstrap::mergeClass($this->htmlOptions, array('hero-unit'));
-		echo CHtml::openTag('div', $this->htmlOptions)."\n";
+		echo EBootstrap::openTag('div', $this->htmlOptions)."\n";
 
-		echo CHtml::tag('h1', array(), $this->headline)."\n";
-		echo CHtml::tag('p', array(), $this->body)."\n";
+		echo EBootstrap::tag('h1', array(), $this->headline)."\n";
+		echo EBootstrap::tag('p', array(), $this->body)."\n";
 		if (!empty($this->actions)) {
-			echo CHtml::openTag('p');
+			echo EBootstrap::openTag('p');
 			foreach ($this->actions as $button) {
 				echo $button." \n";
 			}
 			echo "\n";
-			echo CHtml::closeTag('p')."\n";
+			echo EBootstrap::closeTag('p')."\n";
 		}
 		
 		
-		echo CHtml::closeTag('div')."\n";
+		echo EBootstrap::closeTag('div')."\n";
 	}
 }
 

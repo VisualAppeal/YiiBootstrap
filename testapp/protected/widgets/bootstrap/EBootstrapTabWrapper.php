@@ -9,13 +9,13 @@ class EBootstrapTabWrapper extends CWidget {
 		if (!empty($this->position)) {
 			switch ($this->position) {
 				case 'bottom':
-					echo CHtml::openTag('div', array('class' => 'tabbable tabs-below'));
+					echo EBootstrap::openTag('div', array('class' => 'tabbable tabs-below'));
 					break;
 				case 'left':
-					echo CHtml::openTag('div', array('class' => 'tabbable tabs-left'));
+					echo EBootstrap::openTag('div', array('class' => 'tabbable tabs-left'));
 					break;
 				case 'right':
-					echo CHtml::openTag('div', array('class' => 'tabbable tabs-right'));
+					echo EBootstrap::openTag('div', array('class' => 'tabbable tabs-right'));
 					break;
 			}
 		}
@@ -25,7 +25,7 @@ class EBootstrapTabWrapper extends CWidget {
 		parent::run();
 		
 		if (!empty($this->position)) {
-			echo CHtml::closeTag('div');
+			echo EBootstrap::closeTag('div');
 		}
 	}
 }

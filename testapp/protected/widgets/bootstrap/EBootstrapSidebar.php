@@ -50,7 +50,7 @@ class EBootstrapSidebar extends CMenu {
 						$options['class'].=' '.implode(' ',$class);
 				}
 	
-				echo CHtml::openTag('li', $options);
+				echo EBootstrap::openTag('li', $options);
 	
 				$menu=$this->renderMenuItem($item);
 				if(isset($this->itemTemplate) || isset($item['template'])) {
@@ -60,12 +60,12 @@ class EBootstrapSidebar extends CMenu {
 				else
 					echo $menu;
 	
-				echo CHtml::closeTag('li');
+				echo EBootstrap::closeTag('li');
 	
 				if(isset($item['items']) && count($item['items'])) {
-					//echo "\n".CHtml::openTag('ul',isset($item['submenuOptions']) ? $item['submenuOptions'] : $this->submenuHtmlOptions)."\n";
+					//echo "\n".EBootstrap::openTag('ul',isset($item['submenuOptions']) ? $item['submenuOptions'] : $this->submenuHtmlOptions)."\n";
 					$this->renderMenuRecursive($item['items'], false);
-					//echo CHtml::closeTag('ul')."\n";
+					//echo EBootstrap::closeTag('ul')."\n";
 				}
 				
 				echo "\n";
@@ -85,10 +85,10 @@ class EBootstrapSidebar extends CMenu {
 		$icon = (isset($item['icon']) and !empty($item['icon'])) ? '<i class="'.$item['icon'].'"></i> ' : '';
 		if(isset($item['url'])) {
 			$label=$this->linkLabelWrapper===null ? $icon.$item['label'] : '<'.$this->linkLabelWrapper.'>'.$icon.$item['label'].'</'.$this->linkLabelWrapper.'>';
-			return CHtml::link($label,$item['url'],isset($item['linkOptions']) ? $item['linkOptions'] : array());
+			return EBootstrap::link($label,$item['url'],isset($item['linkOptions']) ? $item['linkOptions'] : array());
 		}
 		else {
-			return CHtml::tag('span',isset($item['linkOptions']) ? $item['linkOptions'] : array(), $icon.$item['label']);
+			return EBootstrap::tag('span',isset($item['linkOptions']) ? $item['linkOptions'] : array(), $icon.$item['label']);
 		}
 	}
 }

@@ -10,5 +10,5 @@ $this->breadcrumbs=array(
 </div>
 
 <div class="error">
-	<?php echo CHtml::encode($message); ?>
+	<?php echo EBootstrap::encode($message); ?>
 </div>

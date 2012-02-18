@@ -5,10 +5,9 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl ?>/css/main.css">
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+	<title><?php echo EBootstrap::encode($this->pageTitle); ?></title>
 	
 	<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
-	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/bootstrap/bootstrap-dropdown.js'); ?>
 </head>
 
 <body>
@@ -16,7 +15,7 @@
 	<header>
 		<?php $this->widget('EBootstrapNavigation',array(
 			'items'=>array(
-				array('label'=>CHtml::encode(Yii::app()->name), 'url'=>array('/'), 'template' => '{brand}'),
+				array('label'=>EBootstrap::encode(Yii::app()->name), 'url'=>array('/'), 'template' => '{brand}'),
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Sidebar', 'url'=>array('/site/page', 'view'=>'sidebar')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
@@ -31,6 +30,7 @@
 				)),
 				array('label'=>'Components', 'url'=>'#', 'items' => array(
 					array('label'=>'Navigation', 'url'=>array('/site/page', 'view'=>'navigation')),
+					array('label'=>'Alerts', 'url'=>array('/site/alert')),
 				)),
 			),
 			'fixed' => true,
@@ -39,7 +39,29 @@
 
 	<div class="container" id="content">
 	
-		<?php if(isset($this->breadcrumbs)):?>
+		<?php 
+			/* Display Flash Messages */
+			$flashMessages = Yii::app()->user->getFlashes();
+			
+			if (is_array($flashMessages) and count($flashMessages)) {
+			?>
+			<div id="flash-messages">
+			<?php
+				foreach ($flashMessages as $key => $message) {
+					$this->widget('EBootstrapAlert', array(
+						'type' => $key,
+						'message' => $message,
+						'animation' => 'slow',
+					));
+				}
+			?>
+			</div>
+			<?php
+			}
+		?>
+		
+		<?php /* Display Breadcrumbs */ ?>
+		<?php if(isset($this->breadcrumbs)): ?>
 			<?php $this->widget('EBootstrapBreadcrumbs', array(
 				'links'=>$this->breadcrumbs,
 			)); ?>

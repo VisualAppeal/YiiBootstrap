@@ -25,7 +25,7 @@ class EBootstrap extends CHtml {
 			$classes[] = 'label-'.$type;
 		
 		self::mergeClass($htmlOptions, $classes);
-		return CHtml::tag('span', $htmlOptions, $label);
+		return EBootstrap::tag('span', $htmlOptions, $label);
 	}
 	
 	/*
@@ -89,9 +89,9 @@ class EBootstrap extends CHtml {
 		
 		$htmlOptions['href'] = $url;
 		self::mergeClass($htmlOptions, array('thumbnail'));
-		$html .= CHtml::openTag('a', $htmlOptions);
-		$html .= CHtml::tag('img', array('src' => $src, 'alt' => $alt));
-		$html .= CHtml::closeTag('a');
+		$html .= EBootstrap::openTag('a', $htmlOptions);
+		$html .= EBootstrap::tag('img', array('src' => $src, 'alt' => $alt));
+		$html .= EBootstrap::closeTag('a');
 		
 		return $html;
 	}

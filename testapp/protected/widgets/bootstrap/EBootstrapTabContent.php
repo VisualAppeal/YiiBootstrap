@@ -15,13 +15,13 @@ class EBootstrapTabContent extends CWidget {
 		}
 		
 		$this->htmlOptions['id'] = (is_null($this->id)) ? 'test' : $this->id;
-		echo CHtml::openTag('div', $this->htmlOptions);
+		echo EBootstrap::openTag('div', $this->htmlOptions);
 	}
 	
 	public function run() {
 		parent::run();
 		
-		echo CHtml::closeTag('div');
+		echo EBootstrap::closeTag('div');
 	}
 }
 

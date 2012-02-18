@@ -29,27 +29,27 @@ class EBootstrapActiveForm extends CActiveForm {
 		if (!empty($error))
 			EBootstrap::mergeClass($option, array('error'));
 		
-		echo CHtml::openTag('div', array('class' => $option['class']));
+		echo EBootstrap::openTag('div', array('class' => $option['class']));
 	}
 	
 	public function endControlGroup() {
-		echo CHtml::closeTag('div');
+		echo EBootstrap::closeTag('div');
 	}
 	
 	public function beginControls() {
-		echo CHtml::openTag('div', array('class' => 'controls'));
+		echo EBootstrap::openTag('div', array('class' => 'controls'));
 	}
 	
 	public function endControls() {
-		echo CHtml::closeTag('div');
+		echo EBootstrap::closeTag('div');
 	}
 	
 	public function beginActions() {
-		echo CHtml::openTag('div', array('class' => 'form-actions'));
+		echo EBootstrap::openTag('div', array('class' => 'form-actions'));
 	}
 	
 	public function endActions() {
-		echo CHtml::closeTag('div');
+		echo EBootstrap::closeTag('div');
 	}
 	
 	public function errorSummary($model,$header=null,$footer=null,$htmlOptions=array()) {
@@ -80,14 +80,14 @@ class EBootstrapActiveForm extends CActiveForm {
 		{
 			if($header===null)
 				$header=Yii::t('yii','Please fix the following input errors:');
-			$header = CHtml::tag('h4', array('class' => 'alert-heading'), $header)."\n";
+			$header = EBootstrap::tag('h4', array('class' => 'alert-heading'), $header)."\n";
 			
 			if(!isset($htmlOptions['class']))
-				$htmlOptions['class']=CHtml::$errorSummaryCss;
+				$htmlOptions['class']=EBootstrap::$errorSummaryCss;
 			
 			EBootstrap::mergeClass($htmlOptions, array('alert', 'alert-error', 'alert-block'));
 			
-			return CHtml::tag('div',$htmlOptions,$header."\n<ul>\n$content</ul>".$footer);
+			return EBootstrap::tag('div',$htmlOptions,$header."\n<ul>\n$content</ul>".$footer);
 		}
 		else
 			return '';
@@ -95,14 +95,14 @@ class EBootstrapActiveForm extends CActiveForm {
 	}
 	
 	public function helpBlock($help) {
-		echo CHtml::openTag('p', array('class' => 'help-block'));
+		echo EBootstrap::openTag('p', array('class' => 'help-block'));
 		echo $help;
-		echo CHtml::closeTag('p');
+		echo EBootstrap::closeTag('p');
 	}
 	
 	public function submitButton($label, $htmlOptions = array()) {
 		EBootstrap::mergeClass($htmlOptions, array('btn', 'btn-primary'));
-		echo CHtml::submitButton($label, $htmlOptions);
+		echo EBootstrap::submitButton($label, $htmlOptions);
 	}
 }
 
