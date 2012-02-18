@@ -29,6 +29,7 @@
 					array('label'=>'Images', 'url'=>array('/site/page', 'view'=>'images')),
 				)),
 				array('label'=>'Components', 'url'=>'#', 'items' => array(
+					array('label'=>'Crud Controller', 'url'=>array('/crud')),
 					array('label'=>'Navigation', 'url'=>array('/site/page', 'view'=>'navigation')),
 					array('label'=>'Alerts', 'url'=>array('/site/alert')),
 				)),

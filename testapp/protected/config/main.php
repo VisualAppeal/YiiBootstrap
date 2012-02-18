@@ -24,7 +24,7 @@ return array(
 	'modules'=>array(
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'123456',
 
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
@@ -52,6 +52,7 @@ return array(
 	        'class'=>'ext.less.components.LessCompiler',
 	        'paths'=>array(
 	            'themes/bootstrap/less/main.less'=>'themes/bootstrap/css/main.css',
+	            'protected/widgets/bootstrap/less/bootstrap.less'=>'protected/widgets/bootstrap/css/bootstrap.css',
 	        ),
 	    ),
 		'db'=>array(

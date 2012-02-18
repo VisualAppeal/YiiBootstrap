@@ -1,0 +1,39 @@
+@import "mixins.less";
+
+/* EBootstrapListView */
+
+.bootstrap-list-view {
+	.summary {
+		font-style: italic;
+	}
+	.bootstrap-list-view-item {
+		margin-bottom: 10px;
+		background: white;
+		.border-radius(3px);
+		border: 1px solid #ddd;
+		
+		.bootstrap-list-view-item-title {
+			#gradient > .vertical(#eee, #ddd);
+			padding: 5px 10px;
+			margin-bottom: 10px;
+		}
+		
+		.bootstrap-list-view-item-content {
+			padding: 0 10px;
+			.bootstrap-list-view-item-attribute {
+				font-weight: bold;
+			}
+			.bootstrap-list-view-item-value {
+				
+			}
+			
+			&:last-child {
+				padding-bottom: 10px;
+			}
+		}
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

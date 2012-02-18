@@ -12,7 +12,12 @@ class EBootstrap extends CHtml {
 		}
 		else
 			$option['class'] = implode(' ', $add);
+	}
 	
+	public static function mergeClassString(&$class, array $add) {
+		if (!empty($class))
+			$class .= ' ';
+		$class .= implode(' ', $add);
 	}
 	
 	/*
