@@ -3505,6 +3505,9 @@ header .navbar-inner {
   -moz-border-radius: 0;
   border-radius: 0;
 }
+form label {
+  font-weight: bold;
+}
 #content {
   background: #f6f6f6;
   padding: 20px;

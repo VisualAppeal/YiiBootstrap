@@ -95,14 +95,16 @@ class EBootstrapActiveForm extends CActiveForm {
 	}
 	
 	public function helpBlock($help) {
-		echo EBootstrap::openTag('p', array('class' => 'help-block'));
-		echo $help;
-		echo EBootstrap::closeTag('p');
+		$html = EBootstrap::openTag('p', array('class' => 'help-block'));
+		$html .= $help;
+		$html .= EBootstrap::closeTag('p');
+		
+		return $html;
 	}
 	
 	public function submitButton($label, $htmlOptions = array()) {
 		EBootstrap::mergeClass($htmlOptions, array('btn', 'btn-primary'));
-		echo EBootstrap::submitButton($label, $htmlOptions);
+		return EBootstrap::submitButton($label, $htmlOptions);
 	}
 }
 

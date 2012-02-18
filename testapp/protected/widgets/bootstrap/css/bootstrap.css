@@ -45,3 +45,17 @@
 .bootstrap-list-view .bootstrap-list-view-item:last-child {
   margin-bottom: 0;
 }
+/* EBootstrapGridView */
+.bootstrap-grid-view .summary {
+  float: right;
+  font-style: italic;
+}
+.bootstrap-grid-view table tr td {
+  min-width: 60px;
+}
+.bootstrap-grid-view table tr td input {
+  width: auto;
+}
+.bootstrap-grid-view .pager .disabled {
+  cursor: inherit;
+}

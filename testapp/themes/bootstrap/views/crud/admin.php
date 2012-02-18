@@ -15,7 +15,7 @@ $this->menu=array(
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
-	$('.search-form').toggle();
+	$('.search-form').toggle('fast');
 	return false;
 });
 $('.search-form form').submit(function(){
@@ -30,8 +30,7 @@ $('.search-form form').submit(function(){
 <h1>Manage Cruds</h1>
 
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
 </p>
 
 <?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
@@ -39,9 +38,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
-</div><!-- search-form -->
+</div>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('EBootstrapGridView', array(
 	'id'=>'crud-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -54,4 +53,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			'class'=>'CButtonColumn',
 		),
 	),
+	'pager' => array(
+		'class' => 'EBootstrapLinkPager',
+		'header' => false,
+	),
+	'pagerAlign' => 'centered',
+	'bordered' => true,
+	'striped' => true,
+	'condensed' => true,
 )); ?>

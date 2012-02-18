@@ -1,34 +1,38 @@
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('EBootstrapActiveForm', array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-	</div>
+	<?php echo $form->beginControlGroup($model, 'id'); ?>
+		<?php echo $form->labelEx($model,'id'); ?>
+		<?php echo $form->beginControls(); ?>
+			<?php echo $form->textField($model,'id',array('class' => 'span1')); ?>
+		<?php echo $form->endControls(); ?>
+	<?php echo $form->endControlGroup(); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'title'); ?>
-		<?php echo $form->textArea($model,'title',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
+	<?php echo $form->beginControlGroup($model, 'title'); ?>
+		<?php echo $form->labelEx($model,'title'); ?>
+		<?php echo $form->beginControls(); ?>
+			<?php echo $form->textField($model,'title',array('class' => 'span5')); ?>
+		<?php echo $form->endControls(); ?>
+	<?php echo $form->endControlGroup(); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'date_created'); ?>
-		<?php echo $form->textArea($model,'date_created',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
+	<?php echo $form->beginControlGroup($model, 'title'); ?>
+		<?php echo $form->labelEx($model,'date_created'); ?>
+		<?php echo $form->beginControls(); ?>
+			<?php echo $form->textField($model,'title',array('class' => 'span5')); ?>
+		<?php echo $form->endControls(); ?>
+	<?php echo $form->endControlGroup(); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'date_updated'); ?>
-		<?php echo $form->textArea($model,'date_updated',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
+	<?php echo $form->beginControlGroup($model, 'title'); ?>
+		<?php echo $form->labelEx($model,'date_updated'); ?>
+		<?php echo $form->beginControls(); ?>
+			<?php echo $form->textField($model,'title',array('class' => 'span5')); ?>
+		<?php echo $form->endControls(); ?>
+	<?php echo $form->endControlGroup(); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
-	</div>
+	<?php echo $form->beginActions(); ?>
+		<?php echo $form->submitButton('Search'); ?>
+	<?php echo $form->endActions(); ?>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->
