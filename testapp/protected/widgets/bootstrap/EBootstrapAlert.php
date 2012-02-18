@@ -11,7 +11,9 @@
 class EBootstrapAlert extends CWidget {
 	public $type = '';
 	public $message = '';
-	public $animation = 'slow';
+	
+	/* Display the message as a block with actions */
+	public $block = false;
 	
 	public $htmlOptions = array();
 	
@@ -30,7 +32,7 @@ class EBootstrapAlert extends CWidget {
 	public function run() {
 		parent::run();
 		
-		EBootstrap::mergeClass($this->htmlOptions, array('alert'));
+		EBootstrap::mergeClass($this->htmlOptions, array('alert', 'fade', 'in'));
 		switch ($this->type) {
 			case 'error':
 			case 'success':
@@ -39,9 +41,17 @@ class EBootstrapAlert extends CWidget {
 				break;
 		}
 		
+		if ($this->block)
+			EBootstrap::mergeClass($this->htmlOptions, array('alert-block'));
+		
 		echo EBootstrap::openTag('div', $this->htmlOptions);
-		echo EBootstrap::tag('a', array('class' => 'close', 'data-dismiss' => 'alert'), '×');
-		echo EBootstrap::tag('p', array(), $this->message);
+		echo EBootstrap::tag('a', array('href' => '#', 'class' => 'close', 'data-dismiss' => 'alert'), "&times;");
+		
+		if ($this->block)
+			echo $this->message;
+		else
+			echo EBootstrap::tag('p', array(), $this->message);
+			
 		echo EBootstrap::closeTag('div');
 		
 	}

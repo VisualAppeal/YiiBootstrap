@@ -48,10 +48,17 @@
 			<div id="flash-messages">
 			<?php
 				foreach ($flashMessages as $key => $message) {
+					if (substr($key, 0, 5) == 'block') {
+						$block = true;
+						$key = substr($key, 6);
+					}
+					else
+						$block = false;
+					
 					$this->widget('EBootstrapAlert', array(
 						'type' => $key,
 						'message' => $message,
-						'animation' => 'slow',
+						'block' => $block,
 					));
 				}
 			?>

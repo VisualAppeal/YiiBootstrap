@@ -85,6 +85,18 @@ class SiteController extends Controller
 			case 4:
 				Yii::app()->user->setFlash('info', '<strong>Hello</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.');
 				break;
+			case 5:
+				Yii::app()->user->setFlash('block-warning', '<h4 class="alert-heading">Some Warning</h4><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum!</p><p>'.EBootstrap::ibutton('Primary', '#', 'warning').' '.EBootstrap::ibutton('Default', '#').'</p>');
+				break;
+			case 6:
+				Yii::app()->user->setFlash('block-error', '<h4 class="alert-heading">Attention</h4><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum!</p><p>'.EBootstrap::ibutton('Primary', '#', 'danger').' '.EBootstrap::ibutton('Default', '#').'</p>');
+				break;
+			case 7:
+				Yii::app()->user->setFlash('block-success', '<h4 class="alert-heading">Yeappii</h4><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum!</p><p>'.EBootstrap::ibutton('Primary', '#', 'success').' '.EBootstrap::ibutton('Default', '#').'</p>');
+				break;
+			case 8:
+				Yii::app()->user->setFlash('block-info', '<h4 class="alert-heading">Notice</h4><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum!</p><p>'.EBootstrap::ibutton('Primary', '#', 'info').' '.EBootstrap::ibutton('Default', '#').'</p>');
+				break;
 		}
 		
 		$this->render('alert');
