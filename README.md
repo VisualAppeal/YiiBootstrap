@@ -1,9 +1,11 @@
 Readme
 ==
 
+The aim of the project is to transform all bootstrap components into Yii Widgets and apply the bootstrap style to the default Yii Widgets.
+
 Requirements
 --
-* PHP - At least 5.1 I think
+* PHP - Something over *5.1* I think
 
 Installation
 --
