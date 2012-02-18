@@ -37,7 +37,8 @@ class Crud extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, date_created, date_updated', 'safe'),
+			array('title', 'required'),
+			array('title', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, title, date_created, date_updated', 'safe', 'on'=>'search'),

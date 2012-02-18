@@ -21,15 +21,15 @@
   border: 1px solid #ddd;
 }
 .bootstrap-list-view .bootstrap-list-view-item .bootstrap-list-view-item-title {
-  background-color: #e7e7e7;
-  background-image: -moz-linear-gradient(top, #eeeeee, #dddddd);
-  background-image: -ms-linear-gradient(top, #eeeeee, #dddddd);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eeeeee), to(#dddddd));
-  background-image: -webkit-linear-gradient(top, #eeeeee, #dddddd);
-  background-image: -o-linear-gradient(top, #eeeeee, #dddddd);
-  background-image: linear-gradient(top, #eeeeee, #dddddd);
+  background-color: #ebebeb;
+  background-image: -moz-linear-gradient(top, #eeeeee, #e6e6e6);
+  background-image: -ms-linear-gradient(top, #eeeeee, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eeeeee), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #e6e6e6);
+  background-image: -o-linear-gradient(top, #eeeeee, #e6e6e6);
+  background-image: linear-gradient(top, #eeeeee, #e6e6e6);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#dddddd', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#e6e6e6', GradientType=0);
   padding: 5px 10px;
   margin-bottom: 10px;
 }

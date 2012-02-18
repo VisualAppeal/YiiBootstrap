@@ -40,7 +40,8 @@ $('.search-form form').submit(function(){
 )); ?>
 </div>
 
-<?php $this->widget('EBootstrapGridView', array(
+<?php 
+$this->widget('EBootstrapGridView', array(
 	'id'=>'crud-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -61,4 +62,5 @@ $('.search-form form').submit(function(){
 	'bordered' => true,
 	'striped' => true,
 	'condensed' => true,
-)); ?>
+)); 
+?>
