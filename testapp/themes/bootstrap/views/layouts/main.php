@@ -3,11 +3,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl ?>/css/main.css">
+	<?php Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/main.css'); ?>
 
 	<title><?php echo EBootstrap::encode($this->pageTitle); ?></title>
-	
-	<?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
 </head>
 
 <body>
@@ -32,6 +30,7 @@
 					array('label'=>'Crud Controller', 'url'=>array('/crud')),
 					array('label'=>'Navigation', 'url'=>array('/site/page', 'view'=>'navigation')),
 					array('label'=>'Alerts', 'url'=>array('/site/alert')),
+					array('label'=>'Carousel', 'url'=>array('/site/page', 'view'=>'carousel')),
 				)),
 			),
 			'fixed' => true,
