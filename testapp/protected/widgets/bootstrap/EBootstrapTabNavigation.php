@@ -5,6 +5,9 @@ Yii::import('zii.widgets.CMenu');
 class EBootstrapTabNavigation extends CMenu {
 	public $pills = false;
 	public $stacked = false;
+	
+	public $jsFileDropdown = null;
+	public $jsFileTab = null;
 
 	public function init() {
 		parent::init();
@@ -17,7 +20,18 @@ class EBootstrapTabNavigation extends CMenu {
 			EBootstrap::mergeClass($this->htmlOptions, array('nav-tabs'));
 		
 		if ($this->stacked)
-			EBootstrap::mergeClass($this->htmlOptions, array('nav-stacked'));		
+			EBootstrap::mergeClass($this->htmlOptions, array('nav-stacked'));
+
+		if (is_null($this->jsFileDropdown)) {
+			$jsFile = dirname(__FILE__).DIRECTORY_SEPERATOR.'js'.DIRECTORY_SEPERATOR.'bootstrap-dropdown.js';
+			$this->jsFileDropdown = Yii::app()->getAssetManager()->publish($jsFile);
+			Yii::app()->clientScript->registerScriptFile($this->jsFileDropdown);
+		}
+		if (is_null($this->jsFileTab)) {
+			$jsFile = dirname(__FILE__).DIRECTORY_SEPERATOR.'js'.DIRECTORY_SEPERATOR.'bootstrap-tab.js';
+			$this->jsFileTab = Yii::app()->getAssetManager()->publish($jsFile);
+			Yii::app()->clientScript->registerScriptFile($this->jsFileTab);
+		}
 	}
 	
 	public function run() {
@@ -26,9 +40,9 @@ class EBootstrapTabNavigation extends CMenu {
 	
 	public function renderMenu($items) {
 		if (count($items)) {
-			echo CHtml::openTag('ul', $this->htmlOptions)."\n";
+			echo EBootstrap::openTag('ul', $this->htmlOptions)."\n";
 			$this->renderMenuRecursive($items);
-			echo CHtml::closeTag('ul')."\n";
+			echo EBootstrap::closeTag('ul')."\n";
 		}
 	}
 	
@@ -75,7 +89,7 @@ class EBootstrapTabNavigation extends CMenu {
 					$item['linkOptions']['data-toggle'] = 'tab';
 			}
 								
-            echo CHtml::openTag('li', $options);            
+            echo EBootstrap::openTag('li', $options);            
 
             $menu=$this->renderMenuItem($item);
             if(!empty($template)) {
@@ -91,12 +105,12 @@ class EBootstrapTabNavigation extends CMenu {
 				else
 					$options['class'] = 'dropdown-menu';
             	
-				echo "\n".CHtml::openTag('ul', $options)."\n";
+				echo "\n".EBootstrap::openTag('ul', $options)."\n";
 				$this->renderMenuRecursive($item['items'], true);
-				echo CHtml::closeTag('ul')."\n";
+				echo EBootstrap::closeTag('ul')."\n";
             }
 			
-            echo CHtml::closeTag('li')."\n";
+            echo EBootstrap::closeTag('li')."\n";
         }
     }
 }

@@ -8,6 +8,8 @@ class EBootstrapNavigation extends CMenu {
 	 */ 
 	public $fixed = false;
 	
+	public $jsFile = null;
+	
 	public function init() {
 		parent::init();
 		
@@ -15,6 +17,12 @@ class EBootstrapNavigation extends CMenu {
 			$this->htmlOptions['class'] = implode(' ', explode(' ', $this->htmlOptions['class'])+array('navbar'));
 		else
 			$this->htmlOptions['class'] = 'navbar';
+		
+		if (is_null($this->jsFile)) {
+			$jsFile = dirname(__FILE__).DIRECTORY_SEPARATOR.'js'.DIRECTORY_SEPARATOR.'bootstrap-dropdown.js';
+			$this->jsFile = Yii::app()->getAssetManager()->publish($jsFile);
+			Yii::app()->clientScript->registerScriptFile($this->jsFile);
+		}
 	}
 	
 	public function run() {
@@ -23,14 +31,14 @@ class EBootstrapNavigation extends CMenu {
 	
 	public function renderMenu($items) {
 		if (count($items)) {
-			echo CHtml::openTag('div', $this->htmlOptions)."\n";
+			echo EBootstrap::openTag('div', $this->htmlOptions)."\n";
 			$fixed = $this->fixed ? ' navbar-fixed-top' : '';
-			echo CHtml::openTag('div', array('class' => 'navbar-inner'.$fixed))."\n";
-			echo CHtml::openTag('div', array('class' => 'container'))."\n";
+			echo EBootstrap::openTag('div', array('class' => 'navbar-inner'.$fixed))."\n";
+			echo EBootstrap::openTag('div', array('class' => 'container'))."\n";
 			$this->renderMenuRecursive($items);
-			echo CHtml::closeTag('div')."\n";
-			echo CHtml::closeTag('div')."\n";
-			echo CHtml::closeTag('div')."\n";
+			echo EBootstrap::closeTag('div')."\n";
+			echo EBootstrap::closeTag('div')."\n";
+			echo EBootstrap::closeTag('div')."\n";
 		}
 	}
 	
@@ -65,15 +73,15 @@ class EBootstrapNavigation extends CMenu {
 			switch ($template) {
 				case '{brand}':
 					$options = array_merge($options, array('class' => 'brand'));
-					echo CHtml::link($item['label'],$item['url'],$options)."\n";
+					echo EBootstrap::link($item['label'],$item['url'],$options)."\n";
 					break;
 				case '{divider}':
-					echo CHtml::openTag('li', array('class' => 'divider-vertical'))."\n";
-					echo CHtml::closeTag('li')."\n";
+					echo EBootstrap::openTag('li', array('class' => 'divider-vertical'))."\n";
+					echo EBootstrap::closeTag('li')."\n";
 					break;
 				default:
 					if ($first and (!$sub)) {
-						echo CHtml::openTag('ul', array('class' => 'nav'))."\n";
+						echo EBootstrap::openTag('ul', array('class' => 'nav'))."\n";
 						$first = false;
 					}
 					
@@ -93,7 +101,7 @@ class EBootstrapNavigation extends CMenu {
 						$item['label'] .= '<b class="caret"></b>';
 					}
 										
-		            echo CHtml::openTag('li', $options);
+		            echo EBootstrap::openTag('li', $options);
 		
 		            $menu=$this->renderMenuItem($item);
 		            if(!empty($template)) {
@@ -109,17 +117,17 @@ class EBootstrapNavigation extends CMenu {
 						else
 							$options['class'] = 'dropdown-menu';
 		            	
-						echo "\n".CHtml::openTag('ul', $options)."\n";
+						echo "\n".EBootstrap::openTag('ul', $options)."\n";
 						$this->renderMenuRecursive($item['items'], true);
-						echo CHtml::closeTag('ul')."\n";
+						echo EBootstrap::closeTag('ul')."\n";
 		            }
 					
-		            echo CHtml::closeTag('li')."\n";
+		            echo EBootstrap::closeTag('li')."\n";
 			}
         }
         
         if (!$sub)
-	        echo CHtml::closeTag('ul')."\n";
+	        echo EBootstrap::closeTag('ul')."\n";
     }
 }
 
