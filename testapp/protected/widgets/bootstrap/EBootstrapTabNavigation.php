@@ -21,7 +21,8 @@ class EBootstrapTabNavigation extends CMenu {
 		
 		if ($this->stacked)
 			EBootstrap::mergeClass($this->htmlOptions, array('nav-stacked'));
-
+		
+		Yii::app()->clientScript->registerCoreScript('jquery');
 		if (is_null($this->jsFileDropdown)) {
 			$jsFile = dirname(__FILE__).'/js/bootstrap-dropdown.js';
 			$this->jsFileDropdown = Yii::app()->getAssetManager()->publish($jsFile);

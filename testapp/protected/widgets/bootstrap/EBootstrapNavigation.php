@@ -18,6 +18,7 @@ class EBootstrapNavigation extends CMenu {
 		else
 			$this->htmlOptions['class'] = 'navbar';
 		
+		Yii::app()->clientScript->registerCoreScript('jquery');
 		if (is_null($this->jsFile)) {
 			$jsFile = dirname(__FILE__).DIRECTORY_SEPARATOR.'js'.DIRECTORY_SEPARATOR.'bootstrap-dropdown.js';
 			$this->jsFile = Yii::app()->getAssetManager()->publish($jsFile);
