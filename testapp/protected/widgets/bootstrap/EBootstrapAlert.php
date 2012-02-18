@@ -24,7 +24,7 @@ class EBootstrapAlert extends CWidget {
 		
 		Yii::app()->clientScript->registerCoreScript('jquery');
 		if (is_null($this->jsFile)) {
-			$jsFile = dirname(__FILE__).'/js/bootstrap-alert.js';
+			$jsFile = dirname(__FILE__).'/js/bootstrap.min.js';
 			$this->jsFile = Yii::app()->getAssetManager()->publish($jsFile);
 			Yii::app()->clientScript->registerScriptFile($this->jsFile);
 		}
