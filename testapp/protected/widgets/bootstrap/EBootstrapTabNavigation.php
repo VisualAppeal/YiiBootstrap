@@ -23,12 +23,12 @@ class EBootstrapTabNavigation extends CMenu {
 			EBootstrap::mergeClass($this->htmlOptions, array('nav-stacked'));
 
 		if (is_null($this->jsFileDropdown)) {
-			$jsFile = dirname(__FILE__).DIRECTORY_SEPERATOR.'js'.DIRECTORY_SEPERATOR.'bootstrap-dropdown.js';
+			$jsFile = dirname(__FILE__).'/js/bootstrap-dropdown.js';
 			$this->jsFileDropdown = Yii::app()->getAssetManager()->publish($jsFile);
 			Yii::app()->clientScript->registerScriptFile($this->jsFileDropdown);
 		}
 		if (is_null($this->jsFileTab)) {
-			$jsFile = dirname(__FILE__).DIRECTORY_SEPERATOR.'js'.DIRECTORY_SEPERATOR.'bootstrap-tab.js';
+			$jsFile = dirname(__FILE__).'/js/bootstrap-tab.js';
 			$this->jsFileTab = Yii::app()->getAssetManager()->publish($jsFile);
 			Yii::app()->clientScript->registerScriptFile($this->jsFileTab);
 		}
