@@ -270,6 +270,33 @@ class EBootstrap extends CHtml {
     	
     	return $html;
 	}
+	
+	public static function activeTextFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
+       	$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
+       	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
+       
+       	self::resolveNameID($model,$attribute,$htmlOptions);
+    	self::clientChange('change',$htmlOptions);
+    	$html .= self::activeInputField('text',$model,$attribute,$htmlOptions)."\n";
+    	
+    	$html .= self::closeTag('div')."\n";
+    	
+    	return $html;
+	}
+	
+	public static function activeTextFieldAppend($model,$attribute,$prepend,$htmlOptions=array()) {
+       	$html = self::openTag('div', array('class' => 'input-append'))."\n";
+       
+       	self::resolveNameID($model,$attribute,$htmlOptions);
+    	self::clientChange('change',$htmlOptions);
+    	$html .= self::activeInputField('text',$model,$attribute,$htmlOptions)."\n";
+    	
+    	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
+    	
+    	$html .= self::closeTag('div')."\n";
+    	
+    	return $html;
+	}
 }
 
 ?>

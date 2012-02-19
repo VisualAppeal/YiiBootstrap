@@ -37,7 +37,7 @@ $this->breadcrumbs=array(
 	<?php echo $form->beginControlGroup($model, 'email'); ?>
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->beginControls(); ?>
-			<?php echo $form->textField($model,'email'); ?>
+			<?php echo $form->textFieldPrepend($model,'email','@'); ?>
 			<?php echo $form->error($model,'email'); ?>
 		<?php echo $form->endControls(); ?>
 	<?php echo $form->endControlGroup(); ?>
@@ -45,7 +45,7 @@ $this->breadcrumbs=array(
 	<?php echo $form->beginControlGroup($model, 'subject'); ?>
 		<?php echo $form->labelEx($model,'subject'); ?>
 		<?php echo $form->beginControls(); ?>
-			<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
+			<?php echo $form->textFieldAppend($model,'subject','!',array('maxlength'=>128)); ?>
 			<?php echo $form->error($model,'subject'); ?>
 		<?php echo $form->endControls(); ?>
 	<?php echo $form->endControlGroup(); ?>
@@ -123,7 +123,7 @@ $this->widget('EBootstrapCollapse', array(
 	&lt;?php echo $form->beginControlGroup($model, 'email'); ?&gt;
 		&lt;?php echo $form->labelEx($model,'email'); ?&gt;
 		&lt;?php echo $form->beginControls(); ?&gt;
-			&lt;?php echo $form->textField($model,'email'); ?&gt;
+			&lt;?php echo $form->textFieldPrepend($model,'email','@'); ?&gt;
 			&lt;?php echo $form->error($model,'email'); ?&gt;
 		&lt;?php echo $form->endControls(); ?&gt;
 	&lt;?php echo $form->endControlGroup(); ?&gt;
@@ -131,7 +131,7 @@ $this->widget('EBootstrapCollapse', array(
 	&lt;?php echo $form->beginControlGroup($model, 'subject'); ?&gt;
 		&lt;?php echo $form->labelEx($model,'subject'); ?&gt;
 		&lt;?php echo $form->beginControls(); ?&gt;
-			&lt;?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?&gt;
+			&lt;?php echo $form->textFieldAppend($model,'subject','!',array('maxlength'=>128)); ?&gt;
 			&lt;?php echo $form->error($model,'subject'); ?&gt;
 		&lt;?php echo $form->endControls(); ?&gt;
 	&lt;?php echo $form->endControlGroup(); ?&gt;

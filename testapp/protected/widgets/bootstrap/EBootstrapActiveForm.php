@@ -175,6 +175,14 @@ class EBootstrapActiveForm extends CActiveForm {
 		return EBootstrap::activeLabelEx($model,$attribute,$htmlOptions);
 	}
 	
+	public function textFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
+		return EBootstrap::activeTextFieldPrepend($model, $attribute, $prepend, $htmlOptions);
+	}
+	
+	public function textFieldAppend($model,$attribute,$append,$htmlOptions=array()) {
+		return EBootstrap::activeTextFieldAppend($model, $attribute, $append, $htmlOptions);
+	}
+	
 	/*
 	 * Returns a help block
 	 *
