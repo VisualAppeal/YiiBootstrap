@@ -1,24 +1,15 @@
 <?php 
 $this->widget('EBootstrapListViewItem', array(
 	'data' => $data,
-	'items' => array(
-		'title' => array(
-			'link' => array(
-				'url' => $this->createUrl('view', array('id' => $data->id)),
-				'title' => $data->title,
-			),
-			'title' => true,
+	'attributes'=>array(
+		array(
+			'name' => 'title',
+			'type' => 'html',
+			'cssClass' => 'bootstrap-list-view-item-title',
+			'value' => EBootstrap::link(EBootstrap::encode($data->title), array('crud/view','id'=>$data->id))
 		),
-		'date_created' => array(
-			'type' => 'date',
-			'format' => 'yyyy-MM-dd hh:mm',
-		),
-		'date_updated' => array(
-			'type' => 'date',
-			'format' => 'yyyy-MM-dd hh:mm',
-		),
-	),
-	'htmlOptions' => array(
+		'date_created',
+		'date_updated',
 	),
 ));
 ?>
