@@ -4,16 +4,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	
-	<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
-<script type="text/javascript" src="../../../assets/6badb5f/jquery.js"></script>
-<script type="text/javascript" src="../../../assets/8b3fe5f8/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../assets/prettify.css" />
+<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
+<script type="text/javascript" src="../../../assets/jquery.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../assets/prettify.js"></script>
 <title>Yii Bootstrap Test Application - Login</title>
 </head>
 
 <body>
 
 	<header>
-		<div id="yw0" class="navbar">
+		<div id="yw2" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
 <a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
@@ -49,7 +51,7 @@
 	<div class="container" id="content">
 	
 						
-							<ul class="breadcrumb">
+							<ul class="breadcrumbs breadcrumb">
 <li><a href="../../../index.php.html">Home</a></li>
  <span class="divider">/</span><li><span>Login</span></li>
 </ul>			
@@ -61,16 +63,48 @@
 
 <p>Please fill out the following form with your login credentials:</p>
 
-<div class="form">
 <form id="login-form" action="/va/yiibootstrapwidgets/testapp/index.php/site/login" method="post">
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
 	<div class="control-group">		<label for="LoginForm_username" class="required">Username <span class="required">*</span></label>		<div class="controls">			<input name="LoginForm[username]" id="LoginForm_username" type="text" />					</div>	</div>
 	<div class="control-group">		<label for="LoginForm_password" class="required">Password <span class="required">*</span></label>		<div class="controls">			<input name="LoginForm[password]" id="LoginForm_password" type="password" />						<p class="help-block">Hint: You may login with <tt>demo/demo</tt> or <tt>admin/admin</tt>.</p>		</div>	</div>
 	<div class="control-group">		<label for="LoginForm_rememberMe">Remember me next time</label>		<div class="controls">			<input id="ytLoginForm_rememberMe" type="hidden" value="0" name="LoginForm[rememberMe]" /><input name="LoginForm[rememberMe]" id="LoginForm_rememberMe" value="1" type="checkbox" />					</div>	</div>
 	<div class="form-actions">		<input class="btn btn-primary" type="submit" name="yt0" value="Login" />	</div>
-</form></div><!-- form -->
-</div><!-- content -->
+</form>
+<a class="btn source-toggle" id="yw0" data-toggle="collapse" data-target="#ebootstraplogin-example">Show Login Form Source</a>
+<pre id="ebootstraplogin-example" class="collapse prettyprint well">&lt;?php $form=$this-&gt;beginWidget('EBootstrapActiveForm', array(
+	'id'=&gt;'login-form',
+)); ?&gt;
+
+	&lt;?php echo $form-&gt;beginControlGroup($model, 'name'); ?&gt;
+		&lt;?php echo $form-&gt;labelEx($model,'username'); ?&gt;
+		&lt;?php echo $form-&gt;beginControls(); ?&gt;
+			&lt;?php echo $form-&gt;textField($model,'username'); ?&gt;
+			&lt;?php echo $form-&gt;error($model,'username'); ?&gt;
+		&lt;?php echo $form-&gt;endControls(); ?&gt;
+	&lt;?php echo $form-&gt;endControlGroup(); ?&gt;
+
+	&lt;?php echo $form-&gt;beginControlGroup($model, 'name'); ?&gt;
+		&lt;?php echo $form-&gt;labelEx($model,'password'); ?&gt;
+		&lt;?php echo $form-&gt;beginControls(); ?&gt;
+			&lt;?php echo $form-&gt;passwordField($model,'password'); ?&gt;
+			&lt;?php echo $form-&gt;error($model,'password'); ?&gt;
+			&lt;?php echo $form-&gt;helpBlock('Hint: You may login with &lt;tt&gt;demo/demo&lt;/tt&gt; or &lt;tt&gt;admin/admin&lt;/tt&gt;.'); ?&gt;
+		&lt;?php echo $form-&gt;endControls(); ?&gt;
+	&lt;?php echo $form-&gt;endControlGroup(); ?&gt;
+
+	&lt;?php echo $form-&gt;beginControlGroup($model, 'name'); ?&gt;
+		&lt;?php echo $form-&gt;label($model,'rememberMe'); ?&gt;
+		&lt;?php echo $form-&gt;beginControls(); ?&gt;
+			&lt;?php echo $form-&gt;checkBox($model,'rememberMe'); ?&gt;
+			&lt;?php echo $form-&gt;error($model,'rememberMe'); ?&gt;
+		&lt;?php echo $form-&gt;endControls(); ?&gt;
+	&lt;?php echo $form-&gt;endControlGroup(); ?&gt;
+
+	&lt;?php echo $form-&gt;beginActions(); ?&gt;
+		&lt;?php echo $form-&gt;submitButton('Login'); ?&gt;
+	&lt;?php echo $form-&gt;endActions(); ?&gt;
+
+&lt;?php $this-&gt;endWidget(); ?&gt;
+</pre></div><!-- content -->
 	
 	</div>
 	
@@ -78,6 +112,21 @@
 		Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>. Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>.
 	</footer>
 
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+
+				$("#ebootstraplogin-example").on("show", function() {
+					$("#yw0").html("Hide Login Form Source");
+				});
+				$("#ebootstraplogin-example").on("hide", function() {
+					$("#yw0").html("Show Login Form Source");;
+				});
+			
+prettyPrint();
+});
+/*]]>*/
+</script>
 </body>
 </html>
 

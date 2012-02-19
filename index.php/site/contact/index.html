@@ -4,16 +4,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	
-	<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
-<script type="text/javascript" src="../../../assets/6badb5f/jquery.js"></script>
-<script type="text/javascript" src="../../../assets/8b3fe5f8/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../assets/prettify.css" />
+<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
+<script type="text/javascript" src="../../../assets/jquery.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../assets/prettify.js"></script>
 <title>Yii Bootstrap Test Application - Contact Us</title>
 </head>
 
 <body>
 
 	<header>
-		<div id="yw1" class="navbar">
+		<div id="yw3" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
 <a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
@@ -49,7 +51,7 @@
 	<div class="container" id="content">
 	
 						
-							<ul class="breadcrumb">
+							<ul class="breadcrumbs breadcrumb">
 <li><a href="../../../index.php.html">Home</a></li>
  <span class="divider">/</span><li><span>Contact</span></li>
 </ul>			
@@ -59,7 +61,6 @@
 	<h1>Contact Us</h1>
 </div>
 
-
 <p>
 	If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
 </p>
@@ -68,18 +69,85 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	
-	<div class="control-group">		<label for="ContactForm_name" class="required">Name <span class="required">*</span></label>		<div class="controls">			<input name="ContactForm[name]" id="ContactForm_name" type="text" />					</div>	</div>
-	<div class="control-group">		<label for="ContactForm_email" class="required">Email <span class="required">*</span></label>		<div class="controls">			<input name="ContactForm[email]" id="ContactForm_email" type="text" />					</div>	</div>
-	<div class="control-group">		<label for="ContactForm_subject" class="required">Subject <span class="required">*</span></label>		<div class="controls">			<input size="60" maxlength="128" name="ContactForm[subject]" id="ContactForm_subject" type="text" />					</div>	</div>
-	<div class="control-group">		<label for="ContactForm_body" class="required">Body <span class="required">*</span></label>		<div class="controls">			<textarea rows="6" cols="50" name="ContactForm[body]" id="ContactForm_body"></textarea>					</div>	</div>
+	<div class="control-group">		<label class="control-label required" for="ContactForm_name">Name <span class="required">*</span></label>		<div class="controls">			<input name="ContactForm[name]" id="ContactForm_name" type="text" />					</div>	</div>
+	<div class="control-group">		<label class="control-label required" for="ContactForm_email">Email <span class="required">*</span></label>		<div class="controls">			<input name="ContactForm[email]" id="ContactForm_email" type="text" />					</div>	</div>
+	<div class="control-group">		<label class="control-label required" for="ContactForm_subject">Subject <span class="required">*</span></label>		<div class="controls">			<input size="60" maxlength="128" name="ContactForm[subject]" id="ContactForm_subject" type="text" />					</div>	</div>
+	<div class="control-group">		<label class="control-label required" for="ContactForm_body">Body <span class="required">*</span></label>		<div class="controls">			<textarea rows="6" cols="50" name="ContactForm[body]" id="ContactForm_body"></textarea>					</div>	</div>
 			<div class="captcha">
-			<div class="control-group">				<label for="ContactForm_verifyCode">Verification Code</label>				<div class="controls">					<img id="yw0" src="../captcha/index-v=4f405f2c29f33.html" alt="" /><br />
+			<div class="control-group">				<label class="control-label" for="ContactForm_verifyCode">Verification Code</label>				<div class="controls">					<img id="yw0" src="../captcha/index-v=4f413736979f1.html" alt="" /><br />
 					<input name="ContactForm[verifyCode]" id="ContactForm_verifyCode" type="text" />
 					<p class="help-block">Please enter the letters as they are shown in the image above.<br />Letters are not case-sensitive.</p>									</div>			</div>		</div>
 	
 	<div class="form-actions">		<input class="btn btn-primary" type="submit" name="yt0" value="Submit" />	</div>
 </form>
-</div><!-- content -->
+
+<a class="btn" id="yw1" data-toggle="collapse" data-target="#ebootstrapactiveform-example">Show Contact Form Source</a>
+<pre id="ebootstrapactiveform-example" class="collapse prettyprint well">&lt;?php $form=$this-&gt;beginWidget('EBootstrapActiveForm', array(
+	'id'=&gt;'contact-form',
+	/*'enableClientValidation'=&gt;true,
+	'clientOptions'=&gt;array(
+		'validateOnSubmit'=&gt;true,
+	),*/
+	'horizontal' =&gt; true,
+)); ?&gt;
+
+	&lt;p class=&quot;note&quot;&gt;Fields with &lt;span class=&quot;required&quot;&gt;*&lt;/span&gt; are required.&lt;/p&gt;
+
+	&lt;?php echo $form-&gt;errorSummary($model); ?&gt;
+
+	&lt;?php echo $form-&gt;beginControlGroup($model, 'name'); ?&gt;
+		&lt;?php echo $form-&gt;labelEx($model,'name'); ?&gt;
+		&lt;?php echo $form-&gt;beginControls(); ?&gt;
+			&lt;?php echo $form-&gt;textField($model,'name'); ?&gt;
+			&lt;?php echo $form-&gt;error($model,'name'); ?&gt;
+		&lt;?php echo $form-&gt;endControls(); ?&gt;
+	&lt;?php echo $form-&gt;endControlGroup(); ?&gt;
+
+	&lt;?php echo $form-&gt;beginControlGroup($model, 'email'); ?&gt;
+		&lt;?php echo $form-&gt;labelEx($model,'email'); ?&gt;
+		&lt;?php echo $form-&gt;beginControls(); ?&gt;
+			&lt;?php echo $form-&gt;textField($model,'email'); ?&gt;
+			&lt;?php echo $form-&gt;error($model,'email'); ?&gt;
+		&lt;?php echo $form-&gt;endControls(); ?&gt;
+	&lt;?php echo $form-&gt;endControlGroup(); ?&gt;
+
+	&lt;?php echo $form-&gt;beginControlGroup($model, 'subject'); ?&gt;
+		&lt;?php echo $form-&gt;labelEx($model,'subject'); ?&gt;
+		&lt;?php echo $form-&gt;beginControls(); ?&gt;
+			&lt;?php echo $form-&gt;textField($model,'subject',array('size'=&gt;60,'maxlength'=&gt;128)); ?&gt;
+			&lt;?php echo $form-&gt;error($model,'subject'); ?&gt;
+		&lt;?php echo $form-&gt;endControls(); ?&gt;
+	&lt;?php echo $form-&gt;endControlGroup(); ?&gt;
+
+	&lt;?php echo $form-&gt;beginControlGroup($model, 'body'); ?&gt;
+		&lt;?php echo $form-&gt;labelEx($model,'body'); ?&gt;
+		&lt;?php echo $form-&gt;beginControls(); ?&gt;
+			&lt;?php echo $form-&gt;textArea($model,'body',array('rows'=&gt;6, 'cols'=&gt;50)); ?&gt;
+			&lt;?php echo $form-&gt;error($model,'body'); ?&gt;
+		&lt;?php echo $form-&gt;endControls(); ?&gt;
+	&lt;?php echo $form-&gt;endControlGroup(); ?&gt;
+
+	&lt;?php if(CCaptcha::checkRequirements()): ?&gt;
+		&lt;div class=&quot;captcha&quot;&gt;
+			&lt;?php echo $form-&gt;beginControlGroup($model, 'body'); ?&gt;
+				&lt;?php echo $form-&gt;labelEx($model,'verifyCode'); ?&gt;
+				&lt;?php echo $form-&gt;beginControls(); ?&gt;
+					&lt;?php $this-&gt;widget('CCaptcha'); ?&gt;&lt;br /&gt;
+					&lt;?php echo $form-&gt;textField($model,'verifyCode'); ?&gt;
+
+					&lt;?php echo $form-&gt;helpBlock('Please enter the letters as they are shown in the image above.&lt;br /&gt;Letters are not case-sensitive.'); ?&gt;
+					&lt;?php echo $form-&gt;error($model,'verifyCode'); ?&gt;
+				&lt;?php echo $form-&gt;endControls(); ?&gt;
+			&lt;?php echo $form-&gt;endControls(); ?&gt;
+		&lt;/div&gt;
+	&lt;?php endif; ?&gt;
+
+	&lt;?php echo $form-&gt;beginActions(); ?&gt;
+		&lt;?php echo $form-&gt;submitButton('Submit'); ?&gt;
+	&lt;?php echo $form-&gt;endActions(); ?&gt;
+
+&lt;?php $this-&gt;endWidget(); ?&gt;
+</pre></div><!-- content -->
 	
 	</div>
 	
@@ -104,6 +172,15 @@ jQuery('#yw0_button').live('click',function(){
 	return false;
 });
 
+
+				$("#ebootstrapactiveform-example").on("show", function() {
+					$("#yw1").html("Hide Contact Form Source");
+				});
+				$("#ebootstrapactiveform-example").on("hide", function() {
+					$("#yw1").html("Show Contact Form Source");;
+				});
+			
+prettyPrint();
 });
 /*]]>*/
 </script>

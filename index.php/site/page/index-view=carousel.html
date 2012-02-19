@@ -4,16 +4,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	
-	<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
-<script type="text/javascript" src="../../../assets/6badb5f/jquery.js"></script>
-<script type="text/javascript" src="../../../assets/8b3fe5f8/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../assets/prettify.css" />
+<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
+<script type="text/javascript" src="../../../assets/jquery.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../assets/prettify.js"></script>
 <title>Yii Bootstrap Test Application - Components - Carousel</title>
 </head>
 
 <body>
 
 	<header>
-		<div id="yw1" class="navbar">
+		<div id="yw2" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
 <a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
@@ -49,7 +51,7 @@
 	<div class="container" id="content">
 	
 						
-							<ul class="breadcrumb">
+							<ul class="breadcrumbs breadcrumb">
 <li><a href="../../../index.php.html">Home</a></li>
  <span class="divider">/</span><li><span>Components</span></li>
  <span class="divider">/</span><li><span>Carousel</span></li>
@@ -96,7 +98,20 @@
 <a data-slide="prev" class="left carousel-control" href="#yw0">&lsaquo;</a>
 <a data-slide="next" class="right carousel-control" href="#yw0">&rsaquo;</a>
 </div>
-</div><!-- content -->
+
+<pre class="prettyprint well">$this-&gt;widget('EBootstrapCarousel', array(
+	'items' =&gt; array(
+		array('src' =&gt; EBootstrap::thumbnailSrc(940, 400, 'ccc'), 'caption' =&gt; 'Image Caption 1', 'body' =&gt; 'This is a thumnail. What a great picture.', 'active' =&gt; true),
+		array('src' =&gt; EBootstrap::thumbnailSrc(940, 400, 'bbb'), 'caption' =&gt; 'Image Caption 2', 'body' =&gt; 'This is a thumnail. What a great picture.'),
+		array('src' =&gt; EBootstrap::thumbnailSrc(940, 400, 'aaa'), 'caption' =&gt; 'Image Caption 3', 'body' =&gt; 'This is a thumnail. What a great picture.'),
+		array('src' =&gt; EBootstrap::thumbnailSrc(940, 400, '999'), 'caption' =&gt; 'Image Caption 4', 'body' =&gt; 'This is a thumnail. What a great picture.'),
+		array('src' =&gt; EBootstrap::thumbnailSrc(940, 400, '888'), 'caption' =&gt; 'Image Caption 5', 'body' =&gt; 'This is a thumnail. What a great picture.'),
+		array('src' =&gt; EBootstrap::thumbnailSrc(940, 400, '777'), 'caption' =&gt; 'Image Caption 6', 'body' =&gt; 'This is a thumnail. What a great picture.'),
+	),
+	'interval' =&gt; 6000,
+	'htmlOptions' =&gt; array(),
+));
+</pre></div><!-- content -->
 	
 	</div>
 	
@@ -110,6 +125,7 @@ jQuery(function($) {
 $("#yw0").carousel({
 				interval: 6000,
 			});
+prettyPrint();
 });
 /*]]>*/
 </script>

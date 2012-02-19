@@ -4,16 +4,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	
-	<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
-<script type="text/javascript" src="../../../assets/6badb5f/jquery.js"></script>
-<script type="text/javascript" src="../../../assets/8b3fe5f8/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../assets/prettify.css" />
+<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
+<script type="text/javascript" src="../../../assets/jquery.js"></script>
+<script type="text/javascript" src="../../../assets/prettify.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
 <title>Yii Bootstrap Test Application - Base CSS - Images</title>
 </head>
 
 <body>
 
 	<header>
-		<div id="yw0" class="navbar">
+		<div id="yw1" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
 <a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
@@ -49,7 +51,7 @@
 	<div class="container" id="content">
 	
 						
-							<ul class="breadcrumb">
+							<ul class="breadcrumbs breadcrumb">
 <li><a href="../../../index.php.html">Home</a></li>
  <span class="divider">/</span><li><span>Base CSS</span></li>
  <span class="divider">/</span><li><span>Images</span></li>
@@ -84,7 +86,27 @@
 </p>
 </div></div>
 	</li>
-</ul></div><!-- content -->
+</ul>
+
+<h2>Source</h2>
+<pre class="prettyprint well">&lt;ul class=&quot;thumbnails&quot;&gt;
+	&lt;li class=&quot;span3&quot;&gt;
+		&lt;?php echo EBootstrap::thumbnailLink('#', EBootstrap::thumbnailSrc(230, 200)); ?&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;span3&quot;&gt;
+		&lt;?php echo EBootstrap::thumbnailLink('#', EBootstrap::thumbnailSrc(230, 200)); ?&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;span3&quot;&gt;
+		&lt;?php echo EBootstrap::imageCaption(EBootstrap::thumbnailSrc(230, 200), '', 'Lorem Ipsum', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam'); ?&gt;
+	&lt;/li&gt;
+	&lt;li class=&quot;span3&quot;&gt;
+		&lt;?php echo EBootstrap::imageCaption(EBootstrap::thumbnailSrc(230, 200), '', 'Lorem Ipsum', 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam', array(
+			EBootstrap::ibutton('Primary', '#', 'primary'),
+			EBootstrap::ibutton('Button', '#'),
+		)); ?&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+</pre></div><!-- content -->
 	
 	</div>
 	
@@ -92,6 +114,13 @@
 		Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>. Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>.
 	</footer>
 
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+prettyPrint();
+});
+/*]]>*/
+</script>
 </body>
 </html>
 

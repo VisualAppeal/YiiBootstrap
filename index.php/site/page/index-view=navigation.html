@@ -4,16 +4,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	
-	<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
-<script type="text/javascript" src="../../../assets/6badb5f/jquery.js"></script>
-<script type="text/javascript" src="../../../assets/8b3fe5f8/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../assets/prettify.css" />
+<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
+<script type="text/javascript" src="../../../assets/jquery.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../assets/prettify.js"></script>
 <title>Yii Bootstrap Test Application - Components - Navigation</title>
 </head>
 
 <body>
 
 	<header>
-		<div id="yw7" class="navbar">
+		<div id="yw15" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
 <a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
@@ -49,7 +51,7 @@
 	<div class="container" id="content">
 	
 						
-							<ul class="breadcrumb">
+							<ul class="breadcrumbs breadcrumb">
 <li><a href="../../../index.php.html">Home</a></li>
  <span class="divider">/</span><li><span>Components</span></li>
  <span class="divider">/</span><li><span>Navigation</span></li>
@@ -118,11 +120,52 @@
 </div>	</div>
 </div>
 
+<h3>Source</h3>
+<a class="btn" id="yw2" data-toggle="collapse" data-target="#ebootstraptab-example">Show Tab Source</a>
+<pre id="ebootstraptab-example" class="collapse prettyprint well">&lt;?php 
+$this-&gt;widget('EBootstrapTabNavigation', array(
+	'items' =&gt; array(
+		array('label' =&gt; 'Page 1', 'url' =&gt; '#page1', 'active' =&gt; true),
+		array('label' =&gt; 'Page 2', 'url' =&gt; '#page2'),
+		array('label' =&gt; 'Dropdown', 'url' =&gt; '#', 'items' =&gt; array(
+			array('label' =&gt; 'Subpage 1', 'url' =&gt; '#subpage1'),
+			array('label' =&gt; 'Subpage 2', 'url' =&gt; '#subpage2'),
+		)),
+	),
+	'stacked' =&gt; false,
+	'pills' =&gt; false, //true
+));
+
+$this-&gt;beginWidget('EBootstrapTabContentWrapper');
+?&gt;
+
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('active' =&gt; true, 'id' =&gt; 'page1')); ?&gt;
+		&lt;h4&gt;Page 1&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+	
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'page2')); ?&gt;
+		&lt;h4&gt;Page 2&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+	
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'subpage1')); ?&gt;
+		&lt;h4&gt;Subpage 1&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor.&lt;/p&gt;
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+	
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'subpage2')); ?&gt;
+		&lt;h4&gt;Subpage 2&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor.&lt;/p&gt;
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+
+&lt;?php $this-&gt;endWidget(); ?&gt;
+</pre>
 <h2>Stacked</h2>
 <div class="row">
 	<div class="span6">
 		<h3>Tabs</h3>
-		<ul id="yw2" class="nav nav-tabs nav-stacked">
+		<ul id="yw4" class="nav nav-tabs nav-stacked">
 <li class="active"><a data-toggle="tab" href="#stackedpage1">Page 1</a></li>
 <li><a data-toggle="tab" href="#stackedpage2">Page 2</a></li>
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown<b class="caret"></b></a>
@@ -149,7 +192,7 @@
 	
 	<div class="span6">
 		<h3>Pills</h3>
-		<ul id="yw3" class="nav nav-pills nav-stacked">
+		<ul id="yw5" class="nav nav-pills nav-stacked">
 <li class="active"><a data-toggle="pill" href="#pillstackedpage1">Page 1</a></li>
 <li><a data-toggle="pill" href="#pillstackedpage2">Page 2</a></li>
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown<b class="caret"></b></a>
@@ -175,6 +218,47 @@
 </div>	</div>
 </div>
 
+<h3>Source</h3>
+<a class="btn" id="yw6" data-toggle="collapse" data-target="#ebootstraptab-example">Show Tab Source</a>
+<pre id="ebootstraptab-example" class="collapse prettyprint well">&lt;?php 
+$this-&gt;widget('EBootstrapTabNavigation', array(
+	'items' =&gt; array(
+		array('label' =&gt; 'Page 1', 'url' =&gt; '#page1', 'active' =&gt; true),
+		array('label' =&gt; 'Page 2', 'url' =&gt; '#page2'),
+		array('label' =&gt; 'Dropdown', 'url' =&gt; '#', 'items' =&gt; array(
+			array('label' =&gt; 'Subpage 1', 'url' =&gt; '#subpage1'),
+			array('label' =&gt; 'Subpage 2', 'url' =&gt; '#subpage2'),
+		)),
+	),
+	'stacked' =&gt; true,
+	'pills' =&gt; false, //true
+));
+
+$this-&gt;beginWidget('EBootstrapTabContentWrapper');
+?&gt;
+
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('active' =&gt; true, 'id' =&gt; 'page1')); ?&gt;
+		&lt;h4&gt;Page 1&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+	
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'page2')); ?&gt;
+		&lt;h4&gt;Page 2&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+	
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'subpage1')); ?&gt;
+		&lt;h4&gt;Subpage 1&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor.&lt;/p&gt;
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+	
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'subpage2')); ?&gt;
+		&lt;h4&gt;Subpage 2&lt;/h4&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor.&lt;/p&gt;
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+
+&lt;?php $this-&gt;endWidget(); ?&gt;
+</pre>
 <h2>Tab navigation at different positions</h2>
 <div class="row">
 	<div class="span4">
@@ -192,7 +276,7 @@
 		</div>	
 	
 	</div>	
-	<ul id="yw4" class="nav nav-tabs">
+	<ul id="yw8" class="nav nav-tabs">
 <li class="active"><a data-toggle="tab" href="#bottompage1">Page 1</a></li>
 <li><a data-toggle="tab" href="#bottompage2">Page 2</a></li>
 <li><a data-toggle="tab" href="#bottompage3">Page 3</a></li>
@@ -202,7 +286,7 @@
 	
 	<div class="span4">
 		<h3>Left</h3>
-		<div class="tabbable tabs-left">	<ul id="yw5" class="nav nav-tabs">
+		<div class="tabbable tabs-left">	<ul id="yw9" class="nav nav-tabs">
 <li class="active"><a data-toggle="tab" href="#leftpage1">Page 1</a></li>
 <li><a data-toggle="tab" href="#leftpage2">Page 2</a></li>
 <li><a data-toggle="tab" href="#leftpage3">Page 3</a></li>
@@ -223,7 +307,7 @@
 	
 	<div class="span4">
 		<h3>Right</h3>
-		<div class="tabbable tabs-right">	<ul id="yw6" class="nav nav-tabs">
+		<div class="tabbable tabs-right">	<ul id="yw10" class="nav nav-tabs">
 <li class="active"><a data-toggle="tab" href="#rightpage1">Page 1</a></li>
 <li><a data-toggle="tab" href="#rightpage2">Page 2</a></li>
 <li><a data-toggle="tab" href="#rightpage3">Page 3</a></li>
@@ -243,6 +327,85 @@
 	</div></div>	</div>
 </div>
 
+<h3>Tab navigation at the bottom</h3>
+<a class="btn" id="yw11" data-toggle="collapse" data-target="#ebootstraptabbottom-example">Show Tab Source</a>
+<pre id="ebootstraptabbottom-example" class="collapse prettyprint well">&lt;?php
+/* When you position the navigation at the bottom you have to switch the order of the content and the navigation */
+$this-&gt;beginWidget('EBootstrapTabWrapper', array(
+	'position' =&gt; 'bottom',
+));
+?&gt;
+
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContentWrapper'); ?&gt;
+	
+		&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('active' =&gt; true, 'id' =&gt; 'bottompage1')); ?&gt;
+			&lt;h4&gt;Page 1&lt;/h4&gt;
+			&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+		&lt;?php $this-&gt;endWidget(); ?&gt;
+		
+		&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'bottompage2')); ?&gt;
+			&lt;h4&gt;Page 2&lt;/h4&gt;
+			&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+		&lt;?php $this-&gt;endWidget(); ?&gt;
+		
+		&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'bottompage3')); ?&gt;
+			&lt;h4&gt;Page 3&lt;/h4&gt;
+			&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+		&lt;?php $this-&gt;endWidget(); ?&gt;
+	
+	
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+	
+	&lt;?php
+	$this-&gt;widget('EBootstrapTabNavigation', array(
+		'items' =&gt; array(
+			array('label' =&gt; 'Page 1', 'url' =&gt; '#bottompage1', 'active' =&gt; true),
+			array('label' =&gt; 'Page 2', 'url' =&gt; '#bottompage2'),
+			array('label' =&gt; 'Page 3', 'url' =&gt; '#bottompage3'),
+		),
+	));
+	?&gt;
+
+&lt;?php $this-&gt;endWidget(); ?&gt;
+</pre>
+<h3>Tab navigation left or right</h3>
+<a class="btn" id="yw13" data-toggle="collapse" data-target="#ebootstraptabside-example">Show Tab Source</a>
+<pre id="ebootstraptabside-example" class="collapse prettyprint well">&lt;?php 
+$this-&gt;beginWidget('EBootstrapTabWrapper', array(
+	'position' =&gt; 'left', //or right
+));
+?&gt;
+	&lt;?php
+	$this-&gt;widget('EBootstrapTabNavigation', array(
+		'items' =&gt; array(
+			array('label' =&gt; 'Page 1', 'url' =&gt; '#leftpage1', 'active' =&gt; true),
+			array('label' =&gt; 'Page 2', 'url' =&gt; '#leftpage2'),
+			array('label' =&gt; 'Page 3', 'url' =&gt; '#leftpage3'),
+		),
+	));
+	?&gt;
+	
+	&lt;?php $this-&gt;beginWidget('EBootstrapTabContentWrapper'); ?&gt;
+
+		&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('active' =&gt; true, 'id' =&gt; 'leftpage1')); ?&gt;
+			&lt;h4&gt;Page 1&lt;/h4&gt;
+			&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+		&lt;?php $this-&gt;endWidget(); ?&gt;
+		
+		&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'leftpage2')); ?&gt;
+			&lt;h4&gt;Page 2&lt;/h4&gt;
+			&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+		&lt;?php $this-&gt;endWidget(); ?&gt;
+		
+		&lt;?php $this-&gt;beginWidget('EBootstrapTabContent', array('id' =&gt; 'leftpage3')); ?&gt;
+			&lt;h4&gt;Page 3&lt;/h4&gt;
+			&lt;p&gt;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam sit amet elit vitae arcu interdum ullamcorper. Nullam ultrices, nisi quis scelerisque convallis, augue neque tempor enim, et mattis justo nibh eu elit. Quisque ultrices gravida pede. Mauris accumsan vulputate tellus. Phasellus condimentum bibendum dolor. Mauris sed ipsum. Phasellus in diam. Nam sapien ligula, consectetuer id, hendrerit in, cursus sed, leo. Nam tincidunt rhoncus urna. Aliquam id massa ut nibh bibendum imperdiet. Curabitur neque mauris, porta vel, lacinia quis, placerat ultrices, orci.&lt;/p&gt;
+		&lt;?php $this-&gt;endWidget(); ?&gt;
+	
+	
+	&lt;?php $this-&gt;endWidget(); ?&gt;
+&lt;?php $this-&gt;endWidget(); ?&gt;
+</pre>
 <h2>Nav lists</h2>
 <p>You can see a nav list at the <a href="index-view=sidebar.html">sidebar demo</a>.</p>
 
@@ -261,6 +424,48 @@
 		Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>. Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>.
 	</footer>
 
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+
+				$("#ebootstraptab-example").on("show", function() {
+					$("#yw2").html("Hide Tab Source");
+				});
+				$("#ebootstraptab-example").on("hide", function() {
+					$("#yw2").html("Show Tab Source");;
+				});
+			
+prettyPrint();
+
+				$("#ebootstraptab-example").on("show", function() {
+					$("#yw6").html("Hide Tab Source");
+				});
+				$("#ebootstraptab-example").on("hide", function() {
+					$("#yw6").html("Show Tab Source");;
+				});
+			
+prettyPrint();
+
+				$("#ebootstraptabbottom-example").on("show", function() {
+					$("#yw11").html("Hide Tab Source");
+				});
+				$("#ebootstraptabbottom-example").on("hide", function() {
+					$("#yw11").html("Show Tab Source");;
+				});
+			
+prettyPrint();
+
+				$("#ebootstraptabside-example").on("show", function() {
+					$("#yw13").html("Hide Tab Source");
+				});
+				$("#ebootstraptabside-example").on("hide", function() {
+					$("#yw13").html("Show Tab Source");;
+				});
+			
+prettyPrint();
+});
+/*]]>*/
+</script>
 </body>
 </html>
 

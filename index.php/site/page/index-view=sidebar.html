@@ -4,16 +4,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	
-	<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
-<script type="text/javascript" src="../../../assets/6badb5f/jquery.js"></script>
-<script type="text/javascript" src="../../../assets/8b3fe5f8/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../assets/prettify.css" />
+<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
+<script type="text/javascript" src="../../../assets/jquery.js"></script>
+<script type="text/javascript" src="../../../assets/prettify.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
 <title>Yii Bootstrap Test Application - Sidebar</title>
 </head>
 
 <body>
 
 	<header>
-		<div id="yw1" class="navbar">
+		<div id="yw2" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
 <a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
@@ -49,7 +51,7 @@
 	<div class="container" id="content">
 	
 						
-							<ul class="breadcrumb">
+							<ul class="breadcrumbs breadcrumb">
 <li><a href="../../../index.php.html">Home</a></li>
  <span class="divider">/</span><li><span>Sidebar</span></li>
 </ul>			
@@ -58,8 +60,7 @@
 <div class="row">
 
 	<div class="span3" id="sidebar">
-		<div class="well sidebar-nav">
-			<ul class="nav nav-list" id="yw0">
+		<div class="well sidebar-nav"><ul class="nav nav-list" id="yw1">
 <li><a href="../../admin/index.html"><i class="icon-home"></i> Administration</a></li>
 <li class="nav-header"><span>User</span></li><li><a href="#"><i class="icon-user"></i> Manage</a></li>
 <li><a href="#"><i class="icon-th"></i> Groups</a></li>
@@ -68,8 +69,7 @@
 <li><a href="#"><i class="icon-shopping-cart"></i> Billing</a></li>
 <li><a href="#"><i class="icon-tag"></i> Voucher</a></li>
 
-</ul>		</div>
-	</div>
+</ul></div>	</div>
 	
 	<div class="span9" id="main">
 		
@@ -77,7 +77,32 @@
 	<h1>Sidebar</h1>
 </div>
 
-<p>Fill with content.</p>	</div>
+<pre class="prettyprint well">$this-&gt;widget('EBootstrapSidebar', array(
+	'items'=&gt; array(
+		array(
+			'label' =&gt; Yii::t('Admin', 'Administration'), 'url' =&gt; $this-&gt;createUrl('/admin/'), 'icon' =&gt; 'home',
+		),
+		array(
+			'label' =&gt; 'User', 'items' =&gt; array(
+				array('label' =&gt; 'Manage', 'url' =&gt; '#', 'icon' =&gt; 'user'),
+				array('label' =&gt; 'Groups', 'url' =&gt; '#', 'icon' =&gt; 'th'),
+			),
+		),
+		array(
+			'label' =&gt; 'Top Secret', 'access' =&gt; 'admin', 'items' =&gt; array(
+				array('label' =&gt; 'Can you see?', 'url' =&gt; '#', 'icon' =&gt; 'lock'),
+			),
+		),
+		array(
+			'label' =&gt; 'Finances', 'items' =&gt; array(
+				array('label' =&gt; 'Statistic', 'url' =&gt; '#', 'icon' =&gt; 'signal'),
+				array('label' =&gt; 'Billing', 'url' =&gt; '#', 'icon' =&gt; 'shopping-cart'),
+				array('label' =&gt; 'Voucher', 'url' =&gt; '#', 'icon' =&gt; 'tag'),
+			),
+		),
+	),
+));
+</pre>	</div>
 		
 </div>
 	
@@ -87,6 +112,13 @@
 		Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>. Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>.
 	</footer>
 
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+prettyPrint();
+});
+/*]]>*/
+</script>
 </body>
 </html>
 

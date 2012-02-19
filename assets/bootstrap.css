@@ -1,0 +1,57 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+/* EBootstrapListView */
+.bootstrap-list-view .summary {
+  font-style: italic;
+}
+.bootstrap-list-view .bootstrap-list-view-item {
+  margin-bottom: 10px;
+  background: white;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}
+.bootstrap-list-view .bootstrap-list-view-item .bootstrap-list-view-item-content {
+  padding: 0 10px;
+}
+.bootstrap-list-view .bootstrap-list-view-item .bootstrap-list-view-item-content .bootstrap-list-view-item-attribute {
+  font-weight: bold;
+}
+.bootstrap-list-view .bootstrap-list-view-item .bootstrap-list-view-item-content:last-child {
+  padding-bottom: 10px;
+}
+.bootstrap-list-view .bootstrap-list-view-item .bootstrap-list-view-item-title {
+  background-color: #ebebeb;
+  background-image: -moz-linear-gradient(top, #eeeeee, #e6e6e6);
+  background-image: -ms-linear-gradient(top, #eeeeee, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eeeeee), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #e6e6e6);
+  background-image: -o-linear-gradient(top, #eeeeee, #e6e6e6);
+  background-image: linear-gradient(top, #eeeeee, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#e6e6e6', GradientType=0);
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+.bootstrap-list-view .bootstrap-list-view-item:last-child {
+  margin-bottom: 0;
+}
+/* EBootstrapGridView */
+.bootstrap-grid-view .summary {
+  font-style: italic;
+}
+.bootstrap-grid-view table tr td {
+  min-width: 60px;
+}
+.bootstrap-grid-view table tr td input {
+  width: auto;
+}

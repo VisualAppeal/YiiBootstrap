@@ -3505,7 +3505,7 @@ header .navbar-inner {
   -moz-border-radius: 0;
   border-radius: 0;
 }
-form label {
+form label.required {
   font-weight: bold;
 }
 #content {
@@ -3514,6 +3514,12 @@ form label {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+/* Prettyprint */
+pre.prettyprint {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
 }
 footer {
   margin-top: 10px;

@@ -4,16 +4,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	
-	<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
-<script type="text/javascript" src="../../../assets/6badb5f/jquery.js"></script>
-<script type="text/javascript" src="../../../assets/8b3fe5f8/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../../assets/prettify.css" />
+<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
+<script type="text/javascript" src="../../../assets/jquery.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../assets/prettify.js"></script>
 <title>Yii Bootstrap Test Application</title>
 </head>
 
 <body>
 
 	<header>
-		<div id="yw0" class="navbar">
+		<div id="yw2" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
 <a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
@@ -61,15 +63,39 @@
 </p>
 </div>
 
-<h2>Includes</h2>
-<p>This Framework uses some 3rd party tools</p>
-
-<ul>
-	<li><a href="http://www.yiiframework.com/">Yii</a> - 1.1.10</li>
-	<li><a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> of course - 2.0.0</li>
-	<li><a href="http://www.yiiframework.com/extension/less/">Yii less extension</a> - 0.9</li>
-	<li><a href="http://placehold.it/">placehold.it</a> - custom thumbnails</li>
-</ul></div><!-- content -->
+<a class="btn source-toggle" id="yw0" data-toggle="collapse" data-target="#ebootstraphero-example">Show Hero Source</a>
+<pre id="ebootstraphero-example" class="collapse prettyprint well">$this-&gt;widget('EBootstrapHero', array(
+	'headline' =&gt; EBootstrap::encode(Yii::app()-&gt;name),
+	'body' =&gt; 'The aim of the project is to transform all &lt;a href=&quot;http://twitter.github.com/bootstrap/&quot;&gt;bootstrap&lt;/a&gt; components into &lt;a href=&quot;http://www.yiiframework.com/&quot;&gt;Yii&lt;/a&gt; Widgets and apply the bootstrap style to the default Yii Widgets.',
+	'actions' =&gt; array(
+		EBootstrap::ibutton('Primary Action', '#', 'primary', 'large'),
+	),
+));
+</pre>
+<div class="row">
+	<div class="span3">
+		<h2>How to use</h2>
+		<p>See our custom code examples at the <a href="https://github.com/VisualAppeal/YiiBootstrap/wiki/">github wiki</a>.</p>
+		<p><strong>Easy to integrate into Yii:</strong></p>
+		<ul>
+			<li>Include the <a href="http://twitter.github.com/bootstrap/index.html">bootstrap</a> css/less files</li>
+			<li><a href="http://www.yiiframework.com/extension/yii-bootstrap-widgets/">Download</a> the extension</li>
+			<li>Unpack the extension and move the <em>widgets</em> folder to the <em>protected</em> folder</li>
+			<li>Import the widgets in your config</li>
+		</ul>
+	</div>
+	<div class="span3">
+		<h2>Includes</h2>
+		<p>This Framework uses some 3rd party tools:</p>
+		
+		<ul>
+			<li><a href="http://www.yiiframework.com/">Yii</a> - 1.1.10</li>
+			<li><a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> of course - 2.0.1</li>
+			<li><a href="http://www.yiiframework.com/extension/less/">Yii less extension</a> - 0.9</li>
+			<li><a href="http://placehold.it/">placehold.it</a> - custom thumbnails</li>
+		</ul>
+	</div>
+</div></div><!-- content -->
 	
 	</div>
 	
@@ -77,6 +103,21 @@
 		Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>. Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>.
 	</footer>
 
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+
+				$("#ebootstraphero-example").on("show", function() {
+					$("#yw0").html("Hide Hero Source");
+				});
+				$("#ebootstraphero-example").on("hide", function() {
+					$("#yw0").html("Show Hero Source");;
+				});
+			
+prettyPrint();
+});
+/*]]>*/
+</script>
 </body>
 </html>
 
