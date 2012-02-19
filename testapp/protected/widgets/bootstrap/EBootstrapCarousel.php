@@ -1,16 +1,52 @@
 <?php 
 
+/*
+ * Render the bootstrap image carousel
+ * http://twitter.github.com/bootstrap/javascript.html#carousel
+ * 
+ * @author Tim Helfensdörfer <tim@visualappeal.de>
+ * @version 0.3.0
+ * @package bootstrap.widgets
+ */
 class EBootstrapCarousel extends CWidget {
+	/*
+	 * Array of images
+	 *
+	 * Each item can have the following options:
+	 * @param bool $active Only one item should be active. This will be the first the user can see
+	 * @param string $src Image src
+	 * @param string $alt Alternative text for the image
+	 * @param string $caption Image caption
+	 * @param string $body Text which will be rendered below the caption
+	 * @param array $htmlOptions
+	 */
 	public $items = array();
+	
+	/*
+	 * Label for the previous control
+	 */
 	public $controlPrev = "&lsaquo;";
+	
+	/*
+	 * Label for the next control
+	 */
 	public $controlNext = "&rsaquo;";
 	
+	/*
+	 * Interval for the next image to appear
+	 */
 	public $interval = 2000;
 	
-	public $htmlOptions = array();
-	
+	/*
+	 * JS File to slide the images
+	 *
+	 * If its set to false, no file will be included
+	 */
 	public $jsFile = null;
 	
+	/*
+	 * Init the widget
+	 */
 	public function init() {
 		parent::init();
 		
@@ -36,6 +72,9 @@ class EBootstrapCarousel extends CWidget {
 		Yii::app()->clientScript->registerScript('ebootstrap-carousel-'.$this->htmlOptions['id'], $js, CClientScript::POS_READY);
 	}
 	
+	/*
+	 * Render the carousel
+	 */
 	public function run() {
 		parent::run();
 		

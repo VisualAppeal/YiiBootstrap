@@ -1,12 +1,24 @@
 <?php 
 
-class EBootstrapFlashMessages extends CWidget {	
-	public $htmlOptions = array();
+/*
+ * Render all flash messages with EBootstrapAlert
+ * 
+ * @author Tim Helfensdörfer <tim@visualappeal.de>
+ * @version 0.3.0
+ * @package bootstrap.yiiwidgets
+ */
+class EBootstrapFlashMessages extends EBootstrapWidget {
 	
+	/*
+	 * Init the widget
+	 */	
 	public function init() {
 		parent::init();
 	}
 	
+	/*
+	 * Render the flash messages
+	 */
 	public function run() {
 		parent::run();
 		

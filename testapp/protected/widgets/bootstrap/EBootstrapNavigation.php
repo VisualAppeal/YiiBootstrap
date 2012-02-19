@@ -2,26 +2,42 @@
 
 Yii::import('zii.widgets.CMenu');
 
+/*
+ * Render a navigation-bar
+ * http://twitter.github.com/bootstrap/components.html#navbar
+ * 
+ * @author Tim Helfensdörfer <tim@visualappeal.de>
+ * @version 0.3.0
+ * @package bootstrap.widgets
+ */
 class EBootstrapNavigation extends CMenu {
 	/* 
 	 * Stay at top of the page 
 	 */ 
 	public $fixed = false;
 	
+	/*
+	 * Javascript file to hide the alert.
+	 *
+	 * If its set to false, no file will be included
+	 */
 	public $jsFile = null;
 	
+	/*
+	 * Init the widget
+	 */
 	public function init() {
 		parent::init();
 		
-		if (isset($this->htmlOptions['class']))
-			$this->htmlOptions['class'] = implode(' ', explode(' ', $this->htmlOptions['class'])+array('navbar'));
-		else
-			$this->htmlOptions['class'] = 'navbar';
+		EBootstrap::mergeClass($this->htmlOptions, array('navbar'));
 		
 		Yii::app()->clientScript->registerCoreScript('jquery');
 		if (is_null($this->jsFile)) {
 			$jsFile = dirname(__FILE__).DIRECTORY_SEPARATOR.'js'.DIRECTORY_SEPARATOR.'bootstrap.min.js';
 			$this->jsFile = Yii::app()->getAssetManager()->publish($jsFile);
+			Yii::app()->clientScript->registerScriptFile($this->jsFile);
+		}
+		elseif ($this->jsFile !== false) {
 			Yii::app()->clientScript->registerScriptFile($this->jsFile);
 		}
 	}
@@ -30,19 +46,31 @@ class EBootstrapNavigation extends CMenu {
 		parent::run();
 	}
 	
+	/*
+	 * Render the menu
+	 */
 	public function renderMenu($items) {
-		if (count($items)) {
+		if (count($items)) {			
 			echo EBootstrap::openTag('div', $this->htmlOptions)."\n";
-			$fixed = $this->fixed ? ' navbar-fixed-top' : '';
-			echo EBootstrap::openTag('div', array('class' => 'navbar-inner'.$fixed))."\n";
+			
+			$innerOptions = array('class' => 'navbar-inner');
+			if ($this->fixed)
+				EBootstrap::mergeClass($innerOptions, array('navbar-fixed-top'));
+			echo EBootstrap::openTag('div', $innerOptions)."\n";
+			
 			echo EBootstrap::openTag('div', array('class' => 'container'))."\n";
 			$this->renderMenuRecursive($items);
 			echo EBootstrap::closeTag('div')."\n";
+			
 			echo EBootstrap::closeTag('div')."\n";
+			
 			echo EBootstrap::closeTag('div')."\n";
 		}
 	}
 	
+	/*
+	 * Render the menu items
+	 */
 	protected function renderMenuRecursive($items, $sub = false) {
         $count=0;
         $first = true;

@@ -2,12 +2,35 @@
 
 Yii::import('zii.widgets.CMenu');
 
+/*
+ * Wrapper for the tab navigation
+ * http://twitter.github.com/bootstrap/components.html#navs
+ * 
+ * @author Tim Helfensdörfer <tim@visualappeal.de>
+ * @version 0.3.0
+ * @package bootstrap.widgets.tabs
+ */
 class EBootstrapTabNavigation extends CMenu {
+	/*
+	 * Style of the tabs
+	 */
 	public $pills = false;
+	
+	/*
+	 * Stacked navigation
+	 */
 	public $stacked = false;
 	
+	/*
+	 * JS File to tab through the pages
+	 *
+	 * If its set to false, no file will be included
+	 */
 	public $jsFile = null;
-
+	
+	/*
+	 * Init widget
+	 */
 	public function init() {
 		parent::init();
 		
@@ -29,10 +52,11 @@ class EBootstrapTabNavigation extends CMenu {
 		}
 	}
 	
-	public function run() {
-		parent::run();
-	}
-	
+	/*
+	 * Render navigation menu
+	 *
+	 * @param array $items
+	 */
 	public function renderMenu($items) {
 		if (count($items)) {
 			echo EBootstrap::openTag('ul', $this->htmlOptions)."\n";
@@ -41,6 +65,12 @@ class EBootstrapTabNavigation extends CMenu {
 		}
 	}
 	
+	/*
+	 * Render navigation menu items
+	 *
+	 * @param array $items
+	 * @param bool $sub If a submenu should be rendered
+	 */
 	protected function renderMenuRecursive($items, $sub = false) {
         $count=0;
         $first = true;

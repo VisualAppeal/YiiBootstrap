@@ -2,22 +2,37 @@
 
 Yii::import('zii.widgets.CBreadcrumbs');
 
+/*
+ * Wrapper class for CBreadcrumbs
+ * Apply bootstrap style to the breadcrumbs
+ * 
+ * @author Tim Helfensdörfer <tim@visualappeal.de>
+ * @version 0.3.0
+ * @package bootstrap.yiiwidgets
+ */
 class EBootstrapBreadcrumbs extends CBreadcrumbs {
-	public $tagName = 'ul';
-	
-	public $htmlOptions=array('class'=>'breadcrumb');
-	
+	/*
+	 * Seperator for the items
+	 */
 	public $separator=' <span class="divider">/</span>';
 	
+	/*
+	 * Init the widget
+	 */
 	public function init() {
 		parent::init();
+		
+		EBootstrap::mergeClass($this->htmlOptions, array('breadcrumb'));
 	}
 	
+	/*
+	 * Render the breadcrumbs
+	 */
 	public function run() {
 		if(empty($this->links))
 			return;
 
-		echo EBootstrap::openTag($this->tagName,$this->htmlOptions)."\n";
+		echo EBootstrap::openTag('ul', $this->htmlOptions)."\n";
 		
 		$links=array();
 		if($this->homeLink===null)
@@ -33,7 +48,7 @@ class EBootstrapBreadcrumbs extends CBreadcrumbs {
 		}
 		
 		echo implode($this->separator,$links);
-		echo EBootstrap::closeTag($this->tagName);
+		echo EBootstrap::closeTag('ul');
 	}
 }
 

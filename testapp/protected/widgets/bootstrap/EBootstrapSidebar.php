@@ -2,18 +2,28 @@
 
 Yii::import('zii.widgets.CMenu');
 
+/*
+ * Render a sidebar
+ * 
+ * @author Tim Helfensdörfer <tim@visualappeal.de>
+ * @version 0.3.0
+ * @package bootstrap.widgets
+ */
 class EBootstrapSidebar extends CMenu {
-	public $headerCssClass = 'nav-header';
-
+	/*
+	 * Init the widget
+	 */
 	public function init()
 	{
 		EBootstrap::mergeClass($this->htmlOptions, array('nav', 'nav-list'));
 		parent::init();
 	}
 	
-	/**
+	/*
 	 * Recursively renders the menu items.
+	 *
 	 * @param array $items the menu items to be rendered recursively
+	 * @param bool $header Helper variable to identify the header elements
 	 */
 	protected function renderMenuRecursive($items, $header = true) {
 		$count=0;
@@ -37,7 +47,7 @@ class EBootstrapSidebar extends CMenu {
 				if($this->itemCssClass!==null)
 					$class[]=$this->itemCssClass;
 				if ($header and (isset($item['items'])))
-					$class[]=$this->headerCssClass;
+					$class[]='nav-header';
 				if($class!==array()) {
 					if(empty($options['class']))
 						$options['class']=implode(' ',$class);
@@ -58,9 +68,7 @@ class EBootstrapSidebar extends CMenu {
 				echo EBootstrap::closeTag('li');
 	
 				if(isset($item['items']) && count($item['items'])) {
-					//echo "\n".EBootstrap::openTag('ul',isset($item['submenuOptions']) ? $item['submenuOptions'] : $this->submenuHtmlOptions)."\n";
 					$this->renderMenuRecursive($item['items'], false);
-					//echo EBootstrap::closeTag('ul')."\n";
 				}
 				
 				echo "\n";
@@ -68,12 +76,10 @@ class EBootstrapSidebar extends CMenu {
 		}
 	}
 	
-	/**
+	/*
 	 * Renders the content of a menu item.
-	 * Note that the container and the sub-menus are not rendered here.
-	 * @param array $item the menu item to be rendered. Please see {@link items} on what data might be in the item.
-	 * @return string
-	 * @since 1.1.6
+	 *
+	 * You can pass an 'icon' as item option as well as a bolean 'iconWhite'
 	 */
 	protected function renderMenuItem($item)
 	{
