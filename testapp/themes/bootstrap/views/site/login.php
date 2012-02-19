@@ -20,8 +20,6 @@ $this->breadcrumbs=array(
 	),*/
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
 	<?php echo $form->beginControlGroup($model, 'name'); ?>
 		<?php echo $form->labelEx($model,'username'); ?>
 		<?php echo $form->beginControls(); ?>

@@ -94,6 +94,20 @@ class EBootstrapActiveForm extends CActiveForm {
 
 	}
 	
+	public function label($model,$attribute,$htmlOptions=array()) {
+		if ($this->horizontal)
+			EBootstrap::mergeClass($htmlOptions, array('control-label'));
+		
+		return EBootstrap::activeLabel($model,$attribute,$htmlOptions);
+	}
+	
+	public function labelEx($model,$attribute,$htmlOptions=array()) {
+		if ($this->horizontal)
+			EBootstrap::mergeClass($htmlOptions, array('control-label'));
+		
+		return EBootstrap::activeLabelEx($model,$attribute,$htmlOptions);
+	}
+	
 	public function helpBlock($help) {
 		$html = EBootstrap::openTag('p', array('class' => 'help-block'));
 		$html .= $help;
