@@ -20,19 +20,21 @@
 				array('label'=>'Sidebar', 'url'=>array('/site/page', 'view'=>'sidebar')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('template' => '{divider}'),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Base CSS', 'url'=>'#', 'items' => array(
+				array('label'=>'Base CSS', 'dropdown' => true, 'url'=>'#', 'items' => array(
 					array('label'=>'Typography', 'url'=>array('/site/page', 'view'=>'typography')),
 					array('label'=>'Buttons', 'url'=>array('/site/page', 'view'=>'buttons')),
 					array('label'=>'Labels', 'url'=>array('/site/page', 'view'=>'labels')),
 					array('label'=>'Images', 'url'=>array('/site/page', 'view'=>'images')),
 				)),
-				array('label'=>'Components', 'url'=>'#', 'items' => array(
+				array('label'=>'Components', 'dropdown' => true, 'url'=>'#', 'items' => array(
 					array('label'=>'Crud Controller', 'url'=>array('/crud')),
 					array('label'=>'Navigation', 'url'=>array('/site/page', 'view'=>'navigation')),
 					array('label'=>'Alerts', 'url'=>array('/site/alert')),
 					array('label'=>'Carousel', 'url'=>array('/site/page', 'view'=>'carousel')),
+				)),
+				array('align' => 'right', 'items' => array(
+					array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+					array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 				)),
 			),
 			'fixed' => true,

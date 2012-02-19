@@ -59,7 +59,9 @@ class EBootstrapNavigation extends CMenu {
 			echo EBootstrap::openTag('div', $innerOptions)."\n";
 			
 			echo EBootstrap::openTag('div', array('class' => 'container'))."\n";
+			
 			$this->renderMenuRecursive($items);
+			
 			echo EBootstrap::closeTag('div')."\n";
 			
 			echo EBootstrap::closeTag('div')."\n";
@@ -75,7 +77,7 @@ class EBootstrapNavigation extends CMenu {
         $count=0;
         $first = true;
         $n=count($items);
-        foreach($items as $item) {
+        foreach($items as $item) {        	
             $count++;
             $options=isset($item['itemOptions']) ? $item['itemOptions'] : array();
             $class=array();
@@ -101,20 +103,35 @@ class EBootstrapNavigation extends CMenu {
 			
 			switch ($template) {
 				case '{brand}':
-					$options = array_merge($options, array('class' => 'brand'));
+					EBootstrap::mergeClass($options, array('brand'));
 					echo EBootstrap::link($item['label'],$item['url'],$options)."\n";
 					break;
 				case '{divider}':
-					echo EBootstrap::openTag('li', array('class' => 'divider-vertical'))."\n";
-					echo EBootstrap::closeTag('li')."\n";
+					echo EBootstrap::tag('li', array('class' => 'divider-vertical'))."\n";
 					break;
 				default:
-					if ($first and (!$sub)) {
-						echo EBootstrap::openTag('ul', array('class' => 'nav'))."\n";
+					$listOptions = array('class' => 'nav');
+					
+					if (isset($item['align']) and ($item['align'] == 'right')) {
+						//Allign navigation right
+						EBootstrap::mergeClass($listOptions, array('pull-right'));
+						
+						echo EBootstrap::closeTag('ul');
+						
+						echo EBootstrap::openTag('ul', $listOptions)."\n";
+						
+						$this->renderMenuRecursive($item['items'], true);
+						
+						echo EBootstrap::closeTag('ul');
+						continue;
+					}
+					elseif ($first and (!$sub)) {
+						echo EBootstrap::openTag('ul', $listOptions)."\n";
 						$first = false;
 					}
 					
-					if(isset($item['items']) && count($item['items'])) {
+					//Create dropdown
+					if ((isset($item['dropdown'])) and ($item['dropdown'] == true)) {
 						if (isset($options['class']))
 							$options['class'] = implode(' ', explode(' ', $options['class'])+array('dropdown'));
 						else
@@ -131,24 +148,35 @@ class EBootstrapNavigation extends CMenu {
 					}
 										
 		            echo EBootstrap::openTag('li', $options);
-		
-		            $menu=$this->renderMenuItem($item);
-		            if(!empty($template)) {
-						echo strtr($template,array('{menu}'=>$menu));
-		            }
-		            else
-						echo $menu;
+					
+					if (isset($item['label'])) {
+			            $menu=$this->renderMenuItem($item);
+			            if(!empty($template)) {
+							echo strtr($template,array('{menu}'=>$menu));
+		    	        }
+		        	    else
+							echo $menu;
+					}
 		
 		            if(isset($item['items']) && count($item['items'])) {
 		            	$options = isset($item['submenuOptions']) ? $item['submenuOptions'] : $this->submenuHtmlOptions;
-		            	if (isset($options['class']))
-							$options['class'] = implode(' ', explode(' ', $options['class'])+array('dropdown-menu'));
-						else
-							$options['class'] = 'dropdown-menu';
-		            	
+
+		            	if (isset($item['dropdown']) and ($item['dropdown'] == true)) {
+		            		EBootstrap::mergeClass($options, array('dropdown-menu'));
+							
+						}
+						else {
+							EBootstrap::mergeClass($options, array('nav'));
+						}
+
 						echo "\n".EBootstrap::openTag('ul', $options)."\n";
+						
 						$this->renderMenuRecursive($item['items'], true);
-						echo EBootstrap::closeTag('ul')."\n";
+						
+						if (!isset($options['align']))
+							echo EBootstrap::closeTag('ul')."\n";
+						elseif ($options['align'] == 'right')
+							echo EBootstrap::closeTag('div')."\n";
 		            }
 					
 		            echo EBootstrap::closeTag('li')."\n";
