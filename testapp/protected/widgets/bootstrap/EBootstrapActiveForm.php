@@ -175,10 +175,26 @@ class EBootstrapActiveForm extends CActiveForm {
 		return EBootstrap::activeLabelEx($model,$attribute,$htmlOptions);
 	}
 	
+	/*
+	 * Render an input field with a prepended text or icon
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param string $prepend The text or icon to prepend
+	 * @param array $htmlOptions
+	 */
 	public function textFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
 		return EBootstrap::activeTextFieldPrepend($model, $attribute, $prepend, $htmlOptions);
 	}
 	
+	/*
+	 * Render an input field with a append text or icon
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param string $append The text or icon to append
+	 * @param array $htmlOptions
+	 */
 	public function textFieldAppend($model,$attribute,$append,$htmlOptions=array()) {
 		return EBootstrap::activeTextFieldAppend($model, $attribute, $append, $htmlOptions);
 	}

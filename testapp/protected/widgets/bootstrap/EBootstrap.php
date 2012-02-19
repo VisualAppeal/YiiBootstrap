@@ -271,6 +271,14 @@ class EBootstrap extends CHtml {
     	return $html;
 	}
 	
+	/*
+	 * Render an input field with a prepended text or icon
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param string $prepend The text or icon to prepend
+	 * @param array $htmlOptions
+	 */
 	public static function activeTextFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
        	$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
        	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
@@ -284,6 +292,14 @@ class EBootstrap extends CHtml {
     	return $html;
 	}
 	
+	/*
+	 * Render an input field with a append text or icon
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param string $append The text or icon to append
+	 * @param array $htmlOptions
+	 */
 	public static function activeTextFieldAppend($model,$attribute,$prepend,$htmlOptions=array()) {
        	$html = self::openTag('div', array('class' => 'input-append'))."\n";
        
@@ -296,6 +312,11 @@ class EBootstrap extends CHtml {
     	$html .= self::closeTag('div')."\n";
     	
     	return $html;
+	}
+	
+	public static function searchField($name,$value='',$htmlOptions=array()) {
+		self::mergeClass($htmlOptions, array('form-search'));
+		return self::textField($name, $value, $htmlOptions);
 	}
 }
 
