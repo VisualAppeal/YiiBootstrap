@@ -15,8 +15,9 @@ class EBootstrapGridView extends CGridView {
 	 * Do not include the default style
 	 *
 	 * If it's set unequal false the css file specified will be included
+	 * If it's set null the default css file will be included
 	 */
-	public $cssFile = null;
+	public $cssFile = false;
 	
 	/*
 	 * Bordered table
@@ -72,12 +73,9 @@ class EBootstrapGridView extends CGridView {
 				break;
 		}
 		
-		if (is_null($this->cssFile)) {
+		if ($this->cssFile === false) {
 			$cssFile = dirname(__FILE__).'/css/bootstrap.css';
 			$this->cssFile = Yii::app()->getAssetManager()->publish($cssFile);
-			Yii::app()->clientScript->registerCssFile($this->cssFile);
-		}
-		elseif ($this->cssFile !== false) {
 			Yii::app()->clientScript->registerCssFile($this->cssFile);
 		}
 	}

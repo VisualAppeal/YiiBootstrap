@@ -92,7 +92,7 @@ class EBootstrap extends CHtml {
 	 */
 	public static function icon($icon, $iconWhite = false) {
 		$return = '<i class="icon-'.$icon;
-		if ($white)
+		if ($iconWhite)
 			$return .= ' icon-white';
 		return $return.'"></i>';
 	}

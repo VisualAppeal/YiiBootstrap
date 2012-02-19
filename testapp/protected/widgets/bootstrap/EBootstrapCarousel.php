@@ -8,7 +8,7 @@
  * @version 0.3.0
  * @package bootstrap.widgets
  */
-class EBootstrapCarousel extends CWidget {
+class EBootstrapCarousel extends EBootstrapWidget {
 	/*
 	 * Array of images
 	 *

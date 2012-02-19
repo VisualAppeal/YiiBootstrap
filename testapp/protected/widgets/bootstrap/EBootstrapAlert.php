@@ -75,7 +75,7 @@ class EBootstrapAlert extends EBootstrapWidget {
 		if ($this->block)
 			echo $this->message;
 		else
-			echo EBootstrap::tag('p', array(), $this->message);
+			echo EBootstrap::tag('span', array(), $this->message);
 			
 		echo EBootstrap::closeTag('div');
 		

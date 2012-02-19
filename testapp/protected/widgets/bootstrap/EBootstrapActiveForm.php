@@ -8,7 +8,7 @@
  * @version 0.3.0
  * @package bootstrap.yiiwidgets
  */
-class EBootstrapActiveForm extends EBootstrapWidget {
+class EBootstrapActiveForm extends CActiveForm {
 	/*
 	 * Display a horizontal form
 	 *

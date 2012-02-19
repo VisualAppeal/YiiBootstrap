@@ -47,7 +47,6 @@
 }
 /* EBootstrapGridView */
 .bootstrap-grid-view .summary {
-  float: right;
   font-style: italic;
 }
 .bootstrap-grid-view table tr td {
@@ -55,7 +54,4 @@
 }
 .bootstrap-grid-view table tr td input {
   width: auto;
-}
-.bootstrap-grid-view .pager .disabled {
-  cursor: inherit;
 }
