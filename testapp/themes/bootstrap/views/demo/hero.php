@@ -14,7 +14,7 @@ $this->widget('EBootstrapCollapse', array(
 	'value' => 'Show Hero Source',
 	'valueToggle' => 'Hide Hero Source',
 	'htmlOptions' => array(
-		'class' => 'btn source-toggle',
+		'class' => 'btn',
 	),
 	'target' => '#ebootstraphero-example',
 ));

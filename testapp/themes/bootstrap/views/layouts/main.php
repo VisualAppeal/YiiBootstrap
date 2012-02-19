@@ -6,6 +6,8 @@
 	<?php Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/main.css'); ?>
 
 	<title><?php echo EBootstrap::encode($this->pageTitle); ?></title>
+	
+	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/main.js'); ?>
 </head>
 
 <body>
