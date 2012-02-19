@@ -87,7 +87,7 @@ class EBootstrapCode extends EBootstrapWidget {
 			$content = $this->content;
 		}
 		
-		EBootstrap::mergeClass($this->htmlOptions, array('prettyprint'));
+		EBootstrap::mergeClass($this->htmlOptions, array('prettyprint', 'well'));
 		if (!empty($this->language))
 			EBootstrap::mergeClass($this->htmlOptions, array('lang-'.$this->language));
 		if ($this->lineNumbers)

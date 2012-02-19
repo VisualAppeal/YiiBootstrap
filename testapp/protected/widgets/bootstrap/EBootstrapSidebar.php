@@ -15,8 +15,16 @@ class EBootstrapSidebar extends CMenu {
 	 */
 	public function init()
 	{
+		echo EBootstrap::openTag('div', array('class' => 'well sidebar-nav'));
+		
 		EBootstrap::mergeClass($this->htmlOptions, array('nav', 'nav-list'));
 		parent::init();
+	}
+	
+	public function run() {
+		parent::run();
+		
+		echo EBootstrap::closeTag('div');
 	}
 	
 	/*

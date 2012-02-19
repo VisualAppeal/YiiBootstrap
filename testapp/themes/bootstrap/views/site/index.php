@@ -1,8 +1,6 @@
 <?php $this->pageTitle=Yii::app()->name; ?>
 
-<?php 
-$this->renderPartial('//demo/hero');
-?>
+<?php $this->renderPartial('//demo/hero'); ?>
 
 <div class="row">
 	<div class="span3">

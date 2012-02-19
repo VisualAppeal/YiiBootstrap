@@ -84,8 +84,8 @@ $this->breadcrumbs=array(
 <?php 
 $this->widget('EBootstrapCollapse', array(
 	'sender' => 'a',
-	'value' => 'Show Source',
-	'valueToggle' => 'Hide Source',
+	'value' => 'Show Contact Form Source',
+	'valueToggle' => 'Hide Contact Form Source',
 	'htmlOptions' => array(
 		'class' => 'btn',
 	),

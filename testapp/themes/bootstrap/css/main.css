@@ -3515,6 +3515,12 @@ form label.required {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
+/* Prettyprint */
+pre.prettyprint {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
 footer {
   margin-top: 10px;
 }
