@@ -40,7 +40,7 @@ class EBootstrapButton {
 			$class[] = 'disabled';
 		
 		if (!empty($this->icon))
-			$text = EBootstrap::icon($this->icon, $this->iconWhite).' '.$this->text;
+			$this->text = EBootstrap::icon($this->icon, $this->iconWhite).' '.$this->text;
 		
 		EBootstrap::mergeClass($this->htmlOptions, $class);
 		
