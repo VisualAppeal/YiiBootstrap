@@ -35,7 +35,12 @@ class EBootstrapCarousel extends EBootstrapWidget {
 	/*
 	 * Interval for the next image to appear
 	 */
-	public $interval = 2000;
+	public $interval = 5000;
+	
+	/*
+	 * Unfinit cycle
+	 */
+	public $infinite = false;
 	
 	/*
 	 * JS File to slide the images
@@ -60,13 +65,26 @@ class EBootstrapCarousel extends EBootstrapWidget {
 			Yii::app()->clientScript->registerScriptFile($this->jsFile);
 		}
 		
+		$jsId = 'carousel_'.$this->htmlOptions['id'];
+		$js = '';
+		
 		if ($this->interval !== false) {
-			$js = '$("#'.$this->htmlOptions['id'].'").carousel({
+			$js .= $jsId.' = $("#'.$this->htmlOptions['id'].'").carousel({
 				interval: '.$this->interval.',
 			});';
 		}
 		else {
-			$js = '$("#'.$this->htmlOptions['id'].'").carousel();';
+			$this->interval = 5000;
+			$js .= $jsId.' $("#'.$this->htmlOptions['id'].'").carousel();';
+		}
+		
+		if ($this->infinite) {
+			$js .= '			
+			'.$jsId.'.bind("slide", function() {
+				if ($("#'.$this->htmlOptions['id'].' .carousel-inner .item:last-child").hasClass("next")) {
+					setTimeout("'.$jsId.'.carousel(0)", '.$this->interval.');
+				}
+			});';
 		}
 		
 		Yii::app()->clientScript->registerScript('ebootstrap-carousel-'.$this->htmlOptions['id'], $js, CClientScript::POS_READY);
