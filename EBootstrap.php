@@ -5,7 +5,7 @@
  * EBootstrap adds some bootstrap elements to CHtml
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.0
+ * @version 0.3.5
  * @package bootstrap
  */
 class EBootstrap extends CHtml {
@@ -293,7 +293,7 @@ class EBootstrap extends CHtml {
 	}
 	
 	/*
-	 * Render an input field with a append text or icon
+	 * Render an input field with a appended text or icon
 	 *
 	 * @param CModel $model The model
 	 * @param string $attribute The attribute
@@ -314,6 +314,56 @@ class EBootstrap extends CHtml {
     	return $html;
 	}
 	
+	/*
+	 * Render a password field with a prepended text or icon
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param string $prepend The text or icon to prepend
+	 * @param array $htmlOptions
+	 */
+	public static function activePasswordFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
+       	$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
+       	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
+       
+       	self::resolveNameID($model,$attribute,$htmlOptions);
+    	self::clientChange('change',$htmlOptions);
+    	$html .= self::activeInputField('password',$model,$attribute,$htmlOptions)."\n";
+    	
+    	$html .= self::closeTag('div')."\n";
+    	
+    	return $html;
+	}
+	
+	/*
+	 * Render a password field with a appended text or icon
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param string $append The text or icon to append
+	 * @param array $htmlOptions
+	 */
+	public static function activePasswordFieldAppend($model,$attribute,$prepend,$htmlOptions=array()) {
+       	$html = self::openTag('div', array('class' => 'input-append'))."\n";
+       
+       	self::resolveNameID($model,$attribute,$htmlOptions);
+    	self::clientChange('change',$htmlOptions);
+    	$html .= self::activeInputField('password',$model,$attribute,$htmlOptions)."\n";
+    	
+    	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
+    	
+    	$html .= self::closeTag('div')."\n";
+    	
+    	return $html;
+	}
+	
+	/*
+	 * Render a bootstrap search field with rounded corners
+	 *
+	 * @param string $name The name
+	 * @param string $value Predefined value
+	 * @param array $htmlOptions HTML options
+	 */
 	public static function searchField($name,$value='',$htmlOptions=array()) {
 		self::mergeClass($htmlOptions, array('form-search'));
 		return self::textField($name, $value, $htmlOptions);

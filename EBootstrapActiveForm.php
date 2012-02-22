@@ -5,7 +5,7 @@
  * Apply bootstrap style to the form
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.0
+ * @version 0.3.5
  * @package bootstrap.yiiwidgets
  */
 class EBootstrapActiveForm extends CActiveForm {
@@ -197,6 +197,30 @@ class EBootstrapActiveForm extends CActiveForm {
 	 */
 	public function textFieldAppend($model,$attribute,$append,$htmlOptions=array()) {
 		return EBootstrap::activeTextFieldAppend($model, $attribute, $append, $htmlOptions);
+	}
+	
+	/*
+	 * Render a password field with a prepended text or icon
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param string $prepend The text or icon to prepend
+	 * @param array $htmlOptions
+	 */
+	public function passwordFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
+		return EBootstrap::activePasswordFieldPrepend($model, $attribute, $prepend, $htmlOptions);
+	}
+	
+	/*
+	 * Render a password field with a append text or icon
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param string $append The text or icon to append
+	 * @param array $htmlOptions
+	 */
+	public function passwordFieldAppend($model,$attribute,$append,$htmlOptions=array()) {
+		return EBootstrap::activePasswordFieldAppend($model, $attribute, $append, $htmlOptions);
 	}
 	
 	/*
