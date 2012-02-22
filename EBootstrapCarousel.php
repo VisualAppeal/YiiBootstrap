@@ -5,7 +5,7 @@
  * http://twitter.github.com/bootstrap/javascript.html#carousel
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.0
+ * @version 0.3.5
  * @package bootstrap.widgets
  */
 class EBootstrapCarousel extends EBootstrapWidget {
