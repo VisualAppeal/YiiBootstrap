@@ -365,7 +365,7 @@ class EBootstrap extends CHtml {
 	 * @param array $htmlOptions HTML options
 	 */
 	public static function searchField($name,$value='',$htmlOptions=array()) {
-		self::mergeClass($htmlOptions, array('form-search'));
+		self::mergeClass($htmlOptions, array('search-query'));
 		return self::textField($name, $value, $htmlOptions);
 	}
 }

@@ -7,7 +7,7 @@ Yii::import('zii.widgets.CMenu');
  * http://twitter.github.com/bootstrap/components.html#navbar
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.0
+ * @version 0.3.6
  * @package bootstrap.widgets
  */
 class EBootstrapNavigation extends CMenu {
@@ -109,10 +109,35 @@ class EBootstrapNavigation extends CMenu {
 				case '{divider}':
 					echo EBootstrap::tag('li', array('class' => 'divider-vertical'))."\n";
 					break;
+				case '{search}':
+					if (isset($options['input'])) {
+						$itemOptions = $options['input'];
+						unset($options['input']);
+					}
+					else
+						$itemOptions = array();
+					if (isset($itemOptions['name'])) {
+						$name = $itemOptions['name'];
+						unset($itemOptions['name']);
+					}
+					else
+						$name = 'search';
+					if (isset($itemOptions['value'])) {
+						$value = $itemOptions['value'];
+						unset($itemOptions['value']);
+					}
+					else
+						$value = '';
+					$itemHtmlOptions = isset($itemOptions['htmlOptions']) ? $itemOptions['htmlOptions'] : array();
+				
+					EBootstrap::mergeClass($options, array('navbar-search'));
+					echo EBootstrap::openTag('form', $options)."\n";
+					echo EBootstrap::searchField($name, $value, $itemHtmlOptions)."\n";
+					echo EBootstrap::closeTag('form')."\n";
 				default:
 					$listOptions = array('class' => 'nav');
 					
-					if (isset($item['align']) and ($item['align'] == 'right')) {
+					if (isset($item['align']) and ($item['align'] == 'right') and (isset($item['items']))) {
 						//Allign navigation right
 						EBootstrap::mergeClass($listOptions, array('pull-right'));
 						
