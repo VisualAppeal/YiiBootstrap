@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	
+	<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
+<script type="text/javascript" src="../../../assets/jquery.js"></script>
+<script type="text/javascript" src="../../../assets/jquery.yii.js"></script>
+<script type="text/javascript" src="../../../themes/bootstrap/js/main.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
+<title>Yii Bootstrap Demo - View Crud</title>
+	
+	</head>
+
+<body>
+
+	<header>
+		<div id="yw2" class="navbar">
+<div class="navbar-inner navbar-fixed-top">
+<div class="container">
+<a class="brand" href="../../../index.php.html">Yii Bootstrap Demo</a>
+<ul class="nav">
+<li><a href="../../site/index/index.html">Home</a></li>
+<li><a href="../../site/page/index-view=sidebar.html">Sidebar</a></li>
+<li><a href="../../site/contact/index.html">Contact</a></li>
+<li class="divider-vertical" />
+<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Base CSS<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="../../site/page/index-view=typography.html">Typography</a></li>
+<li><a href="../../site/page/index-view=buttons.html">Buttons</a></li>
+<li><a href="../../site/page/index-view=labels.html">Labels</a></li>
+<li><a href="../../site/page/index-view=images.html">Images</a></li>
+</ul>
+</li>
+<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Components<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="../index.html">Crud Controller</a></li>
+<li><a href="../../site/page/index-view=navigation.html">Navigation</a></li>
+<li><a href="../../site/alert/index.html">Alerts</a></li>
+<li><a href="../../site/page/index-view=carousel.html">Carousel</a></li>
+<li><a href="../../site/page/index-view=progressbar.html">Progress Bar</a></li>
+</ul>
+</li>
+<form action="#" method="get" class="navbar-search">
+<input placeholder="Search" class="search-query" type="text" value="" name="search" id="search" />
+</form>
+<li action="#" method="get" class="navbar-search"></li>
+</ul><ul class="nav pull-right">
+<li><a href="../../site/login/index.html">Login</a></li>
+</ul></ul>
+</div>
+</div>
+</div>
+	</header>
+
+	<div class="container" id="content">
+	
+						
+							<ul class="breadcrumbs breadcrumb">
+<li><a href="../../../index.php.html">Home</a></li>
+ <span class="divider">/</span><li><a href="../index/index.html">Cruds</a></li>
+ <span class="divider">/</span><li><span>eu odio tristique pharetra. Quisque</span></li>
+</ul>			
+		
+<div class="row">
+
+	<div class="span3" id="sidebar">
+		<div class="well sidebar-nav">
+			<div class="well sidebar-nav"><ul class="nav nav-list" id="yw1">
+<li class="nav-header"><span>Crud Operations</span></li><li><a href="../index/index.html"><i class="icon-list-alt"></i> List</a></li>
+<li><a href="../create/index.html"><i class="icon-plus"></i> Create</a></li>
+<li><a href="../update/88/index.html"><i class="icon-pencil"></i> Update</a></li>
+<li><a href="#" id="yt0"><i class="icon-trash"></i> Delete</a></li>
+<li><a href="../admin/index.html"><i class="icon-user"></i> Manage</a></li>
+
+</ul></div>		</div>
+	</div>
+	
+	<div class="span9" id="main">
+		
+<div class="page-header">
+	<h1>View Crud #88</h1>
+</div>
+
+<table class="detail-view table table-bordered table-striped" id="yw0"><tr class="odd"><th>ID</th><td>88</td></tr>
+<tr class="even"><th>Title</th><td>eu odio tristique pharetra. Quisque</td></tr>
+<tr class="odd"><th>Date Created</th><td>2011-08-09 22:49:14</td></tr>
+<tr class="even"><th>Date Updated</th><td>2011-09-27 03:09:35</td></tr>
+</table>	</div>
+		
+</div>
+	
+	</div>
+	
+	<footer class="container">
+		Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>. Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>.
+	</footer>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+$('body').on('click','#yt0',function(){if(confirm('Are you sure you want to delete this item?')) {jQuery.yii.submitForm(this,'/va/yiibootstrapwidgets/testapp/index.php/crud/delete/88',{});return false;} else return false;});
+});
+/*]]>*/
+</script>
+</body>
+</html>
+
+<!-- Localized -->

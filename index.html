@@ -9,8 +9,10 @@
 <script type="text/javascript" src="assets/jquery.js"></script>
 <script type="text/javascript" src="assets/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/prettify.js"></script>
-<title>Yii Bootstrap Test Application</title>
-</head>
+<script type="text/javascript" src="themes/bootstrap/js/main.js"></script>
+<title>Yii Bootstrap Demo</title>
+	
+	</head>
 
 <body>
 
@@ -18,14 +20,12 @@
 		<div id="yw2" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
-<a class="brand" href="index.php.html">Yii Bootstrap Test Application</a>
+<a class="brand" href="index.php.html">Yii Bootstrap Demo</a>
 <ul class="nav">
 <li class="active"><a href="index.php/site/index/index.html">Home</a></li>
 <li><a href="index.php/site/page/index-view=sidebar.html">Sidebar</a></li>
 <li><a href="index.php/site/contact/index.html">Contact</a></li>
-<li class="divider-vertical">
-</li>
-<li><a href="index.php/site/login/index.html">Login</a></li>
+<li class="divider-vertical" />
 <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Base CSS<b class="caret"></b></a>
 <ul class="dropdown-menu">
 <li><a href="index.php/site/page/index-view=typography.html">Typography</a></li>
@@ -40,9 +40,16 @@
 <li><a href="index.php/site/page/index-view=navigation.html">Navigation</a></li>
 <li><a href="index.php/site/alert/index.html">Alerts</a></li>
 <li><a href="index.php/site/page/index-view=carousel.html">Carousel</a></li>
+<li><a href="index.php/site/page/index-view=progressbar.html">Progress Bar</a></li>
 </ul>
 </li>
-</ul>
+<form action="#" method="get" class="navbar-search">
+<input placeholder="Search" class="search-query" type="text" value="" name="search" id="search" />
+</form>
+<li action="#" method="get" class="navbar-search"></li>
+</ul><ul class="nav pull-right">
+<li><a href="index.php/site/login/index.html">Login</a></li>
+</ul></ul>
 </div>
 </div>
 </div>
@@ -55,7 +62,7 @@
 		<div>
 	
 <div class="hero-unit">
-<h1>Yii Bootstrap Test Application</h1>
+<h1>Yii Bootstrap Demo</h1>
 <p>The aim of the project is to transform all <a href="http://twitter.github.com/bootstrap/">bootstrap</a> components into <a href="http://www.yiiframework.com/">Yii</a> Widgets and apply the bootstrap style to the default Yii Widgets.</p>
 <p><a class="btn btn-large btn-primary" href="#">Primary Action</a>
  
@@ -63,7 +70,7 @@
 </p>
 </div>
 
-<a class="btn source-toggle" id="yw0" data-toggle="collapse" data-target="#ebootstraphero-example">Show Hero Source</a>
+<a class="btn" id="yw0" data-toggle="collapse" data-target="#ebootstraphero-example">Show Hero Source</a>
 <pre id="ebootstraphero-example" class="collapse prettyprint well">$this-&gt;widget('EBootstrapHero', array(
 	'headline' =&gt; EBootstrap::encode(Yii::app()-&gt;name),
 	'body' =&gt; 'The aim of the project is to transform all &lt;a href=&quot;http://twitter.github.com/bootstrap/&quot;&gt;bootstrap&lt;/a&gt; components into &lt;a href=&quot;http://www.yiiframework.com/&quot;&gt;Yii&lt;/a&gt; Widgets and apply the bootstrap style to the default Yii Widgets.',
@@ -73,7 +80,7 @@
 ));
 </pre>
 <div class="row">
-	<div class="span3">
+	<div class="span4">
 		<h2>How to use</h2>
 		<p>See our custom code examples at the <a href="https://github.com/VisualAppeal/YiiBootstrap/wiki/">github wiki</a>.</p>
 		<p><strong>Easy to integrate into Yii:</strong></p>
@@ -84,7 +91,7 @@
 			<li>Import the widgets in your config</li>
 		</ul>
 	</div>
-	<div class="span3">
+	<div class="span4">
 		<h2>Includes</h2>
 		<p>This Framework uses some 3rd party tools:</p>
 		

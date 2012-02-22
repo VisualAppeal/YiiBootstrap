@@ -7,25 +7,25 @@
 	<link rel="stylesheet" type="text/css" href="../../../assets/prettify.css" />
 <link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
 <script type="text/javascript" src="../../../assets/jquery.js"></script>
-<script type="text/javascript" src="../../../assets/prettify.js"></script>
 <script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
-<title>Yii Bootstrap Test Application - Base CSS - Sidebar</title>
-</head>
+<script type="text/javascript" src="../../../assets/prettify.js"></script>
+<script type="text/javascript" src="../../../themes/bootstrap/js/main.js"></script>
+<title>Yii Bootstrap Demo - Base CSS - Sidebar</title>
+	
+	</head>
 
 <body>
 
 	<header>
-		<div id="yw1" class="navbar">
+		<div id="yw2" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
-<a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
+<a class="brand" href="../../../index.php.html">Yii Bootstrap Demo</a>
 <ul class="nav">
 <li><a href="../index/index.html">Home</a></li>
 <li><a href="index-view=sidebar.html">Sidebar</a></li>
 <li><a href="../contact/index.html">Contact</a></li>
-<li class="divider-vertical">
-</li>
-<li><a href="../login/index.html">Login</a></li>
+<li class="divider-vertical" />
 <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Base CSS<b class="caret"></b></a>
 <ul class="dropdown-menu">
 <li><a href="index-view=typography.html">Typography</a></li>
@@ -40,9 +40,16 @@
 <li><a href="index-view=navigation.html">Navigation</a></li>
 <li><a href="../alert/index.html">Alerts</a></li>
 <li><a href="index-view=carousel.html">Carousel</a></li>
+<li><a href="index-view=progressbar.html">Progress Bar</a></li>
 </ul>
 </li>
-</ul>
+<form action="#" method="get" class="navbar-search">
+<input placeholder="Search" class="search-query" type="text" value="" name="search" id="search" />
+</form>
+<li action="#" method="get" class="navbar-search"></li>
+</ul><ul class="nav pull-right">
+<li><a href="../login/index.html">Login</a></li>
+</ul></ul>
 </div>
 </div>
 </div>
@@ -104,8 +111,9 @@
 	<a class="btn btn-success" href="#"><i class="icon-shopping-cart icon-white"></i> Checkout</a>
 	<a class="btn btn-danger" href="#"><i class="icon-trash icon-white"></i> Refresh</a>
 </p>
-<h2>Source</h2>
-<pre class="prettyprint well">&lt;h3&gt;Different Action Types&lt;/h3&gt;
+<h3>Source</h3>
+<a class="btn" id="yw0" data-toggle="collapse" data-target="#ebootstrapbutton-example">Show Button Source</a>
+<pre id="ebootstrapbutton-example" class="collapse prettyprint well">&lt;h3&gt;Different Action Types&lt;/h3&gt;
 &lt;p&gt;
 	&lt;?php echo EBootstrap::ibutton('Default', '#'); ?&gt; 
 	&lt;?php echo EBootstrap::ibutton('Primary', '#', 'primary'); ?&gt; 
@@ -135,7 +143,92 @@
 	&lt;?php echo EBootstrap::ibutton('Checkout', '#', 'success', '', false, 'shopping-cart', true); ?&gt;
 	&lt;?php echo EBootstrap::ibutton('Refresh', '#', 'danger', '', false, 'trash', true); ?&gt;
 &lt;/p&gt;
-</pre></div><!-- content -->
+</pre>
+<h2>Button Groups</h2>
+
+<div class="row">
+	<div class="span4">
+		<h3>Default</h3>
+		<p>
+			<div class="btn-group">
+<a class="btn" href="#">Left</a>
+
+<a class="btn" href="#">Middle</a>
+
+<a class="btn" href="#">Right</a>
+
+</div>
+		</p>
+	</div>
+	
+	<div class="span4">
+		<h3>Toolbar</h3>
+		<p>
+			<div class="btn-toolbar">
+<div class="btn-group">
+<a class="btn" href="#">1</a>
+
+<a class="btn" href="#">2</a>
+
+<a class="btn" href="#">3</a>
+
+</div>
+
+<div class="btn-group">
+<a class="btn" href="#">4</a>
+
+<a class="btn" href="#">5</a>
+
+</div>
+
+<div class="btn-group">
+<a class="btn" href="#">6</a>
+
+<a class="btn" href="#">7</a>
+
+<a class="btn" href="#">8</a>
+
+<a class="btn" href="#">9</a>
+
+</div>
+
+</div>
+		</p>
+	</div>
+	
+	<div class="span4">
+		<h3>Dropdown</h3>
+		<p>
+			<div class="btn-group"><a class="btn dropdown-toggle btn-success" data-toggle="dropdown" href="#">Dropdown Button <span class="caret"></span></a>
+
+<ul class="dropdown-menu">
+<li>
+<a href="#">Submenu 1</a>
+</li>
+<li>
+<a href="#">Submenu 2</a>
+</li>
+</ul>
+</div>
+		</p>
+		
+		<p>
+			<div class="btn-group"><a class="btn btn-danger" href="#">Dropdown Button</a>
+
+<a class="btn btn dropdown-toggle btn-danger" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+
+<ul class="dropdown-menu">
+<li>
+<a href="#">Submenu 1</a>
+</li>
+<li>
+<a href="#">Submenu 2</a>
+</li>
+</ul>
+</div>
+		</p>
+	</div>
+</div></div><!-- content -->
 	
 	</div>
 	
@@ -146,6 +239,14 @@
 <script type="text/javascript">
 /*<![CDATA[*/
 jQuery(function($) {
+
+				$("#ebootstrapbutton-example").on("show", function() {
+					$("#yw0").html("Hide Button Source");
+				});
+				$("#ebootstrapbutton-example").on("hide", function() {
+					$("#yw0").html("Show Button Source");;
+				});
+			
 prettyPrint();
 });
 /*]]>*/

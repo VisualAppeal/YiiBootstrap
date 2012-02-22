@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	
+	<link rel="stylesheet" type="text/css" href="../../../assets/dfbb3aca/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
+<script type="text/javascript" src="../../../assets/jquery.js"></script>
+<script type="text/javascript" src="../../../assets/jquery.ba-bbq.js"></script>
+<script type="text/javascript" src="../../../themes/bootstrap/js/main.js"></script>
+<script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
+<title>Yii Bootstrap Demo - Admin Crud</title>
+	
+	</head>
+
+<body>
+
+	<header>
+		<div id="yw3" class="navbar">
+<div class="navbar-inner navbar-fixed-top">
+<div class="container">
+<a class="brand" href="../../../index.php.html">Yii Bootstrap Demo</a>
+<ul class="nav">
+<li><a href="../../site/index/index.html">Home</a></li>
+<li><a href="../../site/page/index-view=sidebar.html">Sidebar</a></li>
+<li><a href="../../site/contact/index.html">Contact</a></li>
+<li class="divider-vertical" />
+<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Base CSS<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="../../site/page/index-view=typography.html">Typography</a></li>
+<li><a href="../../site/page/index-view=buttons.html">Buttons</a></li>
+<li><a href="../../site/page/index-view=labels.html">Labels</a></li>
+<li><a href="../../site/page/index-view=images.html">Images</a></li>
+</ul>
+</li>
+<li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Components<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="../index.html">Crud Controller</a></li>
+<li><a href="../../site/page/index-view=navigation.html">Navigation</a></li>
+<li><a href="../../site/alert/index.html">Alerts</a></li>
+<li><a href="../../site/page/index-view=carousel.html">Carousel</a></li>
+<li><a href="../../site/page/index-view=progressbar.html">Progress Bar</a></li>
+</ul>
+</li>
+<form action="#" method="get" class="navbar-search">
+<input placeholder="Search" class="search-query" type="text" value="" name="search" id="search" />
+</form>
+<li action="#" method="get" class="navbar-search"></li>
+</ul><ul class="nav pull-right">
+<li><a href="../../site/login/index.html">Login</a></li>
+</ul></ul>
+</div>
+</div>
+</div>
+	</header>
+
+	<div class="container" id="content">
+	
+						
+							<ul class="breadcrumbs breadcrumb">
+<li><a href="../../../index.php.html">Home</a></li>
+ <span class="divider">/</span><li><a href="../index/index.html">Cruds</a></li>
+ <span class="divider">/</span><li><span>Manage</span></li>
+</ul>			
+		
+<div class="row">
+
+	<div class="span3" id="sidebar">
+		<div class="well sidebar-nav">
+			<div class="well sidebar-nav"><ul class="nav nav-list" id="yw2">
+<li class="nav-header"><span>Crud Operations</span></li><li><a href="../index/index.html"><i class="icon-list-alt"></i> List</a></li>
+<li><a href="../create/index.html"><i class="icon-plus"></i> Create</a></li>
+
+</ul></div>		</div>
+	</div>
+	
+	<div class="span9" id="main">
+		
+<h1>Manage Cruds</h1>
+
+<p>
+	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+</p>
+
+<a class="search-button" href="#">Advanced Search</a><div class="search-form" style="display:none">
+<form id="yw0" action="/va/yiibootstrapwidgets/testapp/index.php/crud/admin" method="get">
+	<div class="control-group">		<label for="Crud_id">ID</label>		<div class="controls">			<input class="span1" name="Crud[id]" id="Crud_id" type="text" />		</div>	</div>
+	<div class="control-group">		<label for="Crud_title" class="required">Title <span class="required">*</span></label>		<div class="controls">			<input class="span5" name="Crud[title]" id="Crud_title" type="text" />		</div>	</div>
+	<div class="control-group">		<label for="Crud_date_created">Date Created</label>		<div class="controls">			<input class="span5" name="Crud[title]" id="Crud_title" type="text" />		</div>	</div>
+	<div class="control-group">		<label for="Crud_date_updated">Date Updated</label>		<div class="controls">			<input class="span5" name="Crud[title]" id="Crud_title" type="text" />		</div>	</div>
+	<div class="form-actions">		<input class="btn btn-primary" type="submit" name="yt0" value="Search" />	</div>
+</form></div>
+
+<div id="crud-grid" class="grid-view bootstrap-grid-view">
+<div class="summary">Displaying 81-90 of 100 result(s).</div>
+<table class="items table table-bordered table-striped table-condensed">
+<thead>
+<tr>
+<th id="crud-grid_c0"><a class="desc" href="index-Crud_page=9&Crud_sort=id.html">ID</a></th><th id="crud-grid_c1"><a href="index-Crud_page=9&Crud_sort=title.html">Title</a></th><th id="crud-grid_c2"><a href="index-Crud_page=9&Crud_sort=date_created.html">Date Created</a></th><th id="crud-grid_c3"><a href="index-Crud_page=9&Crud_sort=date_updated.html">Date Updated</a></th><th class="button-column" id="crud-grid_c4">&nbsp;</th></tr>
+<tr class="filters">
+<td><input name="Crud[id]" type="text" /></td><td><input name="Crud[title]" type="text" /></td><td><input name="Crud[date_created]" type="text" /></td><td><input name="Crud[date_updated]" type="text" /></td><td>&nbsp;</td></tr>
+</thead>
+<tbody>
+<tr class="odd"><td>20</td><td>inceptos hymenaeos. Mauris ut quam vel sapien</td><td>2011-04-01 21:03:43</td><td>2012-03-14 01:05:12</td><td class="button-column"><a class="view" title="View" href="../20/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/20/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/20/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>19</td><td>vel, vulputate eu, odio.</td><td>2012-11-22 08:23:07</td><td>2012-07-21 05:31:10</td><td class="button-column"><a class="view" title="View" href="../19/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/19/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/19/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="odd"><td>18</td><td>Pellentesque ut ipsum ac</td><td>2012-04-19 00:45:51</td><td>2012-04-20 00:55:00</td><td class="button-column"><a class="view" title="View" href="../18/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/18/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/18/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>17</td><td>euismod enim. Etiam gravida molestie arcu. Sed eu</td><td>2012-11-24 17:40:40</td><td>2012-12-19 22:36:45</td><td class="button-column"><a class="view" title="View" href="../17/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/17/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/17/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="odd"><td>16</td><td>a odio semper cursus. Integer mollis. Integer tincidunt aliquam</td><td>2011-03-25 19:30:48</td><td>2011-08-19 14:34:43</td><td class="button-column"><a class="view" title="View" href="../16/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/16/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/16/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>15</td><td>sociis natoque penatibus et</td><td>2012-10-01 14:23:18</td><td>2012-10-09 02:28:46</td><td class="button-column"><a class="view" title="View" href="../15/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/15/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/15/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="odd"><td>14</td><td>Suspendisse aliquet molestie</td><td>2011-06-23 21:12:56</td><td>2012-02-19 14:14:40</td><td class="button-column"><a class="view" title="View" href="../14/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/14/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/14/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>13</td><td>iaculis nec, eleifend non, dapibus rutrum, justo. Praesent</td><td>2012-10-29 04:43:57</td><td>2011-10-04 03:35:51</td><td class="button-column"><a class="view" title="View" href="../13/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/13/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/13/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="odd"><td>12</td><td>placerat, augue. Sed molestie. Sed id risus</td><td>2012-11-22 02:22:01</td><td>2011-03-03 01:05:57</td><td class="button-column"><a class="view" title="View" href="../12/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/12/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/12/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>11</td><td>tellus. Nunc lectus pede, ultrices</td><td>2012-10-24 00:23:23</td><td>2011-04-22 10:35:15</td><td class="button-column"><a class="view" title="View" href="../11/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/11/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/11/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+</tbody>
+</table>
+<div class="pagination pagination-centered"><ul id="yw1" class="yiiPager"><li class="first"><a href="index-Crud_sort=id.desc.html">&lt;&lt; First</a></li>
+<li class="previous"><a href="index-Crud_page=8&Crud_sort=id.desc.html">&lt; Previous</a></li>
+<li class="page"><a href="index-Crud_sort=id.desc.html">1</a></li>
+<li class="page"><a href="index-Crud_page=2&Crud_sort=id.desc.html">2</a></li>
+<li class="page"><a href="index-Crud_page=3&Crud_sort=id.desc.html">3</a></li>
+<li class="page"><a href="index-Crud_page=4&Crud_sort=id.desc.html">4</a></li>
+<li class="page"><a href="index-Crud_page=5&Crud_sort=id.desc.html">5</a></li>
+<li class="page"><a href="index-Crud_page=6&Crud_sort=id.desc.html">6</a></li>
+<li class="page"><a href="index-Crud_page=7&Crud_sort=id.desc.html">7</a></li>
+<li class="page"><a href="index-Crud_page=8&Crud_sort=id.desc.html">8</a></li>
+<li class="page active"><a href="index-Crud_page=9&Crud_sort=id.desc.html">9</a></li>
+<li class="page"><a href="index-Crud_page=10&Crud_sort=id.desc.html">10</a></li>
+<li class="next"><a href="index-Crud_page=10&Crud_sort=id.desc.html">Next &gt;</a></li>
+<li class="last"><a href="index-Crud_page=10&Crud_sort=id.desc.html">Last &gt;&gt;</a></li></ul></div><div class="keys" style="display:none" title="/va/yiibootstrapwidgets/testapp/index.php/crud/admin?Crud_page=9&amp;Crud_sort=id.desc"><span>20</span><span>19</span><span>18</span><span>17</span><span>16</span><span>15</span><span>14</span><span>13</span><span>12</span><span>11</span></div>
+</div>	</div>
+		
+</div>
+	
+	</div>
+	
+	<footer class="container">
+		Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>. Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>.
+	</footer>
+
+<script type="text/javascript" src="../../../assets/9b47b0b2/gridview/jquery.yiigridview.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+
+$('.search-button').click(function(){
+	$('.search-form').toggle('fast');
+	return false;
+});
+$('.search-form form').submit(function(){
+	$.fn.yiiGridView.update('crud-grid', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+
+jQuery('#crud-grid a.delete').live('click',function() {
+	if(!confirm('Are you sure you want to delete this item?')) return false;
+	var th=this;
+	var afterDelete=function(){};
+	$.fn.yiiGridView.update('crud-grid', {
+		type:'POST',
+		url:$(this).attr('href'),
+		success:function(data) {
+			$.fn.yiiGridView.update('crud-grid');
+			afterDelete(th,true,data);
+		},
+		error:function(XHR) {
+			return afterDelete(th,false,XHR);
+		}
+	});
+	return false;
+});
+jQuery('#crud-grid').yiiGridView({'ajaxUpdate':['crud-grid'],'ajaxVar':'ajax','pagerClass':'pagination pagination-centered','loadingClass':'grid-view-loading','filterClass':'filters','tableClass':'items table table-bordered table-striped table-condensed','selectableRows':1,'pageVar':'Crud_page'});
+});
+/*]]>*/
+</script>
+</body>
+</html>
+
+<!-- Localized -->

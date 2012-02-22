@@ -9,8 +9,10 @@
 <script type="text/javascript" src="../../../assets/jquery.js"></script>
 <script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../../assets/prettify.js"></script>
-<title>Yii Bootstrap Test Application - Contact Us</title>
-</head>
+<script type="text/javascript" src="../../../themes/bootstrap/js/main.js"></script>
+<title>Yii Bootstrap Demo - Contact Us</title>
+	
+	</head>
 
 <body>
 
@@ -18,14 +20,12 @@
 		<div id="yw3" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
-<a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
+<a class="brand" href="../../../index.php.html">Yii Bootstrap Demo</a>
 <ul class="nav">
 <li><a href="../index/index.html">Home</a></li>
 <li><a href="../page/index-view=sidebar.html">Sidebar</a></li>
 <li class="active"><a href="index.html">Contact</a></li>
-<li class="divider-vertical">
-</li>
-<li><a href="../login/index.html">Login</a></li>
+<li class="divider-vertical" />
 <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Base CSS<b class="caret"></b></a>
 <ul class="dropdown-menu">
 <li><a href="../page/index-view=typography.html">Typography</a></li>
@@ -40,9 +40,16 @@
 <li><a href="../page/index-view=navigation.html">Navigation</a></li>
 <li><a href="../alert/index.html">Alerts</a></li>
 <li><a href="../page/index-view=carousel.html">Carousel</a></li>
+<li><a href="../page/index-view=progressbar.html">Progress Bar</a></li>
 </ul>
 </li>
-</ul>
+<form action="#" method="get" class="navbar-search">
+<input placeholder="Search" class="search-query" type="text" value="" name="search" id="search" />
+</form>
+<li action="#" method="get" class="navbar-search"></li>
+</ul><ul class="nav pull-right">
+<li><a href="../login/index.html">Login</a></li>
+</ul></ul>
 </div>
 </div>
 </div>
@@ -70,11 +77,19 @@
 
 	
 	<div class="control-group">		<label class="control-label required" for="ContactForm_name">Name <span class="required">*</span></label>		<div class="controls">			<input name="ContactForm[name]" id="ContactForm_name" type="text" />					</div>	</div>
-	<div class="control-group">		<label class="control-label required" for="ContactForm_email">Email <span class="required">*</span></label>		<div class="controls">			<input name="ContactForm[email]" id="ContactForm_email" type="text" />					</div>	</div>
-	<div class="control-group">		<label class="control-label required" for="ContactForm_subject">Subject <span class="required">*</span></label>		<div class="controls">			<input size="60" maxlength="128" name="ContactForm[subject]" id="ContactForm_subject" type="text" />					</div>	</div>
+	<div class="control-group">		<label class="control-label required" for="ContactForm_email">Email <span class="required">*</span></label>		<div class="controls">			<div class="input-prepend">
+<span class="add-on">@</span>
+<input name="ContactForm[email]" id="ContactForm_email" type="text" />
+</div>
+					</div>	</div>
+	<div class="control-group">		<label class="control-label required" for="ContactForm_subject">Subject <span class="required">*</span></label>		<div class="controls">			<div class="input-append">
+<input maxlength="128" name="ContactForm[subject]" id="ContactForm_subject" type="text" />
+<span class="add-on">!</span>
+</div>
+					</div>	</div>
 	<div class="control-group">		<label class="control-label required" for="ContactForm_body">Body <span class="required">*</span></label>		<div class="controls">			<textarea rows="6" cols="50" name="ContactForm[body]" id="ContactForm_body"></textarea>					</div>	</div>
 			<div class="captcha">
-			<div class="control-group">				<label class="control-label" for="ContactForm_verifyCode">Verification Code</label>				<div class="controls">					<img id="yw0" src="../captcha/index-v=4f413736979f1.html" alt="" /><br />
+			<div class="control-group">				<label class="control-label" for="ContactForm_verifyCode">Verification Code</label>				<div class="controls">					<img id="yw0" src="../captcha/index-v=4f444cbadf7a8.html" alt="" /><br />
 					<input name="ContactForm[verifyCode]" id="ContactForm_verifyCode" type="text" />
 					<p class="help-block">Please enter the letters as they are shown in the image above.<br />Letters are not case-sensitive.</p>									</div>			</div>		</div>
 	
@@ -106,7 +121,7 @@
 	&lt;?php echo $form-&gt;beginControlGroup($model, 'email'); ?&gt;
 		&lt;?php echo $form-&gt;labelEx($model,'email'); ?&gt;
 		&lt;?php echo $form-&gt;beginControls(); ?&gt;
-			&lt;?php echo $form-&gt;textField($model,'email'); ?&gt;
+			&lt;?php echo $form-&gt;textFieldPrepend($model,'email','@'); ?&gt;
 			&lt;?php echo $form-&gt;error($model,'email'); ?&gt;
 		&lt;?php echo $form-&gt;endControls(); ?&gt;
 	&lt;?php echo $form-&gt;endControlGroup(); ?&gt;
@@ -114,7 +129,7 @@
 	&lt;?php echo $form-&gt;beginControlGroup($model, 'subject'); ?&gt;
 		&lt;?php echo $form-&gt;labelEx($model,'subject'); ?&gt;
 		&lt;?php echo $form-&gt;beginControls(); ?&gt;
-			&lt;?php echo $form-&gt;textField($model,'subject',array('size'=&gt;60,'maxlength'=&gt;128)); ?&gt;
+			&lt;?php echo $form-&gt;textFieldAppend($model,'subject','!',array('maxlength'=&gt;128)); ?&gt;
 			&lt;?php echo $form-&gt;error($model,'subject'); ?&gt;
 		&lt;?php echo $form-&gt;endControls(); ?&gt;
 	&lt;?php echo $form-&gt;endControlGroup(); ?&gt;

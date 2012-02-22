@@ -4,13 +4,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 	
-	<link rel="stylesheet" type="text/css" href="../../../assets/d7c36032/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="../../../assets/952c7f85/bootstrap.css" />
 <link rel="stylesheet" type="text/css" href="../../../themes/bootstrap/css/main.css" />
 <script type="text/javascript" src="../../../assets/jquery.js"></script>
 <script type="text/javascript" src="../../../assets/jquery.ba-bbq.js"></script>
+<script type="text/javascript" src="../../../themes/bootstrap/js/main.js"></script>
 <script type="text/javascript" src="../../../assets/bootstrap.min.js"></script>
-<title>Yii Bootstrap Test Application - Admin Crud</title>
-</head>
+<title>Yii Bootstrap Demo - Admin Crud</title>
+	
+	</head>
 
 <body>
 
@@ -18,14 +20,12 @@
 		<div id="yw3" class="navbar">
 <div class="navbar-inner navbar-fixed-top">
 <div class="container">
-<a class="brand" href="../../../index.php.html">Yii Bootstrap Test Application</a>
+<a class="brand" href="../../../index.php.html">Yii Bootstrap Demo</a>
 <ul class="nav">
 <li><a href="../../site/index/index.html">Home</a></li>
 <li><a href="../../site/page/index-view=sidebar.html">Sidebar</a></li>
 <li><a href="../../site/contact/index.html">Contact</a></li>
-<li class="divider-vertical">
-</li>
-<li><a href="../../site/login/index.html">Login</a></li>
+<li class="divider-vertical" />
 <li class="dropdown"><a data-toggle="dropdown" class="dropdown-toggle" href="#">Base CSS<b class="caret"></b></a>
 <ul class="dropdown-menu">
 <li><a href="../../site/page/index-view=typography.html">Typography</a></li>
@@ -40,9 +40,16 @@
 <li><a href="../../site/page/index-view=navigation.html">Navigation</a></li>
 <li><a href="../../site/alert/index.html">Alerts</a></li>
 <li><a href="../../site/page/index-view=carousel.html">Carousel</a></li>
+<li><a href="../../site/page/index-view=progressbar.html">Progress Bar</a></li>
 </ul>
 </li>
-</ul>
+<form action="#" method="get" class="navbar-search">
+<input placeholder="Search" class="search-query" type="text" value="" name="search" id="search" />
+</form>
+<li action="#" method="get" class="navbar-search"></li>
+</ul><ul class="nav pull-right">
+<li><a href="../../site/login/index.html">Login</a></li>
+</ul></ul>
 </div>
 </div>
 </div>
@@ -86,7 +93,7 @@
 </form></div>
 
 <div id="crud-grid" class="grid-view bootstrap-grid-view">
-<div class="summary">Displaying 1-10 of 30 result(s).</div>
+<div class="summary">Displaying 1-10 of 100 result(s).</div>
 <table class="items table table-bordered table-striped table-condensed">
 <thead>
 <tr>
@@ -95,16 +102,16 @@
 <td><input name="Crud[id]" type="text" /></td><td><input name="Crud[title]" type="text" /></td><td><input name="Crud[date_created]" type="text" /></td><td><input name="Crud[date_updated]" type="text" /></td><td>&nbsp;</td></tr>
 </thead>
 <tbody>
-<tr class="odd"><td>1</td><td>scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed</td><td>2011-11-12 20:05:17</td><td>2012-06-12 07:31:29</td><td class="button-column"><a class="view" title="View" href="../1/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/1/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/1/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
-<tr class="even"><td>2</td><td>semper cursus. Integer mollis. Integer tincidunt aliquam arcu.</td><td>2011-09-30 03:27:19</td><td>2012-04-28 01:23:20</td><td class="button-column"><a class="view" title="View" href="../2/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/2/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/2/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
-<tr class="odd"><td>3</td><td>dui. Cum sociis natoque</td><td>2011-05-28 17:36:46</td><td>2012-12-16 12:40:54</td><td class="button-column"><a class="view" title="View" href="../3/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/3/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/3/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
-<tr class="even"><td>4</td><td>tempus mauris erat</td><td>2012-07-28 05:14:49</td><td>2012-04-19 21:51:32</td><td class="button-column"><a class="view" title="View" href="../4/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/4/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/4/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
-<tr class="odd"><td>5</td><td>ante dictum mi,</td><td>2012-12-25 14:51:39</td><td>2012-03-27 21:41:28</td><td class="button-column"><a class="view" title="View" href="../5/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/5/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/5/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
-<tr class="even"><td>6</td><td>Curae; Phasellus ornare. Fusce mollis.</td><td>2011-08-13 04:44:43</td><td>2011-02-23 20:21:32</td><td class="button-column"><a class="view" title="View" href="../6/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/6/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/6/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
-<tr class="odd"><td>7</td><td>magna. Lorem ipsum</td><td>2011-07-21 22:18:02</td><td>2012-08-06 05:37:09</td><td class="button-column"><a class="view" title="View" href="../7/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/7/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/7/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
-<tr class="even"><td>8</td><td>vestibulum, neque sed dictum eleifend,</td><td>2011-02-27 04:32:49</td><td>2012-08-05 13:31:04</td><td class="button-column"><a class="view" title="View" href="../8/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/8/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/8/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
-<tr class="odd"><td>9</td><td>semper, dui lectus</td><td>2011-02-24 19:32:07</td><td>2012-11-23 21:27:53</td><td class="button-column"><a class="view" title="View" href="../9/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/9/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/9/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
-<tr class="even"><td>10</td><td>bibendum ullamcorper. Duis cursus, diam at pretium</td><td>2012-01-26 00:09:50</td><td>2012-04-15 05:02:32</td><td class="button-column"><a class="view" title="View" href="../10/index.html"><img src="../../../assets/e6c6e701/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/10/index.html"><img src="../../../assets/e6c6e701/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/10/index.html"><img src="../../../assets/e6c6e701/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="odd"><td>1</td><td>scelerisque sed, sapien. Nunc pulvinar arcu et pede. Nunc sed</td><td>2011-11-12 20:05:17</td><td>2012-06-12 07:31:29</td><td class="button-column"><a class="view" title="View" href="../1/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/1/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/1/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>2</td><td>semper cursus. Integer mollis. Integer tincidunt aliquam arcu.</td><td>2011-09-30 03:27:19</td><td>2012-04-28 01:23:20</td><td class="button-column"><a class="view" title="View" href="../2/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/2/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/2/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="odd"><td>3</td><td>dui. Cum sociis natoque</td><td>2011-05-28 17:36:46</td><td>2012-12-16 12:40:54</td><td class="button-column"><a class="view" title="View" href="../3/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/3/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/3/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>4</td><td>tempus mauris erat</td><td>2012-07-28 05:14:49</td><td>2012-04-19 21:51:32</td><td class="button-column"><a class="view" title="View" href="../4/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/4/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/4/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="odd"><td>5</td><td>ante dictum mi,</td><td>2012-12-25 14:51:39</td><td>2012-03-27 21:41:28</td><td class="button-column"><a class="view" title="View" href="../5/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/5/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/5/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>6</td><td>Curae; Phasellus ornare. Fusce mollis.</td><td>2011-08-13 04:44:43</td><td>2011-02-23 20:21:32</td><td class="button-column"><a class="view" title="View" href="../6/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/6/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/6/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="odd"><td>7</td><td>magna. Lorem ipsum</td><td>2011-07-21 22:18:02</td><td>2012-08-06 05:37:09</td><td class="button-column"><a class="view" title="View" href="../7/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/7/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/7/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>8</td><td>vestibulum, neque sed dictum eleifend,</td><td>2011-02-27 04:32:49</td><td>2012-08-05 13:31:04</td><td class="button-column"><a class="view" title="View" href="../8/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/8/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/8/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="odd"><td>9</td><td>semper, dui lectus</td><td>2011-02-24 19:32:07</td><td>2012-11-23 21:27:53</td><td class="button-column"><a class="view" title="View" href="../9/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/9/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/9/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
+<tr class="even"><td>10</td><td>bibendum ullamcorper. Duis cursus, diam at pretium</td><td>2012-01-26 00:09:50</td><td>2012-04-15 05:02:32</td><td class="button-column"><a class="view" title="View" href="../10/index.html"><img src="../../../assets/9b47b0b2/gridview/view.png" alt="View" /></a> <a class="update" title="Update" href="../update/10/index.html"><img src="../../../assets/9b47b0b2/gridview/update.png" alt="Update" /></a> <a class="delete" title="Delete" href="../delete/10/index.html"><img src="../../../assets/9b47b0b2/gridview/delete.png" alt="Delete" /></a></td></tr>
 </tbody>
 </table>
 <div class="pagination pagination-centered"><ul id="yw1" class="yiiPager"><li class="first disabled"><a href="index-Crud_sort=id.html">&lt;&lt; First</a></li>
@@ -112,8 +119,15 @@
 <li class="page active"><a href="index-Crud_sort=id.html">1</a></li>
 <li class="page"><a href="index-Crud_sort=id&Crud_page=2.html">2</a></li>
 <li class="page"><a href="index-Crud_sort=id&Crud_page=3.html">3</a></li>
+<li class="page"><a href="index-Crud_sort=id&Crud_page=4.html">4</a></li>
+<li class="page"><a href="index-Crud_sort=id&Crud_page=5.html">5</a></li>
+<li class="page"><a href="index-Crud_sort=id&Crud_page=6.html">6</a></li>
+<li class="page"><a href="index-Crud_sort=id&Crud_page=7.html">7</a></li>
+<li class="page"><a href="index-Crud_sort=id&Crud_page=8.html">8</a></li>
+<li class="page"><a href="index-Crud_sort=id&Crud_page=9.html">9</a></li>
+<li class="page"><a href="index-Crud_sort=id&Crud_page=10.html">10</a></li>
 <li class="next"><a href="index-Crud_sort=id&Crud_page=2.html">Next &gt;</a></li>
-<li class="last"><a href="index-Crud_sort=id&Crud_page=3.html">Last &gt;&gt;</a></li></ul></div><div class="keys" style="display:none" title="/va/yiibootstrapwidgets/testapp/index.php/crud/admin?Crud_sort=id"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
+<li class="last"><a href="index-Crud_sort=id&Crud_page=10.html">Last &gt;&gt;</a></li></ul></div><div class="keys" style="display:none" title="/va/yiibootstrapwidgets/testapp/index.php/crud/admin?Crud_sort=id"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div>
 </div>	</div>
 		
 </div>
@@ -124,7 +138,7 @@
 		Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a>. Visit us on <a href="https://github.com/VisualAppeal/YiiBootstrap">GitHub</a>.
 	</footer>
 
-<script type="text/javascript" src="../../../assets/e6c6e701/gridview/jquery.yiigridview.js"></script>
+<script type="text/javascript" src="../../../assets/9b47b0b2/gridview/jquery.yiigridview.js"></script>
 <script type="text/javascript">
 /*<![CDATA[*/
 jQuery(function($) {
