@@ -7,7 +7,7 @@ Yii::import('zii.widgets.CMenu');
  * http://twitter.github.com/bootstrap/components.html#navbar
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.6
+ * @version 0.3.8
  * @package bootstrap.widgets
  */
 class EBootstrapNavigation extends CMenu {
@@ -211,6 +211,31 @@ class EBootstrapNavigation extends CMenu {
         if (!$sub)
 	        echo EBootstrap::closeTag('ul')."\n";
     }
+    
+    /*
+	 * Renders the content of a menu item.
+	 *
+	 * You can pass an 'icon' as item option as well as a bolean 'iconWhite'
+	 */
+	protected function renderMenuItem($item)
+	{
+		if (isset($item['icon']) and !empty($item['icon'])) {
+			$icon = '<i class="icon-'.$item['icon'];
+			if (isset($item['iconWhite']) and ($item['iconWhite'] == true))
+				$icon .= ' icon-white';
+			$icon .= '"></i> ';
+		}
+		else {
+			$icon = '';
+		}
+		if(isset($item['url'])) {
+			$label=$this->linkLabelWrapper===null ? $icon.$item['label'] : '<'.$this->linkLabelWrapper.'>'.$icon.$item['label'].'</'.$this->linkLabelWrapper.'>';
+			return EBootstrap::link($label,$item['url'],isset($item['linkOptions']) ? $item['linkOptions'] : array());
+		}
+		else {
+			return EBootstrap::tag('span',isset($item['linkOptions']) ? $item['linkOptions'] : array(), $icon.$item['label']);
+		}
+	}
 }
 
 ?>
