@@ -7,7 +7,7 @@
  * @version 0.3.0
  * @package bootstrap.widgets.tabs
  */
-class EBootstrapTabContentWrapper extends CWidget {
+class EBootstrapTabContentWrapper extends EBootstrapWidget {
 	/*
 	 * Render header
 	 */

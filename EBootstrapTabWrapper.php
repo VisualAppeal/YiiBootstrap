@@ -8,7 +8,7 @@
  * @version 0.3.0
  * @package bootstrap.widgets.tabs
  */
-class EBootstrapTabWrapper extends CWidget {
+class EBootstrapTabWrapper extends EBootstrapWidget {
 	/*
 	 * Position of the navigation
 	 *
