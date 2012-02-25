@@ -7,14 +7,21 @@ Yii::import('zii.widgets.CMenu');
  * http://twitter.github.com/bootstrap/components.html#navbar
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.8
+ * @version 0.3.9
  * @package bootstrap.widgets
  */
 class EBootstrapNavigation extends CMenu {
+	private $_ul = 0;
+	
 	/* 
 	 * Stay at top of the page 
 	 */ 
 	public $fixed = false;
+	
+	/*
+	 * Responsive navigation bar. Hides on small screens and add a dropdown for the elements
+	 */
+	public $responsive = false;
 	
 	/*
 	 * Javascript file to hide the alert.
@@ -60,7 +67,32 @@ class EBootstrapNavigation extends CMenu {
 			
 			echo EBootstrap::openTag('div', array('class' => 'container'))."\n";
 			
+			if ($this->responsive) {
+				echo EBootstrap::openTag('a', array('class' => 'btn btn-navbar', 'data-toggle' => 'collapse', 'data-target' => '.nav-collapse'))."\n";
+				for ($i = 0; $i < 3; $i++) {
+					echo EBootstrap::openTag('span', array('class' => 'icon-bar'));
+					echo EBootstrap::closeTag('span')."\n";
+				}
+				echo EBootstrap::closeTag('a')."\n";
+				
+				for ($i = 0; $i < count($items); $i++) {
+					if (isset($items[$i]['template']) and ($items[$i]['template']) == '{brand}') {
+						$options = isset($items[$i]['itemOptions']) ? $items[$i]['itemOptions'] : array();
+						EBootstrap::mergeClass($options, array('brand'));
+						echo EBootstrap::link($items[$i]['label'],$items[$i]['url'],$options)."\n";
+						unset($items[$i]);
+						break;
+					}
+				}
+				
+				echo EBootstrap::openTag('div', array('class' => 'nav-collapse'))."\n";
+			}
+			
 			$this->renderMenuRecursive($items);
+			
+			if ($this->responsive) {
+				echo EBootstrap::closeTag('div')."\n";
+			}
 			
 			echo EBootstrap::closeTag('div')."\n";
 			
@@ -107,9 +139,11 @@ class EBootstrapNavigation extends CMenu {
 					echo EBootstrap::link($item['label'],$item['url'],$options)."\n";
 					break;
 				case '{divider}':
-					echo EBootstrap::tag('li', array('class' => 'divider-vertical'))."\n";
+					echo EBootstrap::openTag('li', array('class' => 'divider-vertical'));
+					echo EBootstrap::closeTag('li')."\n";
 					break;
 				case '{search}':
+					//Input options
 					if (isset($options['input'])) {
 						$itemOptions = $options['input'];
 						unset($options['input']);
@@ -134,6 +168,8 @@ class EBootstrapNavigation extends CMenu {
 					echo EBootstrap::openTag('form', $options)."\n";
 					echo EBootstrap::searchField($name, $value, $itemHtmlOptions)."\n";
 					echo EBootstrap::closeTag('form')."\n";
+					
+					break;
 				default:
 					$listOptions = array('class' => 'nav');
 					
@@ -141,16 +177,22 @@ class EBootstrapNavigation extends CMenu {
 						//Allign navigation right
 						EBootstrap::mergeClass($listOptions, array('pull-right'));
 						
-						echo EBootstrap::closeTag('ul');
+						if ($this->_ul > 0) {
+							$this->_ul--;
+							echo EBootstrap::closeTag('ul');
+						}
 						
+						$this->_ul++;
 						echo EBootstrap::openTag('ul', $listOptions)."\n";
 						
 						$this->renderMenuRecursive($item['items'], true);
 						
+						$this->_ul--;
 						echo EBootstrap::closeTag('ul');
 						continue;
 					}
 					elseif ($first and (!$sub)) {
+						$this->_ul++;
 						echo EBootstrap::openTag('ul', $listOptions)."\n";
 						$first = false;
 					}
@@ -194,22 +236,28 @@ class EBootstrapNavigation extends CMenu {
 							EBootstrap::mergeClass($options, array('nav'));
 						}
 
+						$this->_ul++;
 						echo "\n".EBootstrap::openTag('ul', $options)."\n";
 						
 						$this->renderMenuRecursive($item['items'], true);
 						
-						if (!isset($options['align']))
+						if (!isset($options['align'])) {
+							$this->_ul--;
 							echo EBootstrap::closeTag('ul')."\n";
-						elseif ($options['align'] == 'right')
+						}
+						elseif ($options['align'] == 'right') {
 							echo EBootstrap::closeTag('div')."\n";
+						}
 		            }
 					
 		            echo EBootstrap::closeTag('li')."\n";
 			}
         }
         
-        if (!$sub)
+        if (!$sub and ($this->_ul > 0)) {
+        	$this->_ul--;
 	        echo EBootstrap::closeTag('ul')."\n";
+	    }
     }
     
     /*
