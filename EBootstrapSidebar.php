@@ -54,7 +54,7 @@ class EBootstrapSidebar extends CMenu {
 					$class[]=$this->lastItemCssClass;
 				if($this->itemCssClass!==null)
 					$class[]=$this->itemCssClass;
-				if ($header and (isset($item['items'])))
+				if (($header and (isset($item['items']))) or (isset($item['header']) and ($item['header'] == true)))
 					$class[]='nav-header';
 				if($class!==array()) {
 					if(empty($options['class']))

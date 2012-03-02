@@ -14,7 +14,9 @@ class EBootstrapTabContentWrapper extends EBootstrapWidget {
 	public function init() {
 		parent::init();
 		
-		echo EBootstrap::openTag('div', array('class' => 'tab-content'));
+		EBootstrap::mergeClass($this->htmlOptions, array('tab-content'));
+		
+		echo EBootstrap::openTag('div', $this->htmlOptions);
 	}
 	
 	/*

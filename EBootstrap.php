@@ -129,7 +129,7 @@ class EBootstrap extends CHtml {
 		$html = '';
 		
 		self::mergeClass($htmlOptions, array('btn-group'));
-		echo self::openTag('div', $htmlOptions);
+		$html .= self::openTag('div', $htmlOptions);
 		
 		if (!$split) {
 			$button->htmlOptions['data-toggle'] = "dropdown";
