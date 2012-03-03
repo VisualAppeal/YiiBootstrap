@@ -53,6 +53,15 @@ class EBootstrapButton {
 	public $htmlOptions;
 	
 	/*
+	 * Button type
+	 *
+	 * Possible values:
+	 *		a
+	 *		button
+	 */
+	public $element;
+	
+	/*
 	 * Construct a button element
 	 *
 	 * http://twitter.github.com/bootstrap/base-css.html#buttons
@@ -101,7 +110,14 @@ class EBootstrapButton {
 		
 		EBootstrap::mergeClass($this->htmlOptions, $class);
 		
-		return EBootstrap::link($this->text, $this->url, $this->htmlOptions)."\n";
+		switch ($this->element) {
+			case 'button':
+				return EBootstrap::tag('button', $this->htmlOptions, $this->text)."\n";
+				break;
+			default:
+				return EBootstrap::link($this->text, $this->url, $this->htmlOptions)."\n";
+			break;
+		}
 	}
 }
 

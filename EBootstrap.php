@@ -253,10 +253,12 @@ class EBootstrap extends CHtml {
 			
 			if (!empty($caption))
 				$html .= self::tag('h5', array(), $caption)."\n";
+			
 			if (!empty($body))
 				$html .= self::tag('p', array(), $body)."\n";
+				
 			if (!empty($actions)) {
-				$html .= self::openTag('p');
+				$html .= self::openTag('p')."\n";
 				foreach ($actions as $button) {
 					$html .= $button." \n";
 				}
@@ -367,6 +369,24 @@ class EBootstrap extends CHtml {
 	public static function searchField($name,$value='',$htmlOptions=array()) {
 		self::mergeClass($htmlOptions, array('search-query'));
 		return self::textField($name, $value, $htmlOptions);
+	}
+		
+	/*
+	 * Render a submit button
+	 *
+	 * http://twitter.github.com/bootstrap/base-css.html#buttons
+	 *
+	 * @param string $text Label of the button
+	 * @param string $type primary|info|success|warning|danger|inverse. Leave empty for default
+	 * @param string $size large|small|mini. Leave empty for default
+	 * @param bool $disabled Default: false
+	 * @param string $icon http://twitter.github.com/bootstrap/base-css.html#icons (e.g. 'shopping-cart', 'user', 'ok', etc.)
+	 * @param bool $iconWhite Invert the icon color. Default: false
+	 * @param array $htmlOptions
+	 */
+	public static function submitButton($label = 'submit', $type = 'primary', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array()) {
+		$htmlOptions['type']='submit';
+    	return new EBootstrapButton($label, '', $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, 'button');
 	}
 }
 
