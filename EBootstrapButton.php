@@ -75,7 +75,7 @@ class EBootstrapButton {
 	 * @param bool $iconWhite Invert the icon color. Default: false
 	 * @param array $htmlOptions
 	 */
-	public function __construct($text, $url = '#', $type = '', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array()) {
+	public function __construct($text, $url = '#', $type = '', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array(), $element = 'a') {
 		$this->text = $text;
 		$this->url = $url;
 		$this->type = $type;
@@ -84,6 +84,7 @@ class EBootstrapButton {
 		$this->icon = $icon;
 		$this->iconWhite = $iconWhite;
 		$this->htmlOptions = $htmlOptions;
+		$this->element = $element;
 		
 		$class = array('btn');
 		
