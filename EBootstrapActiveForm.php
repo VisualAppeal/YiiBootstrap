@@ -106,45 +106,7 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @param array $htmlOptions
 	 */
 	public function errorSummary($model,$header=null,$footer=null,$htmlOptions=array()) {
-		$content='';
-		if(!is_array($model))
-			$model=array($model);
-		if(isset($htmlOptions['firstError']))
-		{
-			$firstError=$htmlOptions['firstError'];
-			unset($htmlOptions['firstError']);
-		}
-		else
-			$firstError=false;
-		foreach($model as $m)
-		{
-			foreach($m->getErrors() as $errors)
-			{
-				foreach($errors as $error)
-				{
-					if($error!='')
-						$content.="<li>$error</li>\n";
-					if($firstError)
-						break;
-				}
-			}
-		}
-		if($content!=='')
-		{
-			if($header===null)
-				$header=Yii::t('yii','Please fix the following input errors:');
-			$header = EBootstrap::tag('h4', array('class' => 'alert-heading'), $header)."\n";
-			
-			if(!isset($htmlOptions['class']))
-				$htmlOptions['class']=EBootstrap::$errorSummaryCss;
-			
-			EBootstrap::mergeClass($htmlOptions, array('alert', 'alert-error', 'alert-block'));
-			
-			return EBootstrap::tag('div',$htmlOptions,$header."\n<ul>\n$content</ul>".$footer);
-		}
-		else
-			return '';
-
+		return EBootstrap::errorSummary($model, $header, $footer, $htmlOptions);
 	}
 	
 	/*
