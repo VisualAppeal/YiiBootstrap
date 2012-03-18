@@ -318,6 +318,103 @@ class EBootstrap extends CHtml {
 		self::mergeClass($htmlOptions, array('form-search'));
 		return self::textField($name, $value, $htmlOptions);
 	}
+
+	/*
+	 * Render a submit button
+	 *
+	 * http://twitter.github.com/bootstrap/base-css.html#buttons
+	 *
+	 * @param string $text Label of the button
+	 * @param string $type primary|info|success|warning|danger|inverse. Leave empty for default
+	 * @param string $size large|small|mini. Leave empty for default
+	 * @param bool $disabled Default: false
+	 * @param string $icon http://twitter.github.com/bootstrap/base-css.html#icons (e.g. 'shopping-cart', 'user', 'ok', etc.)
+	 * @param bool $iconWhite Invert the icon color. Default: false
+	 * @param array $htmlOptions
+	 */
+	public static function submitButton($label = 'submit', $type = 'primary', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array()) {
+		$htmlOptions['type']='submit';
+    	return new EBootstrapButton($label, '', $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, 'button');
+	}
+	
+	/*
+	 * Error summary
+	 *
+	 * Apply bootstrap style to the error summary
+	 *
+	 * @param CModel $model
+	 * @param string $header
+	 * @param string $footer
+	 * @param array $htmlOptions
+	 */
+	public static function errorSummary($model,$header=null,$footer=null,$htmlOptions=array()) {
+		$content='';
+		if(!is_array($model))
+			$model=array($model);
+		if(isset($htmlOptions['firstError']))
+		{
+			$firstError=$htmlOptions['firstError'];
+			unset($htmlOptions['firstError']);
+		}
+		else
+			$firstError=false;
+		foreach($model as $m)
+		{
+			foreach($m->getErrors() as $errors)
+			{
+				foreach($errors as $error)
+				{
+					if($error!='')
+						$content.="<li>$error</li>\n";
+					if($firstError)
+						break;
+				}
+			}
+		}
+		if($content!=='')
+		{
+			if($header===null)
+				$header=Yii::t('yii','Please fix the following input errors:');
+			$header = EBootstrap::tag('h4', array('class' => 'alert-heading'), $header)."\n";
+			
+			if(!isset($htmlOptions['class']))
+				$htmlOptions['class']=EBootstrap::$errorSummaryCss;
+			
+			EBootstrap::mergeClass($htmlOptions, array('alert', 'alert-error', 'alert-block'));
+			
+			return EBootstrap::tag('div',$htmlOptions,$header."\n<ul>\n$content</ul>".$footer);
+		}
+		else
+			return '';
+	}
+	
+	/*
+	 * Bootstrap typeahead
+	 *
+	 * @param
+	 */
+	public static function typeahead($name, $value, $sources = array(), $htmlOptions = array(), $items = 8, $matcher = null, $sorter = null, $highlighter = null) {
+		$source = '[';
+		foreach ($sources as $sourceValue) {
+			$source .= "'".self::encode($sourceValue)."',";
+		}
+		$source = substr_replace($source, "", -1);
+		$source .= ']';
+		
+		$htmlOptions['data-provide'] = 'typeahead';
+		$htmlOptions['data-items'] = $items;
+		$htmlOptions['data-source'] = $source;
+		$htmlOptions['encode'] = false;
+		
+		if (!is_null($matcher))
+			$htmlOptions['data-matcher'] = $matcher;
+		if (!is_null($sorter))
+			$htmlOptions['data-sorter'] = $sorter;
+		if (!is_null($highlighter))
+			$htmlOptions['data-highlighter'] = $highlighter;
+		
+		return self::textField($name, $value, $htmlOptions);
+	}
 }
 
 ?>
