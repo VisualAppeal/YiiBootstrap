@@ -50,7 +50,7 @@ class EBootstrapGridView extends CGridView {
 	/*
 	 * Init the widget
 	 */
-	public function init() {
+	public function init() {		
 		parent::init();
 		
 		$classes = array('table');
