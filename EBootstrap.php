@@ -441,4 +441,6 @@ class EBootstrap extends CHtml {
 	}
 }
 
+EBootstrap::$afterRequiredLabel = ' <span class="required">' . Yii::t('Site', '(Required)') . '</span>';
+
 ?>
