@@ -113,6 +113,9 @@ class EBootstrapCarousel extends EBootstrapWidget {
 				if (!isset($item['alt']))
 					$item['alt'] = isset($item['caption']) ? $item['caption'] : '';
 				
+				if (isset($item['href']))
+					echo EBootstrap::openTag('a', array('href' => $item['href']));
+				
 				echo EBootstrap::image($item['src'], $item['alt'], array())."\n";
 				
 				if ((isset($item['caption']) and !empty($item['caption'])) or (isset($item['body']) and !empty($item['body']))) {
@@ -126,6 +129,9 @@ class EBootstrapCarousel extends EBootstrapWidget {
 						
 					echo EBootstrap::closeTag('div');
 				}
+				
+				if (isset($item['href']))
+					echo EBootstrap::closeTag('a');
 				
 				echo EBootstrap::closeTag('div')."\n";
 			}
