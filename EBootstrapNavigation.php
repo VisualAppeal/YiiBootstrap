@@ -58,11 +58,12 @@ class EBootstrapNavigation extends CMenu {
 	 */
 	public function renderMenu($items) {
 		if (count($items)) {			
+			if ($this->fixed)
+				EBootstrap::mergeClass($this->htmlOptions, array('navbar-fixed-top'));
 			echo EBootstrap::openTag('div', $this->htmlOptions)."\n";
 			
 			$innerOptions = array('class' => 'navbar-inner');
-			if ($this->fixed)
-				EBootstrap::mergeClass($innerOptions, array('navbar-fixed-top'));
+
 			echo EBootstrap::openTag('div', $innerOptions)."\n";
 			
 			echo EBootstrap::openTag('div', array('class' => 'container'))."\n";
