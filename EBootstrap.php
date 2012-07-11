@@ -283,7 +283,7 @@ class EBootstrap extends CHtml {
 	 */
 	public static function activeTextFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
        	$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
-       	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
+       	$html .= self::tag('span', array('class' => 'add-on'), $prepend);
        
        	self::resolveNameID($model,$attribute,$htmlOptions);
     	self::clientChange('change',$htmlOptions);
@@ -307,7 +307,7 @@ class EBootstrap extends CHtml {
        
        	self::resolveNameID($model,$attribute,$htmlOptions);
     	self::clientChange('change',$htmlOptions);
-    	$html .= self::activeInputField('text',$model,$attribute,$htmlOptions)."\n";
+    	$html .= self::activeInputField('text',$model,$attribute,$htmlOptions);
     	
     	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
     	
@@ -326,7 +326,7 @@ class EBootstrap extends CHtml {
 	 */
 	public static function activePasswordFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
        	$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
-       	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
+       	$html .= self::tag('span', array('class' => 'add-on'), $prepend);
        
        	self::resolveNameID($model,$attribute,$htmlOptions);
     	self::clientChange('change',$htmlOptions);
@@ -350,7 +350,7 @@ class EBootstrap extends CHtml {
        
        	self::resolveNameID($model,$attribute,$htmlOptions);
     	self::clientChange('change',$htmlOptions);
-    	$html .= self::activeInputField('password',$model,$attribute,$htmlOptions)."\n";
+    	$html .= self::activeInputField('password',$model,$attribute,$htmlOptions);
     	
     	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
     	
