@@ -2,7 +2,7 @@
 
 Yii::import('zii.widgets.grid.CGridView');
 
-/*
+/**
  * Wrapper class for CGridView
  * Render the GridView as a bootstrap table
  * 
@@ -11,7 +11,7 @@ Yii::import('zii.widgets.grid.CGridView');
  * @package bootstrap.yiiwidgets
  */
 class EBootstrapGridView extends CGridView {
-	/*
+	/**
 	 * Do not include the default style
 	 *
 	 * If it's set unequal false the css file specified will be included
@@ -19,27 +19,27 @@ class EBootstrapGridView extends CGridView {
 	 */
 	public $cssFile = false;
 	
-	/*
+	/**
 	 * Bordered table
 	 */
 	public $bordered = false;
 	
-	/*
+	/**
 	 * Every second row has a darker background
 	 */
 	public $striped = false;
 	
-	/*
+	/**
 	 * Smaller table fields to display more content
 	 */
 	public $condensed = false;
 	
-	/*
+	/**
 	 * Default css class for the pager
 	 */
 	public $pagerCssClass = 'pagination';
 	
-	/* 
+	/** 
 	 * Align of the pager
 	 *
 	 * Possible values: centered|right
@@ -47,7 +47,7 @@ class EBootstrapGridView extends CGridView {
 	 */
 	public $pagerAlign = 'centered';
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {		

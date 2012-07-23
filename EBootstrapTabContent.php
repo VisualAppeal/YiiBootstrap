@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Render a tab page
  * The pages must be enclosed by one {@link EBootstrapTabContentWrapper} widget
  * 
@@ -9,21 +9,21 @@
  * @package bootstrap.widgets.tabs
  */
 class EBootstrapTabContent extends EBootstrapWidget {
-	/*
+	/**
 	 * ID of the widget
 	 *
 	 * The ID is important and has to match the id in the url of the {@link EBootstrapTabNavigation}
 	 */
 	public $id = null;
 	
-	/*
+	/**
 	 * If this page should be active
 	 *
 	 * Only one page should be active
 	 */
 	public $active = false;
 	
-	/*
+	/**
 	 * Init the widget
 	 *
 	 * Render header
@@ -43,7 +43,7 @@ class EBootstrapTabContent extends EBootstrapWidget {
 		echo EBootstrap::openTag('div', $this->htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Render the footer of the widget
 	 */
 	public function run() {

@@ -2,7 +2,7 @@
 
 Yii::import('zii.widgets.CMenu');
 
-/*
+/**
  * Render a navigation-bar
  * http://twitter.github.com/bootstrap/components.html#navbar
  * 
@@ -13,24 +13,24 @@ Yii::import('zii.widgets.CMenu');
 class EBootstrapNavigation extends CMenu {
 	private $_ul = 0;
 	
-	/* 
+	/** 
 	 * Stay at top of the page 
 	 */ 
 	public $fixed = false;
 	
-	/*
+	/**
 	 * Responsive navigation bar. Hides on small screens and add a dropdown for the elements
 	 */
 	public $responsive = false;
 	
-	/*
+	/**
 	 * Javascript file to hide the alert.
 	 *
 	 * If its set to false, no file will be included
 	 */
 	public $jsFile = null;
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {
@@ -53,7 +53,7 @@ class EBootstrapNavigation extends CMenu {
 		parent::run();
 	}
 	
-	/*
+	/**
 	 * Render the menu
 	 */
 	public function renderMenu($items) {
@@ -103,7 +103,7 @@ class EBootstrapNavigation extends CMenu {
 		}
 	}
 	
-	/*
+	/**
 	 * Render the menu items
 	 */
 	protected function renderMenuRecursive($items, $sub = false) {
@@ -261,7 +261,7 @@ class EBootstrapNavigation extends CMenu {
 	    }
     }
     
-    /*
+    /**
 	 * Renders the content of a menu item.
 	 *
 	 * You can pass an 'icon' as item option as well as a bolean 'iconWhite'

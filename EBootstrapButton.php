@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Class for creating a button
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
@@ -8,51 +8,51 @@
  * @package bootstrap
  */
 class EBootstrapButton {
-	/*
+	/**
 	 * Button text
 	 */
 	public $text;
 	
-	/*
+	/**
 	 * URL
 	 */
 	public $url;
 	
-	/*
+	/**
 	 * Button type
 	 *
 	 * Possible values: primary|info|success|warning|danger|inverse. Leave empty for default
 	 */
 	public $type;
 	
-	/*
+	/**
 	 * Size of the button
 	 *
 	 * Possible values: large|small|mini. Leave empty for default
 	 */
 	public $size;
 	
-	/*
+	/**
 	 * Set true to disable the button
 	 */
 	public $disabled;
 	
-	/*
+	/**
 	 * Icon
 	 */
 	public $icon;
 	
-	/*
+	/**
 	 * Invert the icon color
 	 */
 	public $iconWhite;
 	
-	/*
+	/**
 	 * HTML options
 	 */
 	public $htmlOptions;
 	
-	/*
+	/**
 	 * Button type
 	 *
 	 * Possible values:
@@ -61,7 +61,7 @@ class EBootstrapButton {
 	 */
 	public $element;
 	
-	/*
+	/**
 	 * Construct a button element
 	 *
 	 * http://twitter.github.com/bootstrap/base-css.html#buttons
@@ -91,7 +91,7 @@ class EBootstrapButton {
 		EBootstrap::mergeClass($this->htmlOptions, $class);
 	}
 	
-	/*
+	/**
 	 * Outputs the button
 	 */
 	public function __tostring() {

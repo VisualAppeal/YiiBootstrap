@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Wrapper class for CHtml
  * EBootstrap adds some bootstrap elements to CHtml
  * 
@@ -9,7 +9,7 @@
  * @package bootstrap
  */
 class EBootstrap extends CHtml {
-	/*
+	/**
 	 * Merges the classes (i.e. htmlOptions) and another array of classes
 	 *
 	 * @param array $option Classes to modify
@@ -25,7 +25,7 @@ class EBootstrap extends CHtml {
 			$option['class'] = implode(' ', $add);
 	}
 	
-	/*
+	/**
 	 * Merges a class string (i.e. cssClassName) with an array of classes
 	 *
 	 * @param string $class Classes string
@@ -37,7 +37,7 @@ class EBootstrap extends CHtml {
 		$class .= implode(' ', $add);
 	}
 	
-	/*
+	/**
 	 * Returns an inline label
 	 *
 	 * @param string $label Label
@@ -53,7 +53,7 @@ class EBootstrap extends CHtml {
 		return EBootstrap::tag('span', $htmlOptions, $label);
 	}
 	
-	/*
+	/**
 	 * Returns an link-button
 	 *
 	 * http://twitter.github.com/bootstrap/base-css.html#buttons
@@ -71,7 +71,7 @@ class EBootstrap extends CHtml {
 		return new EBootstrapButton($text, $url, $type, $size, $disabled, $icon, $iconWhite, $htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Returns a group of buttons
 	 *
 	 * http://twitter.github.com/bootstrap/components.html#buttonGroups
@@ -94,7 +94,7 @@ class EBootstrap extends CHtml {
 		return $html;
 	}
 	
-	/*
+	/**
 	 * Returns a toolbar with button groups
 	 *
 	 * http://twitter.github.com/bootstrap/components.html#buttonGroups
@@ -117,7 +117,7 @@ class EBootstrap extends CHtml {
 		return $html;
 	}
 	
-	/*
+	/**
 	 * Returns a toolbar with button groups
 	 *
 	 * @param EBootstrapButton $button You can create the button with the help of EBootstrap::ibutton();
@@ -167,7 +167,7 @@ class EBootstrap extends CHtml {
 		return $html;
 	}
 	
-	/*
+	/**
 	 * Returns an icon
 	 *
 	 * http://twitter.github.com/bootstrap/base-css.html#icons
@@ -182,9 +182,9 @@ class EBootstrap extends CHtml {
 		return $return.'"></i>';
 	}
 	
-	/* IMAGES */
+	/** IMAGES */
 	
-	/*
+	/**
 	 * Returns an custom thumbnail src
 	 *
 	 * http://placehold.it/
@@ -207,7 +207,7 @@ class EBootstrap extends CHtml {
 		return $src;
 	}
 	
-	/*
+	/**
 	 * Returns an image link
 	 *
 	 * @param string $url Url
@@ -227,7 +227,7 @@ class EBootstrap extends CHtml {
 		return $html;
 	}
 	
-	/*
+	/**
 	 * Returns an image with a caption
 	 *
 	 * @param string $src Image src
@@ -273,7 +273,7 @@ class EBootstrap extends CHtml {
     	return $html;
 	}
 	
-	/*
+	/**
 	 * Render an input field with a prepended text or icon
 	 *
 	 * @param CModel $model The model
@@ -294,7 +294,7 @@ class EBootstrap extends CHtml {
     	return $html;
 	}
 	
-	/*
+	/**
 	 * Render an input field with a appended text or icon
 	 *
 	 * @param CModel $model The model
@@ -316,7 +316,7 @@ class EBootstrap extends CHtml {
     	return $html;
 	}
 	
-	/*
+	/**
 	 * Render a password field with a prepended text or icon
 	 *
 	 * @param CModel $model The model
@@ -337,7 +337,7 @@ class EBootstrap extends CHtml {
     	return $html;
 	}
 	
-	/*
+	/**
 	 * Render a password field with a appended text or icon
 	 *
 	 * @param CModel $model The model
@@ -359,7 +359,7 @@ class EBootstrap extends CHtml {
     	return $html;
 	}
 	
-	/*
+	/**
 	 * Render a bootstrap search field with rounded corners
 	 *
 	 * @param string $name The name
@@ -371,7 +371,7 @@ class EBootstrap extends CHtml {
 		return self::textField($name, $value, $htmlOptions);
 	}
 		
-	/*
+	/**
 	 * Render a submit button
 	 *
 	 * http://twitter.github.com/bootstrap/base-css.html#buttons
@@ -389,7 +389,7 @@ class EBootstrap extends CHtml {
     	return new EBootstrapButton($label, '', $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, 'button');
 	}
 	
-	/*
+	/**
 	 * Error summary
 	 *
 	 * Apply bootstrap style to the error summary

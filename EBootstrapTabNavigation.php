@@ -2,7 +2,7 @@
 
 Yii::import('zii.widgets.CMenu');
 
-/*
+/**
  * Wrapper for the tab navigation
  * http://twitter.github.com/bootstrap/components.html#navs
  * 
@@ -11,24 +11,24 @@ Yii::import('zii.widgets.CMenu');
  * @package bootstrap.widgets.tabs
  */
 class EBootstrapTabNavigation extends CMenu {
-	/*
+	/**
 	 * Style of the tabs
 	 */
 	public $pills = false;
 	
-	/*
+	/**
 	 * Stacked navigation
 	 */
 	public $stacked = false;
 	
-	/*
+	/**
 	 * JS File to tab through the pages
 	 *
 	 * If its set to false, no file will be included
 	 */
 	public $jsFile = null;
 	
-	/*
+	/**
 	 * Init widget
 	 */
 	public function init() {
@@ -52,7 +52,7 @@ class EBootstrapTabNavigation extends CMenu {
 		}
 	}
 	
-	/*
+	/**
 	 * Render navigation menu
 	 *
 	 * @param array $items
@@ -65,7 +65,7 @@ class EBootstrapTabNavigation extends CMenu {
 		}
 	}
 	
-	/*
+	/**
 	 * Render navigation menu items
 	 *
 	 * @param array $items

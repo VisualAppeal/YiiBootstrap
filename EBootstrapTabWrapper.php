@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Wrapper for {@link EBootstrapTabNavigation} and {@link EBootstrapTabContentWrapper}
  * This widget is used only if the navigation should not be positioned at the top
  * 
@@ -9,7 +9,7 @@
  * @package bootstrap.widgets.tabs
  */
 class EBootstrapTabWrapper extends EBootstrapWidget {
-	/*
+	/**
 	 * Position of the navigation
 	 *
 	 * Possible values: bottom|left|right
@@ -17,7 +17,7 @@ class EBootstrapTabWrapper extends EBootstrapWidget {
 	 */
 	public $position = '';
 	
-	/*
+	/**
 	 * Init widget
 	 */
 	public function init() {
@@ -38,7 +38,7 @@ class EBootstrapTabWrapper extends EBootstrapWidget {
 		}
 	}
 	
-	/*
+	/**
 	 * Render footer
 	 */
 	public function run() {

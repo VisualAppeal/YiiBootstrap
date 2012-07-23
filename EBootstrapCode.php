@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Render a syntaxhighlighted code
  *
  * Write the code to highlight between beginWidget and endWidget or pass it as 'content' parameter
@@ -12,36 +12,36 @@
  * @package bootstrap.widgets
  */
 class EBootstrapCode extends EBootstrapWidget {
-	/*
+	/**
 	 * Language for syntaxhighliting
 	 */
 	public $language = '';
 	
-	/*
+	/**
 	 * If content is empty the code between beginWidget and endWidget is cached
 	 */
 	public $content = '';
 	
-	/*
+	/**
 	 * Enable line numbers
 	 */
 	public $lineNumbers = false;
 	
-	/*
+	/**
 	 * The css file for styling the code
 	 *
 	 * If its set to false, no file will be included
 	 */
 	public $cssFile = null;
 	
-	/*
+	/**
 	 * The JS file for highlighting the code
 	 *
 	 * If its set to false, no file will be included
 	 */
 	public $jsFile = null;
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {
@@ -71,7 +71,7 @@ class EBootstrapCode extends EBootstrapWidget {
 		Yii::app()->clientScript->RegisterScript('ebootstrapcode-prettify.'.$this->getId(), 'prettyPrint();', CClientScript::POS_READY);
 	}
 	
-	/*
+	/**
 	 * Render the widget
 	 */
 	public function run() {

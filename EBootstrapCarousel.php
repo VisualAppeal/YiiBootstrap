@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Render the bootstrap image carousel
  * http://twitter.github.com/bootstrap/javascript.html#carousel
  * 
@@ -9,7 +9,7 @@
  * @package bootstrap.widgets
  */
 class EBootstrapCarousel extends EBootstrapWidget {
-	/*
+	/**
 	 * Array of images
 	 *
 	 * Each item can have the following options:
@@ -22,34 +22,34 @@ class EBootstrapCarousel extends EBootstrapWidget {
 	 */
 	public $items = array();
 	
-	/*
+	/**
 	 * Label for the previous control
 	 */
 	public $controlPrev = "&lsaquo;";
 	
-	/*
+	/**
 	 * Label for the next control
 	 */
 	public $controlNext = "&rsaquo;";
 	
-	/*
+	/**
 	 * Interval for the next image to appear
 	 */
 	public $interval = 5000;
 	
-	/*
+	/**
 	 * Unfinit cycle
 	 */
 	public $infinite = false;
 	
-	/*
+	/**
 	 * JS File to slide the images
 	 *
 	 * If its set to false, no file will be included
 	 */
 	public $jsFile = null;
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {
@@ -90,7 +90,7 @@ class EBootstrapCarousel extends EBootstrapWidget {
 		Yii::app()->clientScript->registerScript('ebootstrap-carousel-'.$this->htmlOptions['id'], $js, CClientScript::POS_READY);
 	}
 	
-	/*
+	/**
 	 * Render the carousel
 	 */
 	public function run() {

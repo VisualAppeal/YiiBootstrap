@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Triggers a {link @EBootstrapModal}
  * http://twitter.github.com/bootstrap/javascript.html#modals
  * 
@@ -9,27 +9,27 @@
  * @package bootstrap.widgets
  */
 class EBootstrapModalTrigger extends EBootstrapWidget {
-	/*
+	/**
 	 * Kind of HTML element
 	 */
 	public $element = 'a';
 	
-	/*
+	/**
 	 * Value of the HTML element
 	 */
 	public $value = 'Show Modal';
 	
-	/*
+	/**
 	 * Use a custom HTML trigger, if it's set to false, the element/value is used
 	 */
 	public $html = false;
 	
-	/*
+	/**
 	 * ID of EBootstrapModal
 	 */
 	public $modal = '#';
 	
-	/*
+	/**
 	 * Init widget
 	 */
 	public function init() {
@@ -41,7 +41,7 @@ class EBootstrapModalTrigger extends EBootstrapWidget {
 		}
 	}
 	
-	/*
+	/**
 	 * Render trigger
 	 */
 	public function run() {

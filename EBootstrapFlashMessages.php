@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Render all flash messages with EBootstrapAlert
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
@@ -9,14 +9,14 @@
  */
 class EBootstrapFlashMessages extends EBootstrapWidget {
 	
-	/*
+	/**
 	 * Init the widget
 	 */	
 	public function init() {
 		parent::init();
 	}
 	
-	/*
+	/**
 	 * Render the flash messages
 	 */
 	public function run() {

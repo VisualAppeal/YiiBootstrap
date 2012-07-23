@@ -2,7 +2,7 @@
 
 Yii::import('zii.widgets.CBreadcrumbs');
 
-/*
+/**
  * Wrapper class for CBreadcrumbs
  * Apply bootstrap style to the breadcrumbs
  * 
@@ -11,12 +11,12 @@ Yii::import('zii.widgets.CBreadcrumbs');
  * @package bootstrap.yiiwidgets
  */
 class EBootstrapBreadcrumbs extends CBreadcrumbs {
-	/*
+	/**
 	 * Separator for the items
 	 */
 	public $separator = ' <span class="divider">/</span>';
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {
@@ -25,7 +25,7 @@ class EBootstrapBreadcrumbs extends CBreadcrumbs {
 		EBootstrap::mergeClass($this->htmlOptions, array('breadcrumb'));
 	}
 	
-	/*
+	/**
 	 * Render the breadcrumbs
 	 */
 	public function run() {

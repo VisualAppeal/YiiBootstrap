@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Render a progress bar
  * http://twitter.github.com/bootstrap/components.html#progress
  * 
@@ -9,7 +9,7 @@
  * @package bootstrap.widgets
  */
 class EBootstrapProgressBar extends EBootstrapWidget {
-	/*
+	/**
 	 * Type of the progress bar
 	 *
 	 * Possible values: info|success|danger
@@ -18,22 +18,22 @@ class EBootstrapProgressBar extends EBootstrapWidget {
 	 */
 	public $type = 'info';
 	
-	/*
+	/**
 	 * Striped progress bar
 	 */
 	public $striped = true;
 	
-	/*
+	/**
 	 * Animated
 	 */
 	public $active = false;
 	
-	/*
+	/**
 	 * Width in %
 	 */
 	public $width = 0;
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {
@@ -46,7 +46,7 @@ class EBootstrapProgressBar extends EBootstrapWidget {
 			EBootstrap::mergeClass($this->htmlOptions, array('active'));
 	}
 	
-	/*
+	/**
 	 * Render progress bar
 	 */
 	public function run() {

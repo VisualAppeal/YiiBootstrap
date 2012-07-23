@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Render an alert
  * http://twitter.github.com/bootstrap/javascript.html#alerts
  * 
@@ -9,36 +9,36 @@
  * @package bootstrap.widgets
  */
 class EBootstrapAlert extends EBootstrapWidget {
-	/*
+	/**
 	 * Type of the alert
 	 *
 	 * Values: warning|error|success|info
 	 */
 	public $type = '';
 	
-	/*
+	/**
 	 * Message to render
 	 */
 	public $message = '';
 	
-	/* 
+	/** 
 	 * Display the message as a block with actions 
 	 */
 	public $block = false;
 	
-	/*
+	/**
 	 * Javascript file to hide the alert.
 	 *
 	 * If its set to false, no file will be included
 	 */
 	public $jsFile = null;
 	
-	/*
+	/**
 	 * User can close the alert
 	 */
 	public $canClose = true;
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {
@@ -55,7 +55,7 @@ class EBootstrapAlert extends EBootstrapWidget {
 		}
 	}
 	
-	/*
+	/**
 	 * Render alert
 	 */
 	public function run() {

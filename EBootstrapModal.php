@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Shows a modal popup
  * http://twitter.github.com/bootstrap/javascript.html#modals
  * 
@@ -9,49 +9,49 @@
  * @package bootstrap.widgets
  */
 class EBootstrapModal extends EBootstrapWidget {
-	/*
+	/**
 	 * Javascript file to hide the alert.
 	 *
 	 * If its set to false, no file will be included
 	 */
 	public $jsFile = null;
 	
-	/*
+	/**
 	 * Includes backdrop
 	 */
 	public $backdrop = true;
 	
-	/*
+	/**
 	 * Close modal with ESC key
 	 */
 	public $keyboard = true;
 	
-	/*
+	/**
 	 * Show the modal on startup
 	 */
 	public $show = true;
 	
-	/*
+	/**
 	 * Header
 	 */
 	public $header = '';
 	
-	/*
+	/**
 	 * Footer
 	 */
 	public $footer = array();
 	
-	/*
+	/**
 	 * Close value
 	 */
 	public $close = "&times;";
 	
-	/*
+	/**
 	 * Fade in effect
 	 */
 	public $fade = true;
 	
-	/*
+	/**
 	 * Init the widget and render header
 	 */
 	public function init() {
@@ -98,7 +98,7 @@ class EBootstrapModal extends EBootstrapWidget {
 		echo EBootstrap::openTag('div', array('class' => 'modal-body'));
 	}
 	
-	/*
+	/**
 	 * Render footer
 	 */
 	public function run() {

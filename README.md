@@ -9,7 +9,7 @@ Requirements
 
 Installation
 --
-Grab a copy of *YiiBootstrap* and copy it into your document root. Open *http://127.0.0.1/YiiBootstrap/testapp/*.
+Grab a copy of *YiiBootstrap* and copy it into your document root. Open *http://127.0.0.1/YiiBootstrap/testapp/**.
 
 Includes
 --

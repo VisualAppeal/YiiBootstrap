@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Creates an collapse sender
  * This widget creates an element which can be used to toggle a collapse item
  * http://twitter.github.com/bootstrap/javascript.html#collapse
@@ -10,7 +10,7 @@
  * @package widgets.bootstrap
  */
 class EBootstrapCollapse extends EBootstrapWidget {
-	/*
+	/**
 	 * Html element of the sender
 	 *
 	 * Examples: a, input, span, div, h3...
@@ -18,7 +18,7 @@ class EBootstrapCollapse extends EBootstrapWidget {
 	 */
 	public $sender = 'a';
 	
-	/*
+	/**
 	 * Default value
 	 *
 	 * The value is rendered between the sender tags
@@ -26,7 +26,7 @@ class EBootstrapCollapse extends EBootstrapWidget {
 	 */
 	public $value = 'Toggle';
 	
-	/*
+	/**
 	 * Value if the sender is clicked
 	 * 
 	 * The value is rendered between the sender tags. If it's set to false there will be no change.
@@ -34,28 +34,28 @@ class EBootstrapCollapse extends EBootstrapWidget {
 	 */
 	public $valueToggle = false;
 	
-	/*
+	/**
 	 * Selector of the target
 	 *
 	 * Examples: '#myElement', '.elements'
 	 */
 	public $target = '';
 	
-	/*
+	/**
 	 * Selector of the parent element
 	 *
 	 * If it's unequal false, an accordion functionallity will be applied to the child elements
 	 */
 	public $parent = false;
 	
-	/*
+	/**
 	 * JS file of the collapse plugin
 	 *
 	 * If its set to false, no file will be included
 	 */
 	public $jsFile = null;
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {
@@ -94,7 +94,7 @@ class EBootstrapCollapse extends EBootstrapWidget {
 		}
 	}
 	
-	/*
+	/**
 	 * Execute the widget
 	 */
 	public function run() {

@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Render a hero element
  * http://twitter.github.com/bootstrap/examples/hero.html
  * 
@@ -9,22 +9,22 @@
  * @package bootstrap.widgets
  */
 class EBootstrapHero extends EBootstrapWidget {
-	/*
+	/**
 	 * Headline
 	 */
 	public $headline = '';
 	
-	/*
+	/**
 	 * Body text
 	 */
 	public $body = '';
 	
-	/*
+	/**
 	 * Array of actions which will be displayed below the body
 	 */
 	public $actions = array();
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {
@@ -33,7 +33,7 @@ class EBootstrapHero extends EBootstrapWidget {
 		EBootstrap::mergeClass($this->htmlOptions, array('hero-unit'));
 	}
 	
-	/*
+	/**
 	 * Render the hero element
 	 */
 	public function run() {

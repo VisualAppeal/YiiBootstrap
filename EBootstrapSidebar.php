@@ -2,7 +2,7 @@
 
 Yii::import('zii.widgets.CMenu');
 
-/*
+/**
  * Render a sidebar
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
@@ -10,7 +10,7 @@ Yii::import('zii.widgets.CMenu');
  * @package bootstrap.widgets
  */
 class EBootstrapSidebar extends CMenu {
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init()
@@ -27,7 +27,7 @@ class EBootstrapSidebar extends CMenu {
 		echo EBootstrap::closeTag('div');
 	}
 	
-	/*
+	/**
 	 * Recursively renders the menu items.
 	 *
 	 * @param array $items the menu items to be rendered recursively
@@ -84,7 +84,7 @@ class EBootstrapSidebar extends CMenu {
 		}
 	}
 	
-	/*
+	/**
 	 * Renders the content of a menu item.
 	 *
 	 * You can pass an 'icon' as item option as well as a bolean 'iconWhite'

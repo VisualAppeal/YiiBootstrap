@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Wrapper for the tab pages {@link EBootstrapTabContent}
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
@@ -8,7 +8,7 @@
  * @package bootstrap.widgets.tabs
  */
 class EBootstrapTabContentWrapper extends EBootstrapWidget {
-	/*
+	/**
 	 * Render header
 	 */
 	public function init() {
@@ -19,7 +19,7 @@ class EBootstrapTabContentWrapper extends EBootstrapWidget {
 		echo EBootstrap::openTag('div', $this->htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Render footer
 	 */
 	public function run() {

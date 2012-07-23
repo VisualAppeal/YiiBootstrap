@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * Wrapper class for CActiveForm
  * Apply bootstrap style to the form
  * 
@@ -9,21 +9,21 @@
  * @package bootstrap.yiiwidgets
  */
 class EBootstrapActiveForm extends CActiveForm {
-	/*
+	/**
 	 * Display a horizontal form
 	 *
 	 * Default: false
 	 */
 	public $horizontal = false;
 	
-	/*
+	/**
 	 * Error message css class
 	 *
 	 * Default: help-inline
 	 */
 	public $errorMessageCssClass = 'help-inline';
 	
-	/*
+	/**
 	 * Init the widget 
 	 */
 	public function init() {
@@ -33,14 +33,14 @@ class EBootstrapActiveForm extends CActiveForm {
 		parent::init();
 	}
 	
-	/*
+	/**
 	 * Execute the widget
 	 */
 	public function run() {
 		parent::run();
 	}
 	
-	/*
+	/**
 	 * Begins a control group
 	 *
 	 * Into the control group belongs the label, the input and the error
@@ -58,28 +58,28 @@ class EBootstrapActiveForm extends CActiveForm {
 		echo EBootstrap::openTag('div', array('class' => $option['class']));
 	}
 	
-	/*
+	/**
 	 * End of the control group
 	 */
 	public function endControlGroup() {
 		echo EBootstrap::closeTag('div');
 	}
 	
-	/*
+	/**
 	 * Beginning of the controls (inputs)
 	 */
 	public function beginControls() {
 		echo EBootstrap::openTag('div', array('class' => 'controls'));
 	}
 	
-	/*
+	/**
 	 * End of the controls
 	 */
 	public function endControls() {
 		echo EBootstrap::closeTag('div');
 	}
 	
-	/*
+	/**
 	 * Beginning of the form actions
 	 *
 	 * Into the action sections belong all buttons like the submit or abort button
@@ -88,14 +88,14 @@ class EBootstrapActiveForm extends CActiveForm {
 		echo EBootstrap::openTag('div', array('class' => 'form-actions'));
 	}
 	
-	/*
+	/**
 	 * End form actions
 	 */
 	public function endActions() {
 		echo EBootstrap::closeTag('div');
 	}
 	
-	/*
+	/**
 	 * Error summary
 	 *
 	 * Apply bootstrap style to the error summary
@@ -109,7 +109,7 @@ class EBootstrapActiveForm extends CActiveForm {
 		return EBootstrap::errorSummary($model, $header, $footer, $htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Returns a HTML label
 	 *
 	 * @param CModel $model The model
@@ -123,7 +123,7 @@ class EBootstrapActiveForm extends CActiveForm {
 		return EBootstrap::activeLabel($model,$attribute,$htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Returns an advanced HTML label
 	 *
 	 * @param CModel $model The model
@@ -137,7 +137,7 @@ class EBootstrapActiveForm extends CActiveForm {
 		return EBootstrap::activeLabelEx($model,$attribute,$htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Render an input field with a prepended text or icon
 	 *
 	 * @param CModel $model The model
@@ -149,7 +149,7 @@ class EBootstrapActiveForm extends CActiveForm {
 		return EBootstrap::activeTextFieldPrepend($model, $attribute, $prepend, $htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Render an input field with a append text or icon
 	 *
 	 * @param CModel $model The model
@@ -161,7 +161,7 @@ class EBootstrapActiveForm extends CActiveForm {
 		return EBootstrap::activeTextFieldAppend($model, $attribute, $append, $htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Render a password field with a prepended text or icon
 	 *
 	 * @param CModel $model The model
@@ -173,7 +173,7 @@ class EBootstrapActiveForm extends CActiveForm {
 		return EBootstrap::activePasswordFieldPrepend($model, $attribute, $prepend, $htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Render a password field with a append text or icon
 	 *
 	 * @param CModel $model The model
@@ -185,7 +185,7 @@ class EBootstrapActiveForm extends CActiveForm {
 		return EBootstrap::activePasswordFieldAppend($model, $attribute, $append, $htmlOptions);
 	}
 	
-	/*
+	/**
 	 * Returns a help block
 	 *
 	 * Help block can be used to improve the usabilty of a form
@@ -200,7 +200,7 @@ class EBootstrapActiveForm extends CActiveForm {
 		return $html;
 	}
 	
-	/*
+	/**
 	 * Render a submit buttom
 	 *
 	 * @param string $label Label

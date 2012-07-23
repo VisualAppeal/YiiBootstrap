@@ -2,7 +2,7 @@
 
 Yii::import('zii.widgets.CListView');
 
-/*
+/**
  * Wrapper class for CListView
  * Render the ListView. Please refer to {@link EBootstrapListViewItem}
  * 
@@ -11,19 +11,19 @@ Yii::import('zii.widgets.CListView');
  * @package bootstrap.yiiwidgets
  */
 class EBootstrapListView extends CListView {
-	/*
+	/**
 	 * Default pager class
 	 */
 	public $pagerCssClass = 'pagination';
 	
-	/*
+	/**
 	 * Do not include the default style
 	 *
 	 * If it's set unequal false the css file specified will be included
 	 */
 	public $cssFile = false;
 	
-	/* 
+	/** 
 	 * Align of the pager
 	 *
 	 * Possible values: centered|right 
@@ -31,7 +31,7 @@ class EBootstrapListView extends CListView {
 	 */
 	public $pagerAlign = '';
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {

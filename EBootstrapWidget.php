@@ -1,6 +1,6 @@
 <?php 
 
-/*
+/**
  * Base widget
  *
  * This is the parent widget of all bootstrap widgets.
@@ -12,31 +12,31 @@
  * @package widgets.bootstrap
  */
 class EBootstrapWidget extends CWidget {
-	/*
+	/**
 	 * Collapse the widget
 	 */
 	public $collapse = false;
 	
-	/*
+	/**
 	 * Show the widget per default
 	 *
 	 * If it's set to true the widget is per default open
 	 */
 	public $collapseShow = false;
 	
-	/*
+	/**
 	 * Default HTML options
 	 */
 	public $htmlOptions = array();
 	
-	/*
+	/**
 	 * Javascript file to include for the collapse plugin
 	 *
 	 * If its set to false, no file will be included
 	 */
 	public $collapseJsFile = null;
 	
-	/*
+	/**
 	 * Init the widget
 	 */
 	public function init() {
