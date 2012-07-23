@@ -208,7 +208,7 @@ class EBootstrapActiveForm extends CActiveForm {
 	 */
 	public function submitButton($label, $htmlOptions = array()) {
 		EBootstrap::mergeClass($htmlOptions, array('btn', 'btn-primary'));
-		return EBootstrap::submitButton($label, $htmlOptions);
+		return EBootstrap::submitButton($label, null, null, null, null, null, $htmlOptions);
 	}
 }
 
