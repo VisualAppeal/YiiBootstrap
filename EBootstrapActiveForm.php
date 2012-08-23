@@ -5,7 +5,7 @@
  * Apply bootstrap style to the form
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.5
+ * @version 0.4.4
  * @package bootstrap.yiiwidgets
  */
 class EBootstrapActiveForm extends CActiveForm {
@@ -24,11 +24,25 @@ class EBootstrapActiveForm extends CActiveForm {
 	public $errorMessageCssClass = 'help-inline';
 	
 	/**
+	 * If it's set to false the EBootstrap css file will be included (specially for ajax validation errors)
+	 * If it's set null no css file will be included
+	 *
+	 * @since 0.4.4
+	 */
+	public $cssFile = false;
+	
+	/**
 	 * Init the widget 
 	 */
 	public function init() {
 		if ($this->horizontal)
 			EBootstrap::mergeClass($this->htmlOptions, array('form-horizontal'));
+		
+		if ($this->cssFile === false) {
+			$cssFile = dirname(__FILE__).'/css/bootstrap.css';
+			$this->cssFile = Yii::app()->getAssetManager()->publish($cssFile);
+			Yii::app()->clientScript->registerCssFile($this->cssFile);
+		}
 		
 		parent::init();
 	}
@@ -196,6 +210,22 @@ class EBootstrapActiveForm extends CActiveForm {
 		$html = EBootstrap::openTag('p', array('class' => 'help-block'));
 		$html .= $help;
 		$html .= EBootstrap::closeTag('p');
+		
+		return $html;
+	}
+	
+	/**
+	 * Returns a inline help
+	 *
+	 * Help inline is displayed right next to the input field (where the error should be displayed)
+	 *
+	 * @since 0.4.4
+	 * @param string $help Help message
+	 */
+	public function helpInline($help) {
+		$html = EBootstrap::openTag('span', array('class' => 'help-inline'));
+		$html .= $help;
+		$html .= EBootstrap::closeTag('span');
 		
 		return $html;
 	}

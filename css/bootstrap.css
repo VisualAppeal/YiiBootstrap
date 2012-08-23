@@ -8,7 +8,11 @@
 .clearfix:after {
   clear: both;
 }
-/** EBootstrapListView */
+/* EBootstrapActiveForm Ajax Validation (The Yii validation generates different classes than bootstrap) */
+.error .help-inline, .error input {
+	color: #9d261d!important;
+}
+/* EBootstrapListView */
 .bootstrap-list-view .summary {
   font-style: italic;
 }
@@ -45,7 +49,7 @@
 .bootstrap-list-view .bootstrap-list-view-item:last-child {
   margin-bottom: 0;
 }
-/** EBootstrapGridView */
+/* EBootstrapGridView */
 .bootstrap-grid-view .summary {
   font-style: italic;
 }
