@@ -4,7 +4,7 @@
  * Class for creating a button
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.2
+ * @version 0.4.4
  * @package bootstrap
  */
 class EBootstrapButton {
@@ -53,6 +53,13 @@ class EBootstrapButton {
 	public $htmlOptions;
 	
 	/**
+	 * Block element (same width as parent element)
+	 *
+	 * @since 0.4.4
+	 */
+	public $block;
+	
+	/**
 	 * Button type
 	 *
 	 * Possible values:
@@ -75,7 +82,7 @@ class EBootstrapButton {
 	 * @param bool $iconWhite Invert the icon color. Default: false
 	 * @param array $htmlOptions
 	 */
-	public function __construct($text, $url = '#', $type = '', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array(), $element = 'a') {
+	public function __construct($text, $url = '#', $type = '', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array(), $element = 'a', $block = false) {
 		$this->text = $text;
 		$this->url = $url;
 		$this->type = $type;
@@ -105,6 +112,9 @@ class EBootstrapButton {
 		
 		if ($this->disabled)
 			$class[] = 'disabled';
+		
+		if ($this->block)
+			$class[] = 'btn-block';
 		
 		if (!empty($this->icon))
 			$this->text = EBootstrap::icon($this->icon, $this->iconWhite).' '.$this->text;

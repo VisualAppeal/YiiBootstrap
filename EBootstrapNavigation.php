@@ -7,25 +7,31 @@ Yii::import('zii.widgets.CMenu');
  * http://twitter.github.com/bootstrap/components.html#navbar
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.9
+ * @version 0.4.4
  * @package bootstrap.widgets
  */
 class EBootstrapNavigation extends CMenu {
 	private $_ul = 0;
 	
 	/** 
-	 * Stay at top of the page 
+	 * @var Stay at top of the page 
 	 */ 
 	public $fixed = false;
 	
 	/**
-	 * Responsive navigation bar. Hides on small screens and add a dropdown for the elements
+	 * @var Responsive navigation bar. Hides on small screens and add a dropdown for the elements
 	 */
 	public $responsive = false;
 	
 	/**
-	 * Javascript file to hide the alert.
+	 * @var Set to true to get a dark navigation bar
 	 *
+	 * @since 0.4.4
+	 */
+	public $dark = false;
+	
+	/**
+	 * @var Javascript file to hide the alert.
 	 * If its set to false, no file will be included
 	 */
 	public $jsFile = null;
@@ -37,6 +43,8 @@ class EBootstrapNavigation extends CMenu {
 		parent::init();
 		
 		EBootstrap::mergeClass($this->htmlOptions, array('navbar'));
+		if ($this->dark)
+			EBootstrap::mergeClass($this->htmlOptions, array('navbar-inverse'));
 		
 		Yii::app()->clientScript->registerCoreScript('jquery');
 		if (is_null($this->jsFile)) {

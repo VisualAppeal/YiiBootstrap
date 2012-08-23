@@ -5,7 +5,7 @@
  * EBootstrap adds some bootstrap elements to CHtml
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.5
+ * @version 0.4.4
  * @package bootstrap
  */
 class EBootstrap extends CHtml {
@@ -66,9 +66,10 @@ class EBootstrap extends CHtml {
 	 * @param string $icon http://twitter.github.com/bootstrap/base-css.html#icons (e.g. 'shopping-cart', 'user', 'ok', etc.)
 	 * @param bool $iconWhite Invert the icon color. Default: false
 	 * @param array $htmlOptions
+	 * @param bool $block Block element
 	 */
-	public static function ibutton($text, $url = '#', $type = '', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array()) {
-		return new EBootstrapButton($text, $url, $type, $size, $disabled, $icon, $iconWhite, $htmlOptions);
+	public static function ibutton($text, $url = '#', $type = '', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array(), $block = false) {
+		return new EBootstrapButton($text, $url, $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, $block);
 	}
 	
 	/**
@@ -152,12 +153,26 @@ class EBootstrap extends CHtml {
 		if (is_array($submenuItems) and (count($submenuItems))) {
 			$html .= self::openTag('ul', array('class' => 'dropdown-menu'))."\n";
 			foreach ($submenuItems as $item) {
-				$html .= self::openTag('li')."\n";
-				
-				$itemOptions = isset($item['htmlOptions']) ? $item['htmlOptions'] : array();
-				$html .= self::link($item['text'], $item['url'], $itemOptions)."\n";
-				
-				$html .= self::closeTag('li')."\n";
+				if (isset($item['submenu'])) {
+					$html .= self::openTag('li', array('class' => 'dropdown-submenu'))."\n";
+					$html .= self::tag('a', array('tabindex' => -1, 'href' => $item['url']), $item['text']);
+					$html .= self::openTag('ul', array('class' => 'dropdown-menu'))."\n";
+					foreach ($item['submenu'] as $subSubMenuItem) {
+						$html .= self::openTag('li')."\n";
+						$itemOptions = isset($subSubMenuItem['htmlOptions']) ? $subSubMenuItem['htmlOptions'] : array();
+						$html .= self::link($subSubMenuItem['text'], $subSubMenuItem['url'], $itemOptions)."\n";
+						$html .= self::closeTag('li')."\n";
+					}
+					$html .= self::closeTag('ul')."\n";
+				}
+				else {
+					$html .= self::openTag('li')."\n";
+					
+					$itemOptions = isset($item['htmlOptions']) ? $item['htmlOptions'] : array();
+					$html .= self::link($item['text'], $item['url'], $itemOptions)."\n";
+					
+					$html .= self::closeTag('li')."\n";
+				}
 			}
 			$html .= self::closeTag('ul')."\n";
 		}

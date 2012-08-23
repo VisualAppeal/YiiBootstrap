@@ -42,7 +42,7 @@ class EBootstrapHero extends EBootstrapWidget {
 		echo EBootstrap::openTag('div', $this->htmlOptions)."\n";
 
 		echo EBootstrap::tag('h1', array(), $this->headline)."\n";
-		echo EBootstrap::tag('p', array(), $this->body)."\n";
+		echo EBootstrap::tag('div', array(), $this->body)."\n";
 		if (!empty($this->actions)) {
 			echo EBootstrap::openTag('p');
 			foreach ($this->actions as $button) {
