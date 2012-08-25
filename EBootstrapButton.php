@@ -92,6 +92,7 @@ class EBootstrapButton {
 		$this->iconWhite = $iconWhite;
 		$this->htmlOptions = $htmlOptions;
 		$this->element = $element;
+		$this->block = $block;
 		
 		$class = array('btn');
 		

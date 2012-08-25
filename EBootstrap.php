@@ -69,7 +69,7 @@ class EBootstrap extends CHtml {
 	 * @param bool $block Block element
 	 */
 	public static function ibutton($text, $url = '#', $type = '', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array(), $block = false) {
-		return new EBootstrapButton($text, $url, $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, $block);
+		return new EBootstrapButton($text, $url, $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, 'a', $block);
 	}
 	
 	/**
@@ -398,10 +398,11 @@ class EBootstrap extends CHtml {
 	 * @param string $icon http://twitter.github.com/bootstrap/base-css.html#icons (e.g. 'shopping-cart', 'user', 'ok', etc.)
 	 * @param bool $iconWhite Invert the icon color. Default: false
 	 * @param array $htmlOptions
+	 * @param bool $block Block element button
 	 */
-	public static function submitButton($label = 'submit', $type = 'primary', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array()) {
+	public static function submitButton($label = 'submit', $type = 'primary', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array(), $block = false) {
 		$htmlOptions['type']='submit';
-    	return new EBootstrapButton($label, '', $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, 'button');
+    	return new EBootstrapButton($label, '', $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, 'button', $block);
 	}
 	
 	/**
