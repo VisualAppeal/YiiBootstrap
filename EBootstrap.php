@@ -189,11 +189,20 @@ class EBootstrap extends CHtml {
 	 *
 	 * @param string $icon e.g. 'shopping-cart', 'user', 'ok', etc.
 	 * @param bool $iconWhite Invert the icon color. Default: false
+	 * @param array $htmlOptions HTML options
 	 */
-	public static function icon($icon, $iconWhite = false) {
-		$return = '<i class="icon-'.$icon;
+	public static function icon($icon, $iconWhite = false, $htmlOptions = array()) {
+		$classes = array('icon-' . $icon);
 		if ($iconWhite)
-			$return .= ' icon-white';
+			$classes[] = 'icon-white';
+		
+		EBootstrap::mergeClass($htmlOptions, $classes);
+		
+		$return = '<i class="' . $htmlOptions['class'] . '"';
+		
+		if (isset($htmlOptions['id']))
+			$return .= ' id="' . $htmlOptions['id'] . '"';
+
 		return $return.'"></i>';
 	}
 	
