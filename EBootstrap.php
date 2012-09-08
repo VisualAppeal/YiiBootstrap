@@ -132,6 +132,10 @@ class EBootstrap extends CHtml {
 		self::mergeClass($htmlOptions, array('btn-group'));
 		$html .= self::openTag('div', $htmlOptions);
 		
+		$jsFile = dirname(__FILE__).'/js/bootstrap.min.js';
+		$js = Yii::app()->assetManager->publish($jsFile);
+		Yii::app()->clientScript->registerScriptFile($js);
+		
 		if (!$split) {
 			$button->htmlOptions['data-toggle'] = "dropdown";
 			$button->url = "#";
