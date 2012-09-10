@@ -209,7 +209,7 @@ class EBootstrapNavigation extends CMenu {
 					//Create dropdown
 					if ((isset($item['dropdown'])) and ($item['dropdown'] == true)) {
 						if (isset($options['class']))
-							$options['class'] = implode(' ', explode(' ', $options['class'])+array('dropdown'));
+							$options['class'] = implode(' ', explode(' ', $options['class'])) . ' dropdown';
 						else
 							$options['class'] = 'dropdown';
 						
