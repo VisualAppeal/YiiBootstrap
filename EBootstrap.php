@@ -172,6 +172,9 @@ class EBootstrap extends CHtml {
 				else {
 					$html .= self::openTag('li')."\n";
 					
+					if (isset($item['icon']))
+						$html .= self::icon($item['icon']) . ' ';
+					
 					$itemOptions = isset($item['htmlOptions']) ? $item['htmlOptions'] : array();
 					$html .= self::link($item['text'], $item['url'], $itemOptions)."\n";
 					
@@ -207,7 +210,7 @@ class EBootstrap extends CHtml {
 		if (isset($htmlOptions['id']))
 			$return .= ' id="' . $htmlOptions['id'] . '"';
 
-		return $return.'"></i>';
+		return $return.'></i>';
 	}
 	
 	/** IMAGES */
