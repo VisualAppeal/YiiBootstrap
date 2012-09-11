@@ -15,7 +15,8 @@ class EBootstrap extends CHtml {
 	 * @param array $option Classes to modify
 	 * @param array $add Classes to add
 	 */
-	public static function mergeClass(array &$option, array $add) {
+	public static function mergeClass(array &$option, array $add)
+	{
 		if (isset($option['class']) and (!empty($option['class']))) {
 			foreach ($add as $k => $v) {
 				$option['class'] .= ' '.$v;
@@ -31,10 +32,26 @@ class EBootstrap extends CHtml {
 	 * @param string $class Classes string
 	 * @param array $add Classes to add
 	 */
-	public static function mergeClassString(&$class, array $add) {
+	public static function mergeClassString(&$class, array $add)
+	{
 		if (!empty($class))
 			$class .= ' ';
 		$class .= implode(' ', $add);
+	}
+	
+	/**
+	 * Register the build in js file
+	 *
+	 * @param integer $position
+	 *
+	 * @access public
+	 * @return ClientScript
+	 */
+	public static function registerJs($position=NULL)
+	{
+		$jsFile = dirname(__FILE__).'/js/bootstrap.min.js';
+		$js = Yii::app()->assetManager->publish($jsFile);
+		return Yii::app()->clientScript->registerScriptFile($js, $position);
 	}
 	
 	/**
@@ -44,7 +61,8 @@ class EBootstrap extends CHtml {
 	 * @param string $type success|warning|important|info. Leave empty for default
 	 * @param array $htmlOptions
 	 */
-	public static function ilabel($label, $type='', $htmlOptions=array()) {
+	public static function ilabel($label, $type='', $htmlOptions=array())
+	{
 		$classes = array('label');
 		if (!empty($type))
 			$classes[] = 'label-'.$type;
