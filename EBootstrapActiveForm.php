@@ -62,14 +62,16 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @param CModel $model The model
 	 * @param string $attribute The attribute
 	 */
-	public function beginControlGroup($model, $attribute) {
+	public function beginControlGroup($model, $attribute, $options = array()) {
 		$option = array();
 		$option['class'] = 'control-group';
 		$error = $model->getError($attribute);
 		if (!empty($error))
 			EBootstrap::mergeClass($option, array('error'));
+
+		EBootstrap::mergeClass($options, $option);
 		
-		echo EBootstrap::openTag('div', array('class' => $option['class']));
+		echo EBootstrap::openTag('div', $options);
 	}
 	
 	/**
