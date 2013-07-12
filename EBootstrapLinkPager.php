@@ -33,9 +33,13 @@ class EBootstrapLinkPager extends CLinkPager {
 	 * Create a pager button
 	 */
 	protected function createPageButton($label,$page,$class,$hidden,$selected) {
-	    if($hidden || $selected)
-	        $class.=' '.($hidden ? self::CSS_HIDDEN_PAGE : self::CSS_SELECTED_PAGE);
-	    return '<li class="'.$class.'">'.CHtml::link($label,$this->createPageUrl($page)).'</li>';
+		if($hidden || $selected)
+			$class.=' '.($hidden ? self::CSS_HIDDEN_PAGE : self::CSS_SELECTED_PAGE);
+		
+		if (!$hidden)
+			return '<li class="'.$class.'">'.CHtml::link($label,$this->createPageUrl($page)).'</li>';
+		else
+			return '<li class="'.$class.'">'.CHtml::link($label,'').'</li>';
 	}
 }
 
