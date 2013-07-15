@@ -341,6 +341,44 @@ class EBootstrapActiveForm extends CActiveForm {
 	}
 
 	/**
+	 * Create a textarea with a control group.
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param array $htmlOptions HTML options for the textarea
+	 *
+	 * @since 0.5
+	 * @access public
+	 * @return string html
+	 */
+	public function bootstrapTextArea($model, $attribute, $htmlOptions = array()) {
+		$html = $this->_beginBootstrapGroup($model, $attribute);
+		$html .= $this->textArea($model, $attribute, $htmlOptions);
+		$html .= $this->_endBootstrapGroup($model, $attribute);
+
+		return $html;
+	}
+
+	/**
+	 * Create a checkbox with a control group.
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param array $htmlOptions HTML options for the checkbox
+	 *
+	 * @since 0.5
+	 * @access public
+	 * @return string html
+	 */
+	public function bootstrapCheckBox($model, $attribute, $htmlOptions = array()) {
+		$html = $this->_beginBootstrapGroup($model, $attribute);
+		$html .= $this->checkBox($model, $attribute, $htmlOptions);
+		$html .= $this->_endBootstrapGroup($model, $attribute);
+
+		return $html;
+	}
+
+	/**
 	 * Create a textfield with a control group.
 	 *
 	 * @param CModel $model The model
