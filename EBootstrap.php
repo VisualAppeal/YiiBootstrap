@@ -316,12 +316,12 @@ class EBootstrap extends CHtml {
 			
 			$html .= self::closeTag('div');
 		}
-    	
-    	$html .= self::closeTag('div')."\n";
-    	
-    	return $html;
+		
+		$html .= self::closeTag('div')."\n";
+		
+		return $html;
 	}
-	
+
 	/**
 	 * Render an input field with a prepended text or icon
 	 *
@@ -331,16 +331,16 @@ class EBootstrap extends CHtml {
 	 * @param array $htmlOptions
 	 */
 	public static function activeTextFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
-       	$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
-       	$html .= self::tag('span', array('class' => 'add-on'), $prepend);
-       
-       	self::resolveNameID($model,$attribute,$htmlOptions);
-    	self::clientChange('change',$htmlOptions);
-    	$html .= self::activeInputField('text',$model,$attribute,$htmlOptions)."\n";
-    	
-    	$html .= self::closeTag('div')."\n";
-    	
-    	return $html;
+		$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
+		$html .= self::tag('span', array('class' => 'add-on'), $prepend);
+
+		self::resolveNameID($model,$attribute,$htmlOptions);
+		self::clientChange('change',$htmlOptions);
+		$html .= self::activeInputField('text',$model,$attribute,$htmlOptions)."\n";
+		
+		$html .= self::closeTag('div')."\n";
+		
+		return $html;
 	}
 	
 	/**
@@ -352,17 +352,17 @@ class EBootstrap extends CHtml {
 	 * @param array $htmlOptions
 	 */
 	public static function activeTextFieldAppend($model,$attribute,$prepend,$htmlOptions=array()) {
-       	$html = self::openTag('div', array('class' => 'input-append'))."\n";
-       
-       	self::resolveNameID($model,$attribute,$htmlOptions);
-    	self::clientChange('change',$htmlOptions);
-    	$html .= self::activeInputField('text',$model,$attribute,$htmlOptions);
-    	
-    	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
-    	
-    	$html .= self::closeTag('div')."\n";
-    	
-    	return $html;
+		$html = self::openTag('div', array('class' => 'input-append'))."\n";
+
+		self::resolveNameID($model,$attribute,$htmlOptions);
+		self::clientChange('change',$htmlOptions);
+		$html .= self::activeInputField('text',$model,$attribute,$htmlOptions);
+		
+		$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
+		
+		$html .= self::closeTag('div')."\n";
+		
+		return $html;
 	}
 	
 	/**
@@ -374,16 +374,16 @@ class EBootstrap extends CHtml {
 	 * @param array $htmlOptions
 	 */
 	public static function activePasswordFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
-       	$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
-       	$html .= self::tag('span', array('class' => 'add-on'), $prepend);
-       
-       	self::resolveNameID($model,$attribute,$htmlOptions);
-    	self::clientChange('change',$htmlOptions);
-    	$html .= self::activeInputField('password',$model,$attribute,$htmlOptions)."\n";
-    	
-    	$html .= self::closeTag('div')."\n";
-    	
-    	return $html;
+		$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
+		$html .= self::tag('span', array('class' => 'add-on'), $prepend);
+	   
+		self::resolveNameID($model,$attribute,$htmlOptions);
+		self::clientChange('change',$htmlOptions);
+		$html .= self::activeInputField('password',$model,$attribute,$htmlOptions)."\n";
+		
+		$html .= self::closeTag('div')."\n";
+		
+		return $html;
 	}
 	
 	/**
@@ -395,17 +395,17 @@ class EBootstrap extends CHtml {
 	 * @param array $htmlOptions
 	 */
 	public static function activePasswordFieldAppend($model,$attribute,$prepend,$htmlOptions=array()) {
-       	$html = self::openTag('div', array('class' => 'input-append'))."\n";
-       
-       	self::resolveNameID($model,$attribute,$htmlOptions);
-    	self::clientChange('change',$htmlOptions);
-    	$html .= self::activeInputField('password',$model,$attribute,$htmlOptions);
-    	
-    	$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
-    	
-    	$html .= self::closeTag('div')."\n";
-    	
-    	return $html;
+		$html = self::openTag('div', array('class' => 'input-append'))."\n";
+	   
+		self::resolveNameID($model,$attribute,$htmlOptions);
+		self::clientChange('change',$htmlOptions);
+		$html .= self::activeInputField('password',$model,$attribute,$htmlOptions);
+		
+		$html .= self::tag('span', array('class' => 'add-on'), $prepend)."\n";
+		
+		$html .= self::closeTag('div')."\n";
+		
+		return $html;
 	}
 	
 	/**
@@ -436,7 +436,7 @@ class EBootstrap extends CHtml {
 	 */
 	public static function submitButton($label = 'submit', $type = 'primary', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array(), $block = false) {
 		$htmlOptions['type']='submit';
-    	return new EBootstrapButton($label, '', $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, 'button', $block);
+		return new EBootstrapButton($label, '', $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, 'button', $block);
 	}
 	
 	/**
