@@ -12,9 +12,10 @@ Yii::import('zii.widgets.CBreadcrumbs');
  */
 class EBootstrapBreadcrumbs extends CBreadcrumbs {
 	/**
-	 * Separator for the items
+	 * Separator for the items.
+	 * In Bootstrap 3 seperators are added automatically.
 	 */
-	public $separator = ' <span class="divider">/</span>';
+	public $separator = '';
 	
 	/**
 	 * Init the widget
