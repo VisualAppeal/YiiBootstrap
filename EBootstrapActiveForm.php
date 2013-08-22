@@ -5,7 +5,7 @@
  * Apply bootstrap style to the form
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.5.0
+ * @version 1.0.0
  * @package bootstrap.yiiwidgets
  */
 class EBootstrapActiveForm extends CActiveForm {
@@ -18,6 +18,22 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @var boolean
 	 */
 	public $horizontal = false;
+
+	/**
+	 * Class for the wrapper around the input.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $controlClass = 'col-lg-8';
+
+	/**
+	 * Class for the wrapper around the label.
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $controlLabelClass = 'col-lg-4';
 	
 	/**
 	 * Error message css class
@@ -28,6 +44,14 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @var string
 	 */
 	public $errorMessageCssClass = 'help-inline';
+
+	/**
+	 * Class for the form group wrapper which wrappes the buttons
+	 *
+	 * @access public
+	 * @var string
+	 */
+	public $actionOffsetClass = 'col-lg-offset-4 col-lg-8';
 	
 	/**
 	 * If it's set to false the EBootstrap css file will be included (specially for ajax validation errors)
@@ -69,9 +93,9 @@ class EBootstrapActiveForm extends CActiveForm {
 	}
 	
 	/**
-	 * Begins a control group.
+	 * Begins a form group.
 	 *
-	 * Into the control group belongs the label, the input and the error.
+	 * Into the form group belongs the label, the input and the error.
 	 *
 	 * @param CModel $model The model
 	 * @param string $attribute The attribute
@@ -81,10 +105,10 @@ class EBootstrapActiveForm extends CActiveForm {
 	 */
 	public function beginControlGroup($model, $attribute, $options = array()) {
 		$option = array();
-		$option['class'] = 'control-group';
+		$option['class'] = 'form-group';
 		$error = $model->getError($attribute);
 		if (!empty($error))
-			EBootstrap::mergeClass($option, array('error'));
+			EBootstrap::mergeClass($option, array('has-error'));
 
 		EBootstrap::mergeClass($options, $option);
 		
@@ -92,7 +116,7 @@ class EBootstrapActiveForm extends CActiveForm {
 	}
 	
 	/**
-	 * End of the control group.
+	 * End of the form group.
 	 *
 	 * @access public
 	 * @return string
@@ -108,7 +132,8 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @return string
 	 */
 	public function beginControls() {
-		return EBootstrap::openTag('div', array('class' => 'controls'));
+		if ($this->horizontal)
+			return EBootstrap::openTag('div', array('class' => $this->controlClass));
 	}
 	
 	/**
@@ -118,7 +143,8 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @return string
 	 */
 	public function endControls() {
-		return EBootstrap::closeTag('div');
+		if ($this->horizontal)
+			return EBootstrap::closeTag('div');
 	}
 	
 	/**
@@ -130,7 +156,11 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @return string
 	 */
 	public function beginActions() {
-		return EBootstrap::openTag('div', array('class' => 'form-actions'));
+		$output = EBootstrap::openTag('div', array('class' => 'form-group'));
+		if ($this->horizontal)
+			$output .= EBootstrap::openTag('div', array('class' => $this->actionOffsetClass));
+
+		return $output;
 	}
 	
 	/**
@@ -140,7 +170,11 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @return string
 	 */
 	public function endActions() {
-		return EBootstrap::closeTag('div');
+		$output = EBootstrap::closeTag('div');
+		if ($this->horizontal)
+			$output .= EBootstrap::closeTag('div');
+
+		return $output;
 	}
 	
 	/**
@@ -172,7 +206,7 @@ class EBootstrapActiveForm extends CActiveForm {
 	 */
 	public function label($model,$attribute,$htmlOptions=array()) {
 		if ($this->horizontal)
-			EBootstrap::mergeClass($htmlOptions, array('control-label'));
+			EBootstrap::mergeClass($htmlOptions, array('control-label', $this->controlLabelClass));
 		
 		return EBootstrap::activeLabel($model,$attribute,$htmlOptions);
 	}
@@ -189,9 +223,39 @@ class EBootstrapActiveForm extends CActiveForm {
 	 */
 	public function labelEx($model,$attribute,$htmlOptions=array()) {
 		if ($this->horizontal)
-			EBootstrap::mergeClass($htmlOptions, array('control-label'));
+			EBootstrap::mergeClass($htmlOptions, array('control-label', $this->controlLabelClass));
 		
 		return EBootstrap::activeLabelEx($model,$attribute,$htmlOptions);
+	}
+
+	/**
+	 * Returns an text input field.
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param array $htmlOptions
+	 *
+	 * @access public
+	 * @return string
+	 */
+	public function textField($model,$attribute,$htmlOptions=array())
+	{
+		return EBootstrap::activeTextField($model,$attribute,$htmlOptions);
+	}
+
+	/**
+	 * Returns an password input field.
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param array $htmlOptions
+	 *
+	 * @access public
+	 * @return string
+	 */
+	public function passwordField($model,$attribute,$htmlOptions=array())
+	{
+		return EBootstrap::activePasswordField($model,$attribute,$htmlOptions);
 	}
 	
 	/**

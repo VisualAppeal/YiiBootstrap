@@ -13,6 +13,9 @@ class EBootstrapLinkPager extends CLinkPager {
 	 * Do not include the default style
 	 *
 	 * If it's set unequal false the css file specified will be included
+	 *
+	 * @access public
+	 * @var mixed
 	 */
 	public $cssFile = false;
 	
@@ -24,22 +27,35 @@ class EBootstrapLinkPager extends CLinkPager {
 	
 	/**
 	 * Init the widget
+	 *
+	 * @access public
+	 * @return void
 	 */
 	public function init() {
+		$this->htmlOptions['class'] = 'pagination';
 		parent::init();
 	}
 	
 	/**
-	 * Create a pager button
+	 * Create a pager button.
+	 *
+	 * @param string $label
+	 * @param string $page
+	 * @param string $class
+	 * @param boolean $hidden
+	 * @param boolean $selected
+	 *
+	 * @access protected
+	 * @return string
 	 */
 	protected function createPageButton($label,$page,$class,$hidden,$selected) {
 		if($hidden || $selected)
 			$class.=' '.($hidden ? self::CSS_HIDDEN_PAGE : self::CSS_SELECTED_PAGE);
 		
 		if (!$hidden)
-			return '<li class="'.$class.'">'.CHtml::link($label,$this->createPageUrl($page)).'</li>';
+			return '<li class="'.$class.'">'.EBootstrap::link($label,$this->createPageUrl($page)).'</li>';
 		else
-			return '<li class="'.$class.'">'.CHtml::link($label,'').'</li>';
+			return '<li class="'.$class.'">'.EBootstrap::link($label,'').'</li>';
 	}
 }
 

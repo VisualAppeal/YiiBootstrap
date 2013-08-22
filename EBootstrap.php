@@ -5,7 +5,7 @@
  * EBootstrap adds some bootstrap elements to CHtml
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.4.4
+ * @version 1.0.0
  * @package bootstrap
  */
 class EBootstrap extends CHtml {
@@ -14,6 +14,10 @@ class EBootstrap extends CHtml {
 	 *
 	 * @param array $option Classes to modify
 	 * @param array $add Classes to add
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function mergeClass(array &$option, array $add)
 	{
@@ -31,6 +35,10 @@ class EBootstrap extends CHtml {
 	 *
 	 * @param string $class Classes string
 	 * @param array $add Classes to add
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function mergeClassString(&$class, array $add)
 	{
@@ -46,6 +54,10 @@ class EBootstrap extends CHtml {
 	 *
 	 * @access public
 	 * @return ClientScript
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function registerJs($position=NULL)
 	{
@@ -60,6 +72,10 @@ class EBootstrap extends CHtml {
 	 * @param string $label Label
 	 * @param string $type success|warning|important|info. Leave empty for default
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function ilabel($label, $type='', $htmlOptions=array())
 	{
@@ -85,6 +101,10 @@ class EBootstrap extends CHtml {
 	 * @param bool $iconWhite Invert the icon color. Default: false
 	 * @param array $htmlOptions
 	 * @param bool $block Block element
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function ibutton($text, $url = '#', $type = '', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array(), $block = false) {
 		return new EBootstrapButton($text, $url, $type, $size, $disabled, $icon, $iconWhite, $htmlOptions, 'a', $block);
@@ -97,6 +117,10 @@ class EBootstrap extends CHtml {
 	 *
 	 * @param array $buttons Array of buttons. You can create them with the help of EBootstrap::ibutton();
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function buttonGroup($buttons, $htmlOptions = array()) {
 		$html = '';
@@ -120,6 +144,10 @@ class EBootstrap extends CHtml {
 	 *
 	 * @param array $buttonGroups Array of button groups. You can create them with the help of EBootstrap::buttonGroup();
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function buttonToolbar($buttonGroups, $htmlOptions = array()) {
 		$html = '';
@@ -143,6 +171,10 @@ class EBootstrap extends CHtml {
 	 * @param array $submenu Array of submenu items. Available options are text, url and htmlOptions
 	 * @param bool $split If split is set to true, the carret ist next to the button and both elements can be clicked separately 
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function buttonDropdown(EBootstrapButton $button, $submenuItems = array(), $split = false, $htmlOptions = array()) {
 		$html = '';
@@ -215,6 +247,10 @@ class EBootstrap extends CHtml {
 	 * @param string $icon e.g. 'shopping-cart', 'user', 'ok', etc.
 	 * @param bool $iconWhite Invert the icon color. Default: false
 	 * @param array $htmlOptions HTML options
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function icon($icon, $iconWhite = false, $htmlOptions = array()) {
 		$classes = array('icon-' . $icon);
@@ -244,6 +280,10 @@ class EBootstrap extends CHtml {
 	 * @param string $tColor Text color
 	 * @param string $text Text to display on the image
 	 * @param string $format png|gif|jpg Default: png
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function thumbnailSrc($w, $h = null, $bgColor = 'ccc', $tColor = '333', $text = null, $format = 'png') {
 		$src = 'http://placehold.it/'.$w;
@@ -263,6 +303,10 @@ class EBootstrap extends CHtml {
 	 * @param string $src Image src
 	 * @param string $alt Alternative text
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function thumbnailLink($url, $src, $alt = '', $htmlOptions = array()) {
 		$html = '';
@@ -285,6 +329,10 @@ class EBootstrap extends CHtml {
 	 * @param string $body Text below the caption
 	 * @param array $actions Array with actions which will be rendered below the body. All items has to be HTML
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function imageCaption($src, $alt='', $caption = '', $body = '', $actions = array(), $htmlOptions=array()) {
 		$html = '';
@@ -323,12 +371,35 @@ class EBootstrap extends CHtml {
 	}
 
 	/**
+	 * Render an input field
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
+	 */
+	public static function activeTextField($model,$attribute,$htmlOptions=array())
+	{
+		self::mergeClass($htmlOptions, array('form-control'));
+		self::resolveNameID($model,$attribute,$htmlOptions);
+		self::clientChange('change',$htmlOptions);
+		return self::activeInputField('text',$model,$attribute,$htmlOptions);
+	}
+
+	/**
 	 * Render an input field with a prepended text or icon
 	 *
 	 * @param CModel $model The model
 	 * @param string $attribute The attribute
 	 * @param string $prepend The text or icon to prepend
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function activeTextFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
 		$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
@@ -350,6 +421,10 @@ class EBootstrap extends CHtml {
 	 * @param string $attribute The attribute
 	 * @param string $append The text or icon to append
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function activeTextFieldAppend($model,$attribute,$prepend,$htmlOptions=array()) {
 		$html = self::openTag('div', array('class' => 'input-append'))."\n";
@@ -364,6 +439,25 @@ class EBootstrap extends CHtml {
 		
 		return $html;
 	}
+
+	/**
+	 * Render an password field
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
+	 */
+	public static function activePasswordField($model,$attribute,$htmlOptions=array())
+	{
+		self::mergeClass($htmlOptions, array('form-control'));
+		self::resolveNameID($model,$attribute,$htmlOptions);
+		self::clientChange('change',$htmlOptions);
+		return self::activeInputField('password',$model,$attribute,$htmlOptions);
+	}
 	
 	/**
 	 * Render a password field with a prepended text or icon
@@ -372,6 +466,10 @@ class EBootstrap extends CHtml {
 	 * @param string $attribute The attribute
 	 * @param string $prepend The text or icon to prepend
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function activePasswordFieldPrepend($model,$attribute,$prepend,$htmlOptions=array()) {
 		$html = self::openTag('div', array('class' => 'input-prepend'))."\n";
@@ -393,6 +491,10 @@ class EBootstrap extends CHtml {
 	 * @param string $attribute The attribute
 	 * @param string $append The text or icon to append
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function activePasswordFieldAppend($model,$attribute,$prepend,$htmlOptions=array()) {
 		$html = self::openTag('div', array('class' => 'input-append'))."\n";
@@ -414,6 +516,10 @@ class EBootstrap extends CHtml {
 	 * @param string $name The name
 	 * @param string $value Predefined value
 	 * @param array $htmlOptions HTML options
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function searchField($name,$value='',$htmlOptions=array()) {
 		self::mergeClass($htmlOptions, array('search-query'));
@@ -433,6 +539,10 @@ class EBootstrap extends CHtml {
 	 * @param bool $iconWhite Invert the icon color. Default: false
 	 * @param array $htmlOptions
 	 * @param bool $block Block element button
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function submitButton($label = 'submit', $type = 'primary', $size = '', $disabled = false, $icon = '', $iconWhite = false, $htmlOptions = array(), $block = false) {
 		$htmlOptions['type']='submit';
@@ -448,6 +558,10 @@ class EBootstrap extends CHtml {
 	 * @param string $header
 	 * @param string $footer
 	 * @param array $htmlOptions
+	 *
+	 * @method static
+	 * @access public
+	 * @return string
 	 */
 	public static function errorSummary($model,$header=null,$footer=null,$htmlOptions=array()) {
 		$content='';
@@ -492,5 +606,3 @@ class EBootstrap extends CHtml {
 }
 
 EBootstrap::$afterRequiredLabel = ' <span class="required">' . Yii::t('Site', '(Required)') . '</span>';
-
-?>
