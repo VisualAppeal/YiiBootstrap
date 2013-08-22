@@ -122,11 +122,14 @@ class EBootstrap extends CHtml {
 	 * @access public
 	 * @return string
 	 */
-	public static function buttonGroup($buttons, $htmlOptions = array()) {
+	public static function buttonGroup($buttons, $htmlOptions = array(), $size = '') {
 		$html = '';
 		
 		if (is_array($buttons) and (count($buttons))) {
 			self::mergeClass($htmlOptions, array('btn-group'));
+			if (!empty($size))
+				self::mergeClass($htmlOptions, array('btn-group-' . $size));
+
 			$html .= self::openTag('div', $htmlOptions)."\n";
 			foreach ($buttons as $button) {
 				$html .= $button."\n";
@@ -253,18 +256,18 @@ class EBootstrap extends CHtml {
 	 * @return string
 	 */
 	public static function icon($icon, $iconWhite = false, $htmlOptions = array()) {
-		$classes = array('icon-' . $icon);
+		$classes = array('glyphicon glyphicon-' . $icon);
 		if ($iconWhite)
-			$classes[] = 'icon-white';
+			$classes[] = 'glyphicon-white';
 		
 		EBootstrap::mergeClass($htmlOptions, $classes);
 		
-		$return = '<i class="' . $htmlOptions['class'] . '"';
+		$return = '<span class="' . $htmlOptions['class'] . '"';
 		
 		if (isset($htmlOptions['id']))
 			$return .= ' id="' . $htmlOptions['id'] . '"';
 
-		return $return.'></i>';
+		return $return.'></span>';
 	}
 	
 	/** IMAGES */
@@ -605,4 +608,4 @@ class EBootstrap extends CHtml {
 	}
 }
 
-EBootstrap::$afterRequiredLabel = ' <span class="required">' . Yii::t('Site', '(Required)') . '</span>';
+EBootstrap::$afterRequiredLabel = ' <span class="required">' . Yii::t('YiiBootstrap', '(Required)') . '</span>';

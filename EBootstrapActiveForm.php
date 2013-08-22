@@ -397,6 +397,7 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @return string html
 	 */
 	public function bootstrapTextField($model, $attribute, $htmlOptions = array()) {
+		EBootstrap::mergeClass($htmlOptions, array('form-control'));
 		$html = $this->_beginBootstrapGroup($model, $attribute);
 		$html .= $this->textField($model, $attribute, $htmlOptions);
 		$html .= $this->_endBootstrapGroup($model, $attribute);
@@ -416,6 +417,7 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @return string html
 	 */
 	public function bootstrapTextArea($model, $attribute, $htmlOptions = array()) {
+		EBootstrap::mergeClass($htmlOptions, array('form-control'));
 		$html = $this->_beginBootstrapGroup($model, $attribute);
 		$html .= $this->textArea($model, $attribute, $htmlOptions);
 		$html .= $this->_endBootstrapGroup($model, $attribute);
@@ -454,6 +456,7 @@ class EBootstrapActiveForm extends CActiveForm {
 	 * @return string html
 	 */
 	public function bootstrapPasswordField($model, $attribute, $htmlOptions = array()) {
+		EBootstrap::mergeClass($htmlOptions, array('form-control'));
 		$html = $this->_beginBootstrapGroup($model, $attribute);
 		$html .= $this->passwordField($model, $attribute, $htmlOptions);
 		$html .= $this->_endBootstrapGroup($model, $attribute);

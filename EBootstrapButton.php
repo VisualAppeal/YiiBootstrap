@@ -110,6 +110,8 @@ class EBootstrapButton {
 		
 		if (!empty($this->type))
 			$class[] = 'btn-'.$this->type;
+		else
+			$class[] = 'btn-default';
 		
 		if ($this->disabled)
 			$class[] = 'disabled';

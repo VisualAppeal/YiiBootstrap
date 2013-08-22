@@ -5,14 +5,14 @@
  * http://twitter.github.com/bootstrap/javascript.html#alerts
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.3.0
+ * @version 1.0.0
  * @package bootstrap.widgets
  */
 class EBootstrapAlert extends EBootstrapWidget {
 	/**
 	 * Type of the alert
 	 *
-	 * Values: warning|error|success|info
+	 * Values: warning|danger|success|info
 	 */
 	public $type = '';
 	
@@ -60,17 +60,17 @@ class EBootstrapAlert extends EBootstrapWidget {
 	 */
 	public function run() {
 		parent::run();
+
+		if ($this->type == 'error')
+			$this->type = 'danger';
 		
-		EBootstrap::mergeClass($this->htmlOptions, array('alert', 'fade', 'in'));
-		EBootstrap::mergeClass($this->htmlOptions, array('alert-'.$this->type));
-		
-		if ($this->block)
-			EBootstrap::mergeClass($this->htmlOptions, array('alert-block'));
+		EBootstrap::mergeClass($this->htmlOptions, array('alert', 'alert-dismissable', 'fade', 'in'));
+		EBootstrap::mergeClass($this->htmlOptions, array('alert-' . $this->type));
 		
 		echo EBootstrap::openTag('div', $this->htmlOptions);
 		
 		if ($this->canClose)
-			echo EBootstrap::tag('a', array('href' => '#', 'class' => 'close', 'data-dismiss' => 'alert'), "&times;");
+			echo EBootstrap::tag('button', array('type' => 'button', 'class' => 'close', 'data-dismiss' => 'alert', 'aria-hidden' => 'true'), "&times;");
 		
 		if ($this->block)
 			echo $this->message;

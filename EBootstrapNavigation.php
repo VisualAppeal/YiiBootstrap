@@ -7,7 +7,7 @@ Yii::import('zii.widgets.CMenu');
  * http://twitter.github.com/bootstrap/components.html#navbar
  * 
  * @author Tim Helfensdörfer <tim@visualappeal.de>
- * @version 0.4.4
+ * @version 1.0.0
  * @package bootstrap.widgets
  */
 class EBootstrapNavigation extends CMenu {
@@ -16,12 +16,14 @@ class EBootstrapNavigation extends CMenu {
 	/** 
 	 * @var Stay at top of the page 
 	 */ 
-	public $fixed = false;
-	
+	public $static = false;
+
 	/**
-	 * @var Responsive navigation bar. Hides on small screens and add a dropdown for the elements
+	 * @var Apply default style
+	 *
+	 * @since 1.0.0
 	 */
-	public $responsive = false;
+	public $default = true;
 	
 	/**
 	 * @var Set to true to get a dark navigation bar
@@ -45,6 +47,8 @@ class EBootstrapNavigation extends CMenu {
 		EBootstrap::mergeClass($this->htmlOptions, array('navbar'));
 		if ($this->dark)
 			EBootstrap::mergeClass($this->htmlOptions, array('navbar-inverse'));
+		if ($this->default)
+			EBootstrap::mergeClass($this->htmlOptions, array('navbar-default'));
 		
 		Yii::app()->clientScript->registerCoreScript('jquery');
 		if (is_null($this->jsFile)) {
@@ -66,42 +70,37 @@ class EBootstrapNavigation extends CMenu {
 	 */
 	public function renderMenu($items) {
 		if (count($items)) {			
-			if ($this->fixed)
-				EBootstrap::mergeClass($this->htmlOptions, array('navbar-fixed-top'));
-			echo EBootstrap::openTag('div', $this->htmlOptions)."\n";
-			
-			$innerOptions = array('class' => 'navbar-inner');
+			if ($this->static)
+				EBootstrap::mergeClass($this->htmlOptions, array('navbar-static-top'));
+			$this->htmlOptions['role'] = 'navigation';
 
-			echo EBootstrap::openTag('div', $innerOptions)."\n";
+			echo EBootstrap::openTag('nav', $this->htmlOptions)."\n";
 			
 			echo EBootstrap::openTag('div', array('class' => 'container'))."\n";
+
+			echo EBootstrap::openTag('div', array('class' => 'navbar-header'))."\n";
 			
-			if ($this->responsive) {
-				echo EBootstrap::openTag('a', array('class' => 'btn btn-navbar', 'data-toggle' => 'collapse', 'data-target' => '.nav-collapse'))."\n";
-				for ($i = 0; $i < 3; $i++) {
-					echo EBootstrap::openTag('span', array('class' => 'icon-bar'));
-					echo EBootstrap::closeTag('span')."\n";
-				}
-				echo EBootstrap::closeTag('a')."\n";
-				
-				for ($i = 0; $i < count($items); $i++) {
-					if (isset($items[$i]['template']) and ($items[$i]['template']) == '{brand}') {
-						$options = isset($items[$i]['itemOptions']) ? $items[$i]['itemOptions'] : array();
-						EBootstrap::mergeClass($options, array('brand'));
-						echo EBootstrap::link($items[$i]['label'],$items[$i]['url'],$options)."\n";
-						unset($items[$i]);
-						break;
-					}
-				}
-				
-				echo EBootstrap::openTag('div', array('class' => 'nav-collapse'))."\n";
+			echo EBootstrap::openTag('button', array('type' => 'button', 'class' => 'navbar-toggle', 'data-toggle' => 'collapse', 'data-target' => '.navbar-ex1-collapse'))."\n";
+			echo EBootstrap::tag('span', array('class' => 'sr-only'), Yii::t('YiiBootstrap', 'Toggle Navigation'));
+			for ($i = 0; $i < 3; $i++) {
+				echo EBootstrap::tag('span', array('class' => 'icon-bar'))."\n";
 			}
+			for ($i = 0; $i < count($items); $i++) {
+				if (isset($items[$i]['template']) and ($items[$i]['template']) == '{brand}') {
+					$options = isset($items[$i]['itemOptions']) ? $items[$i]['itemOptions'] : array();
+					EBootstrap::mergeClass($options, array('brand'));
+					echo EBootstrap::link($items[$i]['label'],$items[$i]['url'],$options)."\n";
+					unset($items[$i]);
+					break;
+				}
+			}
+			echo EBootstrap::closeTag('button')."\n";
+			
+			echo EBootstrap::openTag('div', array('class' => 'collapse navbar-collapse navbar-ex1-collapse'))."\n";
 			
 			$this->renderMenuRecursive($items);
 			
-			if ($this->responsive) {
-				echo EBootstrap::closeTag('div')."\n";
-			}
+			echo EBootstrap::closeTag('div')."\n";
 			
 			echo EBootstrap::closeTag('div')."\n";
 			
@@ -180,7 +179,7 @@ class EBootstrapNavigation extends CMenu {
 					
 					break;
 				default:
-					$listOptions = array('class' => 'nav');
+					$listOptions = array('class' => 'nav navbar-nav');
 					
 					if (isset($item['align']) and ($item['align'] == 'right') and (isset($item['items']))) {
 						//Allign navigation right
