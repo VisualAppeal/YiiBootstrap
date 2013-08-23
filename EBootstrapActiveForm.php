@@ -207,6 +207,8 @@ class EBootstrapActiveForm extends CActiveForm {
 	public function label($model,$attribute,$htmlOptions=array()) {
 		if ($this->horizontal)
 			EBootstrap::mergeClass($htmlOptions, array('control-label', $this->controlLabelClass));
+		else
+			EBootstrap::mergeClass($htmlOptions, array('control-label'));
 		
 		return EBootstrap::activeLabel($model,$attribute,$htmlOptions);
 	}
@@ -224,6 +226,8 @@ class EBootstrapActiveForm extends CActiveForm {
 	public function labelEx($model,$attribute,$htmlOptions=array()) {
 		if ($this->horizontal)
 			EBootstrap::mergeClass($htmlOptions, array('control-label', $this->controlLabelClass));
+		else
+			EBootstrap::mergeClass($htmlOptions, array('control-label'));
 		
 		return EBootstrap::activeLabelEx($model,$attribute,$htmlOptions);
 	}
@@ -241,6 +245,21 @@ class EBootstrapActiveForm extends CActiveForm {
 	public function textField($model,$attribute,$htmlOptions=array())
 	{
 		return EBootstrap::activeTextField($model,$attribute,$htmlOptions);
+	}
+
+	/**
+	 * Returns an textarea.
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param array $htmlOptions
+	 *
+	 * @access public
+	 * @return string
+	 */
+	public function textArea($model,$attribute,$htmlOptions=array())
+	{
+		return EBootstrap::activeTextArea($model,$attribute,$htmlOptions);
 	}
 
 	/**
@@ -334,6 +353,23 @@ class EBootstrapActiveForm extends CActiveForm {
 		$html .= EBootstrap::closeTag('p');
 		
 		return $html;
+	}
+
+	/**
+	 * Renders a dropdown list for a model attribute.
+	 *
+	 * @param CModel $model the data model
+	 * @param string $attribute the attribute
+	 * @param array $data data for generating the list options (value=>display)
+	 * @param array $htmlOptions additional HTML attributes.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function dropDownList($model,$attribute,$data,$htmlOptions=array())
+	{
+		return EBootstrap::activeDropDownList($model,$attribute,$data,$htmlOptions);
 	}
 	
 	/**

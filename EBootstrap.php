@@ -373,6 +373,12 @@ class EBootstrap extends CHtml {
 		return $html;
 	}
 
+	public static function activeDropDownList($model,$attribute,$data,$htmlOptions=array())
+	{
+		self::mergeClass($htmlOptions, array('form-control'));
+		return parent::activeDropDownList($model, $attribute, $data, $htmlOptions);
+	}
+
 	/**
 	 * Render an input field
 	 *
@@ -511,6 +517,36 @@ class EBootstrap extends CHtml {
 		$html .= self::closeTag('div')."\n";
 		
 		return $html;
+	}
+
+	/**
+	 * Render an textarea.
+	 *
+	 * @param CModel $model The model
+	 * @param string $attribute The attribute
+	 * @param array $htmlOptions
+	 *
+	 * @since 1.0.0
+	 * @method static
+	 * @access public
+	 * @return string
+	 */
+	public static function activeTextArea($model,$attribute,$htmlOptions=array())
+	{
+		self::resolveNameID($model,$attribute,$htmlOptions);
+		self::clientChange('change',$htmlOptions);
+		self::mergeClass($htmlOptions, array('form-control'));
+
+		if($model->hasErrors($attribute))
+			self::addErrorCss($htmlOptions);
+		if(isset($htmlOptions['value'])) {
+			$text=$htmlOptions['value'];
+			unset($htmlOptions['value']);
+		} else {
+			$text=self::resolveValue($model,$attribute);
+		}
+
+		return self::tag('textarea',$htmlOptions,isset($htmlOptions['encode']) && !$htmlOptions['encode'] ? $text : self::encode($text));
 	}
 	
 	/**
