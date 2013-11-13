@@ -85,6 +85,8 @@ class EBootstrapNavigation extends CMenu {
 				echo EBootstrap::openTag('span', array('class' => 'icon-bar'));
 				echo EBootstrap::closeTag('span')."\n";
 			}
+			echo EBootstrap::closeTag('button')."\n";
+
 			for ($i = 0; $i < count($items); $i++) {
 				if (isset($items[$i]['template']) and ($items[$i]['template']) == '{brand}') {
 					$options = isset($items[$i]['itemOptions']) ? $items[$i]['itemOptions'] : array();
@@ -94,7 +96,6 @@ class EBootstrapNavigation extends CMenu {
 					break;
 				}
 			}
-			echo EBootstrap::closeTag('button')."\n";
 
 			echo EBootstrap::closeTag('div')."\n";
 

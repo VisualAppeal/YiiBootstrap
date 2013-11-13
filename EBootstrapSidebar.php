@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 Yii::import('zii.widgets.CMenu');
 
 /**
  * Render a sidebar
- * 
+ *
  * @author Tim Helfensdörfer <tim@visualappeal.de>
  * @version 0.3.0
  * @package bootstrap.widgets
@@ -16,17 +16,17 @@ class EBootstrapSidebar extends CMenu {
 	public function init()
 	{
 		echo EBootstrap::openTag('div', array('class' => 'well sidebar-nav'));
-		
-		EBootstrap::mergeClass($this->htmlOptions, array('nav', 'nav-list'));
+
+		EBootstrap::mergeClass($this->htmlOptions, array('nav', 'nav-pills', 'nav-stacked'));
 		parent::init();
 	}
-	
+
 	public function run() {
 		parent::run();
-		
+
 		echo EBootstrap::closeTag('div');
 	}
-	
+
 	/**
 	 * Recursively renders the menu items.
 	 *
@@ -41,7 +41,7 @@ class EBootstrapSidebar extends CMenu {
 				$prove = true;
 			else
 				$prove = false;
-			
+
 			if (($prove and Yii::app()->user->checkAccess($item['access'])) or (!$prove)) {
 				$count++;
 				$options=isset($item['itemOptions']) ? $item['itemOptions'] : array();
@@ -62,9 +62,9 @@ class EBootstrapSidebar extends CMenu {
 					else
 						$options['class'].=' '.implode(' ',$class);
 				}
-	
+
 				echo EBootstrap::openTag('li', $options);
-	
+
 				$menu=$this->renderMenuItem($item);
 				if(isset($this->itemTemplate) || isset($item['template'])) {
 					$template=isset($item['template']) ? $item['template'] : $this->itemTemplate;
@@ -72,18 +72,18 @@ class EBootstrapSidebar extends CMenu {
 				}
 				else
 					echo $menu;
-	
+
 				echo EBootstrap::closeTag('li');
-	
+
 				if(isset($item['items']) && count($item['items'])) {
 					$this->renderMenuRecursive($item['items'], false);
 				}
-				
+
 				echo "\n";
 			}
 		}
 	}
-	
+
 	/**
 	 * Renders the content of a menu item.
 	 *
