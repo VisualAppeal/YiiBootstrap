@@ -276,10 +276,10 @@ class EBootstrapNavigation extends CMenu {
 	protected function renderMenuItem($item)
 	{
 		if (isset($item['icon']) and !empty($item['icon'])) {
-			$icon = '<i class="icon-'.$item['icon'];
+			$icon = '<span class="glyphicon glyphicon-'.$item['icon'];
 			if (isset($item['iconWhite']) and ($item['iconWhite'] == true))
 				$icon .= ' icon-white';
-			$icon .= '"></i> ';
+			$icon .= '"></span> ';
 		}
 		else {
 			$icon = '';
