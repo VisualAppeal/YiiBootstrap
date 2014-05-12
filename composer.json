@@ -1,0 +1,18 @@
+{
+    "name": "thelfensdrfer/yii-bootstrap",
+    "description": "Boostrap 3 widgets for Yii 1.1",
+    "license": "Apache",
+    "authors": [
+        {
+            "name": "Tim Helfensdörfer",
+            "email": "tim@visualappeal.de"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    }
+}
